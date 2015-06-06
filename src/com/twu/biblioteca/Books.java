@@ -17,6 +17,6 @@ public class Books {
 
     @Override
     public String toString() {
-        return "" + listOfBooks + "";
+        return "" + listOfBooks;
     }
 }

@@ -18,13 +18,13 @@ public class BooksTest {
         Books books = new Books();
 
         ArrayList<String> actualListOfbooks = books.listBooks();
-        ArrayList<String> expectedListOfbooks = new ArrayList(Arrays.asList("oopconcepts", "javaProgramming"));
+        ArrayList<String> expectedListOfbooks = new ArrayList<String >(Arrays.asList("oopconcepts","javaProgramming"));
 
         assertThat(actualListOfbooks, is(expectedListOfbooks));
     }
 
     @Test
-    public void specForCheckingToStringConcatenatesBooks() {
+    public void specForCheckingToString() {
         Books listOfBooks = new Books();
 
         String actualBooks = listOfBooks.toString();
@@ -33,3 +33,4 @@ public class BooksTest {
         assertThat(actualBooks, is(expectedBooks));
     }
 }
+
