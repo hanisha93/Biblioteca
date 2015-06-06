@@ -15,12 +15,21 @@ public class BooksTest {
 
     @Test
     public void specForCheckingListOfBooks() {
-        Books books= new Books();
+        Books books = new Books();
 
-        ArrayList actualListOfbooks =books.listBooks();
-        ArrayList expectedListOfbooks = new ArrayList(Arrays.asList("oopconcepts","javaProgramming"));
+        ArrayList<String> actualListOfbooks = books.listBooks();
+        ArrayList<String> expectedListOfbooks = new ArrayList(Arrays.asList("oopconcepts", "javaProgramming"));
 
         assertThat(actualListOfbooks, is(expectedListOfbooks));
+    }
 
+    @Test
+    public void specForCheckingToStringConcatenatesBooks() {
+        Books listOfBooks = new Books();
+
+        String actualBooks = listOfBooks.toString();
+        String expectedBooks = "Books{listOfBooks=[oopconcepts, javaProgramming]}";
+
+        assertThat(actualBooks, is(expectedBooks));
     }
 }
