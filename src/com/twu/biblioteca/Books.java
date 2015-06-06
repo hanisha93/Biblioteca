@@ -17,8 +17,6 @@ public class Books {
 
     @Override
     public String toString() {
-        return "Books{" +
-                "listOfBooks=" + listOfBooks +
-                '}';
+        return "" + listOfBooks + "";
     }
 }

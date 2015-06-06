@@ -28,7 +28,7 @@ public class BooksTest {
         Books listOfBooks = new Books();
 
         String actualBooks = listOfBooks.toString();
-        String expectedBooks = "Books{listOfBooks=[oopconcepts, javaProgramming]}";
+        String expectedBooks = "[oopconcepts, javaProgramming]";
 
         assertThat(actualBooks, is(expectedBooks));
     }
