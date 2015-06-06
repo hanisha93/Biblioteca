@@ -4,19 +4,15 @@ import java.util.ArrayList;
 
 public class Books {
 
-    private ArrayList<String> listOfBooks = new ArrayList<String>();
+    private ArrayList<Book> listOfBooks = new ArrayList<Book>();
 
     public Books() {
-        listOfBooks.add("oopconcepts");
-        listOfBooks.add("javaProgramming");
-    }
-
-    public ArrayList<String> listBooks() {
-        return listOfBooks;
+        listOfBooks.add(new Book("oopconcepts","wilson","2000"));
+        listOfBooks.add(new Book("javaProgramming","johnson","1998"));
     }
 
     @Override
     public String toString() {
-        return "" + listOfBooks;
+        return  ""+listOfBooks;
     }
 }
