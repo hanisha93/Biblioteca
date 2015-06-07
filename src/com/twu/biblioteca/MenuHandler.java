@@ -4,14 +4,11 @@ public class MenuHandler {
 
     private int option;
 
-    public MenuHandler(int option) {
-        this.option = option;
-    }
-
-    public void selectedMenu() {
+    public void selectMenu(int option) {
+        OutputMessages msg = new OutputMessages();
+        msg.displayMenu();
         switch (option) {
             case 1:
-                OutputMessages msg = new OutputMessages();
                 Books books = new Books();
                 msg.displayListOfBooks(books);
                 break;

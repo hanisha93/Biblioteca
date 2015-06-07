@@ -49,6 +49,5 @@ public class OutputMessagesTest {
     @After
     public void cleanUpStreams() {
         System.setOut(null);
-
     }
 }

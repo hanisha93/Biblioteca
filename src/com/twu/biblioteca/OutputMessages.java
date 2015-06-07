@@ -4,12 +4,10 @@ package com.twu.biblioteca;
 public class OutputMessages {
 
     public void displayWelcomeMessage() {
-
         System.out.print("Welcome to Biblioteca App");
     }
 
     public void displayListOfBooks(Books books) {
-
         System.out.print(books.toString());
     }
 
