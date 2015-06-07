@@ -19,9 +19,9 @@ public class BooksTest {
         Books listOfBooks = new Books();
 
         String actualBooks = listOfBooks.toString();
-        String expectedBooks = "[oopconcepts, wilson, 2000, javaProgramming, johnson, 1998]";
+        String expectedBooks = "\\noopconcepts wilson  2000\\njavaProgramming johnson  1998";
 
-        assertThat(actualBooks, is(expectedBooks));
+        assertEquals(actualBooks, expectedBooks);
     }
 }
 
