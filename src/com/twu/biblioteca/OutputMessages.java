@@ -7,6 +7,6 @@ public class OutputMessages {
         System.out.print("Welcome to Biblioteca App");
     }
     public void displayListOfBooks(Books books) {
-        System.out.println(books.toString());
+        System.out.print(books.toString());
     }
 }
