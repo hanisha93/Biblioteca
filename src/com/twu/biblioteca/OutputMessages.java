@@ -12,6 +12,10 @@ public class OutputMessages {
     }
 
     public void displayMenu() {
-        System.out.print("Select option:\\n 1.ListBooks");
+        System.out.print("Select option:\\n 1.ListBooks\\n 0.Quit");
+    }
+
+    public void displayInvalidOption() {
+        System.out.print("Invalid option!! Select valid option");
     }
 }

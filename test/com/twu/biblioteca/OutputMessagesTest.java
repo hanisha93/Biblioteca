@@ -43,7 +43,15 @@ public class OutputMessagesTest {
         OutputMessages msg = new OutputMessages();
         msg.displayMenu();
 
-        assertEquals("Select option:\\n 1.ListBooks", outContent.toString());
+        assertEquals("Select option:\\n 1.ListBooks\\n 0.Quit", outContent.toString());
+    }
+
+    @Test
+    public void specForCheckingDisplayingInvalidOption() {
+        OutputMessages msg = new OutputMessages();
+        msg.displayInvalidOption();
+
+        assertEquals("Invalid option!! Select valid option", outContent.toString());
     }
 
     @After
