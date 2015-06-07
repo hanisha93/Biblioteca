@@ -25,11 +25,19 @@ public class MenuHandlerTest {
     }
 
     @Test
+    public void specForCheckingViewOption() {
+        MenuHandler menu=new MenuHandler();
+        menu.viewOption();
+
+        assertEquals("Select option:\\n 1.ListBooks", outContent.toString());
+    }
+
+    @Test
     public void specForCheckingOptionOfListBooks() {
         MenuHandler menu=new MenuHandler();
-        menu.selectMenu(1);
+        menu.selectOption(1);
 
-        assertEquals("Select option:\\n 1.ListBooks\\noopconcepts wilson  2000\\njavaProgramming johnson  1998", outContent.toString());
+        assertEquals("\\noopconcepts wilson  2000\\njavaProgramming johnson  1998", outContent.toString());
     }
 
     @After
