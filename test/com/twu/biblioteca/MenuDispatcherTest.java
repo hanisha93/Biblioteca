@@ -3,15 +3,12 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.AbstractMap;
 import java.util.HashMap;
-import java.util.Map;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class MenuTest {
+public class MenuDispatcherTest {
 
     @Test
     public void specToCheckHandleRequest() {
@@ -20,9 +17,9 @@ public class MenuTest {
 
         ListBooks list = mock(ListBooks.class);
         menuAction.put(1, list);
-        Menu menu = new Menu(menuAction);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction);
 
-        menu.handleRequest(1);
+        menuDispatcher.handleRequest(1);
 
         verify(list, Mockito.times(1)).handleOption();
 

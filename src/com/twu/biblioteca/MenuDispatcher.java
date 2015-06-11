@@ -3,11 +3,11 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Menu implements Messages{
+public class MenuDispatcher implements Messages{
 
     private HashMap<Integer, MenuAction> menuAction;
 
-    public Menu(HashMap<Integer, MenuAction> menuAction) {
+    public MenuDispatcher(HashMap<Integer, MenuAction> menuAction) {
         this.menuAction = menuAction;
     }
 
