@@ -18,19 +18,16 @@ public class BooksTest {
 
     @Test
     public void specForCheckingToString() {
-        Book bookStubOne= mock(Book.class);
-        Book bookStubTwo= mock(Book.class);
-        when(bookStubOne.toString()).thenReturn("oopconcepts wilson  2000");
-        when(bookStubTwo.toString()).thenReturn("javaProgramming johnson  1998");
+
 
         ArrayList<Book> list=new ArrayList<Book>();
-        list.add(bookStubOne);
-        list.add(bookStubTwo);
+        list.add(new Book("Java", "wilson", "1998"));
+        list.add(new Book("c", "johnson","2000"));
 
         Books listOfBooks = new Books(list);
 
         String actualBooks = listOfBooks.toString();
-        String expectedBooks = "\\noopconcepts wilson  2000\\njavaProgramming johnson  1998";
+        String expectedBooks = "\\nJava wilson  1998\\nc johnson  2000";
 
         assertEquals(actualBooks, expectedBooks);
     }
