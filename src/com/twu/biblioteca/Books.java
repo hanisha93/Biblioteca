@@ -7,14 +7,16 @@ public class Books {
     private ArrayList<Book> listOfBooks = new ArrayList<Book>();
 
     public Books(ArrayList<Book> listOfBooks) {
-        this.listOfBooks=listOfBooks;
+        listOfBooks.add(new Book("Java", "wilson", "1998"));
+        listOfBooks.add(new Book("c", "johnson","2000"));
+        this.listOfBooks = listOfBooks;
     }
 
     @Override
     public String toString() {
         String booksList = "";
         for (Book book : listOfBooks) {
-            booksList = booksList+"\\n"+book.toString();
+            booksList = booksList + "\\n" + book.toString();
         }
         return booksList;
     }
