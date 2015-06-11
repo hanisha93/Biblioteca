@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.Scanner;
-
+//handles i/o
 public class BibliotecaView implements Messages{
 
     public void printToConsole(String message) {
