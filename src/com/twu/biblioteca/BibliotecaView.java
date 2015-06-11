@@ -8,9 +8,9 @@ public class BibliotecaView implements Messages{
         System.out.println(message);
     }
 
-    public String readInput() {
+    public int readInput() {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.next();
+        int input = scanner.nextInt();
         return input;
     }
 }

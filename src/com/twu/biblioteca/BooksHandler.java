@@ -12,4 +12,8 @@ public class BooksHandler {
     public void listBooks() {
         bibliotecaView.printToConsole(books.toString());
     }
+
+    public void displayInvalidOption() {
+        bibliotecaView.printToConsole(Messages.INVALID_OPTION);
+    }
 }

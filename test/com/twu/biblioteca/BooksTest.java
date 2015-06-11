@@ -27,7 +27,7 @@ public class BooksTest {
         Books listOfBooks = new Books(list);
 
         String actualBooks = listOfBooks.toString();
-        String expectedBooks = "\\nJava wilson  1998\\nc johnson  2000";
+        String expectedBooks = "Java wilson  1998c johnson  2000";
 
         assertEquals(actualBooks, expectedBooks);
     }
