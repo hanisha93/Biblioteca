@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class BibliotecaApp {
+public class App {
 
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Book> list = new ArrayList<Book>();
-        BibliotecaView view = new BibliotecaView(scanner);
+        View view = new View(scanner);
 
         list.add(new Book("java", "john", "2000"));
         Books books = new Books(list);
@@ -24,7 +24,7 @@ public class BibliotecaApp {
         view.printToConsole(Messages.CHOOSE_OPTION);
         int option = view.readInput();
 
-        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction,view);
+        MenuController menuDispatcher = new MenuController(menuAction,view);
         menuDispatcher.handleRequest(option);
 
     }

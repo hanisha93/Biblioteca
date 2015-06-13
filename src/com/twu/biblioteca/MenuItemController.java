@@ -1,18 +1,18 @@
 package com.twu.biblioteca;
 
 public class MenuItemController {
-    private BibliotecaView bibliotecaView;
+    private View view;
 
-    public MenuItemController(BibliotecaView bibliotecaView) {
-        this.bibliotecaView = bibliotecaView;
+    public MenuItemController(View view) {
+        this.view = view;
     }
 
     public void listBooks(Books books) {
-        bibliotecaView.printToConsole(books.toString());
+        view.printToConsole(books.toString());
     }
 
     public void InvalidOption() {
-        bibliotecaView.printToConsole(Messages.INVALID_OPTION);
+        view.printToConsole(Messages.INVALID_OPTION);
     }
 
 }

@@ -11,12 +11,12 @@ public class BooksHandlerTest {
     @Test
     public void specToCheckCallingPrintListOfBooksInBibliotecaView() {
 
-        BibliotecaView bibliotecaView = mock(BibliotecaView.class);
+        View view = mock(View.class);
         Books books = mock(Books.class);
-        MenuItemController menuItemController = new MenuItemController(bibliotecaView);
+        MenuItemController menuItemController = new MenuItemController(view);
         menuItemController.listBooks(books);
 
-        verify(bibliotecaView, Mockito.times(1)).printToConsole(books.toString());
+        verify(view, Mockito.times(1)).printToConsole(books.toString());
     }
 
 }

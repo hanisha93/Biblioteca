@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 //handles i/o
-public class BibliotecaView implements Messages{
+public class View implements Messages{
 
     Scanner scanner = new Scanner(System.in);
 
-    public  BibliotecaView(Scanner scanner) {
+    public View(Scanner scanner) {
         this.scanner = scanner;
     }
 

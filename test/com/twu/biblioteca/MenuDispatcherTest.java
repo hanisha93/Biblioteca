@@ -17,8 +17,8 @@ public class MenuDispatcherTest {
 
         ListBooks list = mock(ListBooks.class);
         menuAction.put(1, list);
-        BibliotecaView view = mock(BibliotecaView.class);
-        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction, view);
+        View view = mock(View.class);
+        MenuController menuDispatcher = new MenuController(menuAction, view);
 
         menuDispatcher.handleRequest(1);
 
@@ -30,10 +30,10 @@ public class MenuDispatcherTest {
     public void specToCheckInavalidOption() {
 
         HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
-        BibliotecaView view = mock(BibliotecaView.class);
+        View view = mock(View.class);
         ListBooks list = mock(ListBooks.class);
         menuAction.put(1, list);
-        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction, view);
+        MenuController menuDispatcher = new MenuController(menuAction, view);
 
         menuDispatcher.handleRequest(3);
 

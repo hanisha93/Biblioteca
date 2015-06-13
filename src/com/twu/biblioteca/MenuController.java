@@ -1,14 +1,13 @@
 package com.twu.biblioteca;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class MenuDispatcher implements Messages {
+public class MenuController implements Messages {
 
     private HashMap<Integer, MenuAction> menuAction;
-    private BibliotecaView view;
+    private View view;
 
-    public MenuDispatcher(HashMap<Integer, MenuAction> menuAction ,BibliotecaView view) {
+    public MenuController(HashMap<Integer, MenuAction> menuAction, View view) {
         this.menuAction = menuAction;
         this.view = view;
     }
