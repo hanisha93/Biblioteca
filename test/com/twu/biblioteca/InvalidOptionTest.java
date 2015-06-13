@@ -12,11 +12,11 @@ public class InvalidOptionTest {
     @Test
     public void specToCheckHandleInvalidOption() {
 
-        BooksHandler booksHandler = mock(BooksHandler.class);
-        InvalidOption invalidOption = new InvalidOption(booksHandler);
+        BibliotecaView view = mock(BibliotecaView.class);
+        InvalidOption invalidOption = new InvalidOption(view);
         invalidOption.handleOption();
 
-        verify(booksHandler, Mockito.times(1)).displayInvalidOption();
+        verify(view, Mockito.times(1)).printToConsole(Messages.INVALID_OPTION);
     }
 
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         ArrayList<Book> list = new ArrayList<Book>();
         BibliotecaView view = new BibliotecaView();
 
@@ -26,5 +26,5 @@ public class BibliotecaApp {
         MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction);
         menuDispatcher.handleRequest(option);
 
-    }
+    }*/
 }

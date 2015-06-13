@@ -1,14 +1,13 @@
 package com.twu.biblioteca;
 
 public class InvalidOption implements MenuAction{
-    private BooksHandler booksHandler;
+    private BibliotecaView bibliotecaView;
 
-    public InvalidOption(BooksHandler booksHandler) {
-        this.booksHandler = booksHandler;
+    public InvalidOption(BibliotecaView view) {
+        this.bibliotecaView = view;
     }
-
     @Override
     public void handleOption() {
-        booksHandler.displayInvalidOption();
+        bibliotecaView.printToConsole(Messages.INVALID_OPTION);
     }
 }

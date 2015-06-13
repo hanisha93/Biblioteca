@@ -4,13 +4,17 @@ import java.util.Scanner;
 //handles i/o
 public class BibliotecaView implements Messages{
 
+    Scanner scanner = new Scanner(System.in);
+
+    public  BibliotecaView(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     public void printToConsole(String message) {
         System.out.println(message);
     }
 
     public int readInput() {
-        Scanner scanner = new Scanner(System.in);
-        int input = scanner.nextInt();
-        return input;
+        return scanner.nextInt();
     }
 }

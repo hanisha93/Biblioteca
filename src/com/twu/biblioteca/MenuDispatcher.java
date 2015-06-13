@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MenuDispatcher implements Messages{
+public class MenuDispatcher implements Messages {
 
     private HashMap<Integer, MenuAction> menuAction;
 
@@ -11,8 +11,13 @@ public class MenuDispatcher implements Messages{
         this.menuAction = menuAction;
     }
 
-    public void handleRequest(int action) {
-        MenuAction menu = menuAction.get(action);
-        menu.handleOption();
+    public void handleRequest(int option) {
+        if(menuAction.containsKey(option)) {
+            MenuAction menu = menuAction.get(option);
+            menu.handleOption();
+        }
+        else {
+            
+        }
     }
 }
