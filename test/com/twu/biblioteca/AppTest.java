@@ -22,4 +22,14 @@ public class AppTest {
         verify(view, Mockito.times(4)).readInput();
     }
 
+    @Test
+    public void specToCheckAppDisplayingMenuList() {
+
+        View view = mock(View.class);
+        MenuController menuController = mock(MenuController.class);
+        App app = new App();
+        app.start(view, menuController);
+
+        verify(view, Mockito.times(1)).printToConsole("1.ListBooks\n0.quit");
+    }
 }
