@@ -18,8 +18,9 @@ public class View implements Messages{
         return scanner.nextInt();
     }
 
-    public String readBook() {
-        return scanner.next();
+    public Book readBook() {
+        String bookTitle = scanner.next();
+        return new Book(bookTitle, "", "");
     }
 
 }

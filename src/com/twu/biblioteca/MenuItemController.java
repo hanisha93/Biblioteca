@@ -21,9 +21,11 @@ public class MenuItemController {
 
     public void checkOut(ArrayList<Book> checkedOutBooks , ArrayList<Book> booksList) {
         view.printToConsole(CHECKOUT_BOOK);
-        String bookName = view.readBook();
+        Book checkOutBook = view.readBook();
         for(Book book : booksList) {
+            if(checkOutBook.equals(book)) {
+                checkedOutBooks.add(book);
+            }
         }
     }
-
 }
