@@ -25,6 +25,7 @@ public class MenuItemController {
         for(Book book : booksList) {
             if(checkOutBook.equals(book)) {
                 checkedOutBooks.add(book);
+                booksList.remove(book);
             }
         }
     }
