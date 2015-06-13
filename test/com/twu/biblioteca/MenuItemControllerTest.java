@@ -31,12 +31,21 @@ public class MenuItemControllerTest {
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
         MenuItemController menuItemController = new MenuItemController(view);
 
-        menuItemController.checkOut(listOfBooks ,checkedOutList);
+        menuItemController.checkOut(listOfBooks, checkedOutList);
 
         verify(view, Mockito.times(1)).printToConsole(CHECKOUT_BOOK);
     }
 
-    
+    @Test
+    public void specToCheckCheckOutBookMenuItemTakingBookToBeCheckedOut() {
 
+        View view = mock(View.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        MenuItemController menuItemController = new MenuItemController(view);
 
+        menuItemController.checkOut(listOfBooks ,checkedOutList);
+
+        verify(view, Mockito.times(1)).readBook();
+    }
 }
