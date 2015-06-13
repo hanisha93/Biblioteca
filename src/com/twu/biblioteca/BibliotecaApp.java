@@ -24,7 +24,7 @@ public class BibliotecaApp {
         view.printToConsole(Messages.CHOOSE_OPTION);
         int option = view.readInput();
 
-        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction,view);
         menuDispatcher.handleRequest(option);
 
     }

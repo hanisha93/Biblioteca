@@ -21,7 +21,5 @@ public class MenuItemControllerTest {
         menuItemController.listBooks(books);
 
         verify(view, Mockito.times(1)).printToConsole(books.toString());
-
     }
-
 }

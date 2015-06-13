@@ -17,11 +17,29 @@ public class MenuDispatcherTest {
 
         ListBooks list = mock(ListBooks.class);
         menuAction.put(1, list);
-        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction);
+        BibliotecaView view = mock(BibliotecaView.class);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction, view);
 
         menuDispatcher.handleRequest(1);
 
         verify(list, Mockito.times(1)).handleOption();
 
     }
+
+    @Test
+    public void specToCheckInavalidOption() {
+
+        HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
+        BibliotecaView view = mock(BibliotecaView.class);
+        ListBooks list = mock(ListBooks.class);
+        menuAction.put(1, list);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction, view);
+
+        menuDispatcher.handleRequest(3);
+
+        verify(view, Mockito.times(1)).printToConsole(Messages.INVALID_OPTION);
+
+    }
+
+
 }
