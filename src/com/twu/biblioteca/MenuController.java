@@ -17,7 +17,7 @@ public class MenuController implements Messages {
             MenuAction menu = menuAction.get(option);
             menu.handleOption();
         }
-        else {
+        else if(option!=0) {
             view.printToConsole(Messages.INVALID_OPTION);
         }
     }
