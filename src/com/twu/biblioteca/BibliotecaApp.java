@@ -6,16 +6,17 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-   /* public static void main(String args[]) {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
         ArrayList<Book> list = new ArrayList<Book>();
-        BibliotecaView view = new BibliotecaView();
+        BibliotecaView view = new BibliotecaView(scanner);
 
         list.add(new Book("java", "john", "2000"));
         Books books = new Books(list);
 
         HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
-        BooksHandler booksHandler = new BooksHandler(view,books);
-        menuAction.put(1, new ListBooks(booksHandler));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuAction.put(1, new ListBooks(menuItemController, books));
 
 
         view.printToConsole(Messages.WELCOME_MESSAGE);
@@ -26,5 +27,5 @@ public class BibliotecaApp {
         MenuDispatcher menuDispatcher = new MenuDispatcher(menuAction);
         menuDispatcher.handleRequest(option);
 
-    }*/
+    }
 }
