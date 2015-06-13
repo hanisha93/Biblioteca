@@ -50,5 +50,20 @@ public class MenuItemControllerTest {
         verify(view, Mockito.times(1)).readBook();
     }
 
-    
+    @Test
+    public void specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList() {
+
+        View view = mock(View.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        listOfBooks.add(new Book("java", "john", "2000"));
+        when(view.readBook()).thenReturn(new Book("java", "",""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.checkOut(checkedOutList, listOfBooks);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+        expectedList.add(new Book("java", "", ""));
+
+        assertThat(checkedOutList, is(expectedList));
+    }
 }
