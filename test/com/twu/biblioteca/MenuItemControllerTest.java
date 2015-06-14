@@ -50,21 +50,22 @@ public class MenuItemControllerTest {
         verify(view, Mockito.times(1)).printToConsole(CHECKOUT_BOOK);
     }
 
-    /*@Test
+   /* @Test
     public void specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut() {
 
         View view = mock(View.class);
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("java", "john", "2000"));
-        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        ArrayList<Book> checkedOut = new ArrayList<Book>();
+        checkedOut.add(new Book("java", "john", "2000"));
         MenuItemController menuItemController = new MenuItemController(view);
-        menuItemController.checkOut(checkedOutList ,books);
+        menuItemController.checkOut(checkedOut ,books);
 
         verify(view, Mockito.times(1)).readBook();
 
     }*/
 
-    /*@Test
+    @Test
     public void specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList() {
 
         View view = mock(View.class);
@@ -79,9 +80,9 @@ public class MenuItemControllerTest {
         expectedListOne.add(new Book("java", "", ""));
 
         assertThat(checkedList, is(expectedListOne));
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void specToTestCheckedOutBookIsRemovedFromBooksList() {
 
         View view = mock(View.class);
@@ -97,5 +98,24 @@ public class MenuItemControllerTest {
         expectedList.add(new Book("oop", "wilson", "2001"));
 
         assertThat(list, is(expectedList));
-    }*/
+    }
+
+    @Test
+    public void specToTestCheckOutBookIsNotInBooksList() {
+
+        View view = mock(View.class);
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("java", "john", "2000"));
+        list.add(new Book("oop", "wilson", "2001"));
+        when(view.readBook()).thenReturn(new Book("oops", "", ""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.checkOut(checkedOutList, list);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+       
+        assertThat(checkedOutList, is(expectedList));
+    }
+
+
 }

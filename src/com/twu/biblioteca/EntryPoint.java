@@ -12,6 +12,7 @@ public class EntryPoint {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         View view = new View(scanner);
         booksList.add(new Book("java", "john", "2000"));
+        booksList.add(new Book("oop", "jhn", "2001"));
         Books books = new Books(booksList);
         HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view);
@@ -22,6 +23,9 @@ public class EntryPoint {
         App app = new App();
 
         app.start(view, menuController);
+        for(Book book :booksList) {
+            System.out.print(book.toString());
+        }
 
     }
 }
