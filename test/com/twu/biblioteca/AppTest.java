@@ -15,7 +15,7 @@ public class AppTest {
 
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
-        when(view.readInput()).thenReturn(1, 1, 2, 0);
+        when(view.readInput()).thenReturn("1", "1", "2", "0");
         App app = new App();
         app.start(view, menuController);
 
@@ -28,9 +28,9 @@ public class AppTest {
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
         App app = new App();
+        when(view.readInput()).thenReturn("1","0");
         app.start(view, menuController);
-
-        verify(view, Mockito.times(1)).printToConsole("1.ListBooks\n" +
+        verify(view, Mockito.times(2)).printToConsole("1.ListBooks\n" +
                 "2.CheckOut\n" +
                 "3.ReturnBook\n" +
                 "0.quit");

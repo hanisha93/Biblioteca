@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import org.omg.PortableInterceptor.SUCCESSFUL;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import static com.twu.biblioteca.Messages.*;
 
@@ -25,13 +22,10 @@ public class MenuItemController {
 
     public void checkOut(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
         int i;
-        view.printToConsole(CHECKOUT_BOOK);
-        Book checkOutBook  = view.readBook();
+        Book checkOutBook = getBook(CHECKOUT_BOOK);
         for (i = 0; i < booksList.size(); i++) {
             if(checkOutBook.equals(booksList.get(i))) {
-                checkedOutBooks.add(booksList.get(i));
-                view.printToConsole(SUCCESSFUL_CHECKOUT);
-                checkOutBook  = booksList.get(i);
+                checkOutBook = getCheckOutBook(checkedOutBooks, booksList, i);
                 break;
             }
         }
@@ -39,17 +33,28 @@ public class MenuItemController {
             view.printToConsole(CHECKOUT_FAIL);
         }
         booksList.remove(checkOutBook);
-
     }
+
+
+    private Book getBook(String message) {
+        view.printToConsole(message);
+        return view.readBook();
+    }
+
+    private Book getCheckOutBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList, int i) {
+        Book checkOutBook;
+        checkedOutBooks.add(booksList.get(i));
+        view.printToConsole(SUCCESSFUL_CHECKOUT);
+        checkOutBook  = booksList.get(i);
+        return checkOutBook;
+    }
+
     public void returnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
-        view.printToConsole(RETURN_BOOK);
-        Book returnBook  = view.readBook();
         int i;
+        Book returnBook = getBook(RETURN_BOOK);
         for (i = 0; i < checkedOutBooks.size(); i++) {
             if(returnBook.equals(checkedOutBooks.get(i))) {
-                returnBook = checkedOutBooks.get(i);
-                view.printToConsole(SUCCESSFUL_RETURN);
-                booksList.add(checkedOutBooks.get(i));
+                returnBook = getReturnBook(checkedOutBooks, booksList, i);
                 break;
             }
         }
@@ -57,6 +62,14 @@ public class MenuItemController {
             view.printToConsole(RETURN_FAIL);
         }
         checkedOutBooks.remove(returnBook);
+    }
+
+    private Book getReturnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList, int i) {
+        Book returnBook;
+        returnBook = checkedOutBooks.get(i);
+        view.printToConsole(SUCCESSFUL_RETURN);
+        booksList.add(checkedOutBooks.get(i));
+        return returnBook;
     }
 
 }

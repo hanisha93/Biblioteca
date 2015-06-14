@@ -37,9 +37,9 @@ public class BibliotecaViewTest {
         ByteArrayInputStream inContent = new ByteArrayInputStream("2 ".getBytes());
         System.setIn(inContent);
         View view = new View(new Scanner(System.in));
-        int booksList = view.readInput();
+        String booksList = view.readInput();
 
-        assertThat(booksList, is(equalTo(2)));
+        assertThat(booksList, is(equalTo("2")));
     }
 
     @After

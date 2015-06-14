@@ -13,31 +13,31 @@ public class MenuControllerTest {
     @Test
     public void specToCheckHandleRequest() {
 
-        HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
+        HashMap<String, MenuAction> menuAction = new HashMap<String , MenuAction>();
 
         ListBooks list = mock(ListBooks.class);
-        menuAction.put(1, list);
+        menuAction.put("1", list);
         View view = mock(View.class);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 
-        menuDispatcher.handleRequest(1);
+        menuDispatcher.handleRequest("1");
 
-        verify(list, Mockito.times(1)).handleOption();
+        verify(list).handleOption();
 
     }
 
     @Test
     public void specToCheckInavalidOption() {
 
-        HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
+        HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         View view = mock(View.class);
         ListBooks list = mock(ListBooks.class);
-        menuAction.put(1, list);
+        menuAction.put("1", list);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 
-        menuDispatcher.handleRequest(3);
+        menuDispatcher.handleRequest("3");
 
-        verify(view, Mockito.times(1)).printToConsole(Messages.INVALID_OPTION);
+        verify(view).printToConsole(Messages.INVALID_OPTION);
 
     }
 

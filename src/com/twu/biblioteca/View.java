@@ -14,8 +14,8 @@ public class View implements Messages{
         System.out.println(message);
     }
 
-    public int readInput() {
-        return scanner.nextInt();
+    public String  readInput() {
+        return scanner.next();
     }
 
     public Book readBook() {

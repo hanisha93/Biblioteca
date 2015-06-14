@@ -15,11 +15,11 @@ public class EntryPoint {
         booksList.add(new Book("oop", "jhn", "2001"));
         checkedOutBooks.add(new Book("","",""));
         Books books = new Books(booksList);
-        HashMap<Integer, MenuAction> menuAction = new HashMap<Integer, MenuAction>();
+        HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view);
-        menuAction.put(1, new ListBooks(menuItemController, books));
-        menuAction.put(2, new CheckOut(menuItemController, booksList,checkedOutBooks));
-        menuAction.put(3, new Return(menuItemController, booksList,checkedOutBooks));
+        menuAction.put("1", new ListBooks(menuItemController, books));
+        menuAction.put("2", new CheckOut(menuItemController, booksList,checkedOutBooks));
+        menuAction.put("3", new Return(menuItemController, booksList,checkedOutBooks));
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();
