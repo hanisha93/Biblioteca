@@ -180,4 +180,21 @@ public class MenuItemControllerTest {
         assertThat(listOfBooks, is(expectedListOne));
     }
 
+    @Test
+    public void specToTestReturnedBookIsRemovedFromCheckedOutList() {
+
+        View view = mock(View.class);
+        when(view.readBook()).thenReturn(new Book("java", "john", "2000"));
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("oop", "wilson", "2001"));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("java", "john", "2000"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedOutList, list);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+
+        assertThat(checkedOutList, is(expectedList));
+    }
+
 }

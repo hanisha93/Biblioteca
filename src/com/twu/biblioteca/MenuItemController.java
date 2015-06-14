@@ -53,6 +53,7 @@ public class MenuItemController {
                 break;
             }
         }
+        checkedOutBooks.remove(returnBook);
     }
 
 }
