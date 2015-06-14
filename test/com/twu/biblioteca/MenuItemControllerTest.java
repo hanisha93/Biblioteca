@@ -119,7 +119,22 @@ public class MenuItemControllerTest {
     }
 
     @Test
-    public void specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole() {
+    public void specToTestCheckOutBookIsAValidBookPrintsSuccesfulMessageOnConsole() {
+
+        View view = mock(View.class);
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("java", "john", "2000"));
+        when(view.readBook()).thenReturn(new Book("java", "", ""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("oop", "wilson", "2001"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.checkOut(checkedOutList, list);
+
+        verify(view).printToConsole(SUCCESSFUL_CHECKOUT);
+    }
+
+    @Test
+    public void specToTestCheckOutBookIsNotInBooksListPrintsFailureMessageOnConsole() {
 
         View view = mock(View.class);
         ArrayList<Book> list = new ArrayList<Book>();
@@ -196,7 +211,22 @@ public class MenuItemControllerTest {
     }
 
     @Test
-    public void specToTestReturnedBookIsNotAValidBookPrintsMessageOnConsole() {
+    public void specToTestReturnedBookIsAValidBookPrintsSuccessfulMessageOnConsole() {
+
+        View view = mock(View.class);
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("java", "john", "2000"));
+        when(view.readBook()).thenReturn(new Book("oop", "", ""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("oop", "wilson", "2001"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedOutList, list);
+
+        verify(view).printToConsole(SUCCESSFUL_RETURN);
+    }
+
+    @Test
+    public void specToTestReturnedBookIsNotAValidBookPrintsFailureMessageOnConsole() {
 
         View view = mock(View.class);
         ArrayList<Book> list = new ArrayList<Book>();
