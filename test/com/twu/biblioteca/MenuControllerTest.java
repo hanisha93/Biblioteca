@@ -8,7 +8,7 @@ import java.util.HashMap;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class MenuDispatcherTest {
+public class MenuControllerTest {
 
     @Test
     public void specToCheckHandleRequest() {

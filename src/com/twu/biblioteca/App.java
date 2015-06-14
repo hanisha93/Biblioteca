@@ -9,12 +9,21 @@ import static com.twu.biblioteca.Messages.*;
 public class App {
 
     public void start(View view,MenuController menuController ) {
-        int option=1;
+        int option = getOption(view, menuController);
         while(option!=0) {
-            view.printToConsole(MENU_LIST);
-            view.printToConsole(CHOOSE_OPTION);
-            option = view.readInput();
-            menuController.handleRequest(option);
+            option = getOption(view, menuController);
         }
+    }
+
+    private int getOption(View view, MenuController menuController) {
+        printMenu(view);
+        int option = view.readInput();
+        menuController.handleRequest(option);
+        return option;
+    }
+
+    private void printMenu(View view) {
+        view.printToConsole(MENU_LIST);
+        view.printToConsole(CHOOSE_OPTION);
     }
 }

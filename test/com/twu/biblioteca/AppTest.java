@@ -30,6 +30,9 @@ public class AppTest {
         App app = new App();
         app.start(view, menuController);
 
-        verify(view, Mockito.times(1)).printToConsole("1.ListBooks\n0.quit");
+        verify(view, Mockito.times(1)).printToConsole("1.ListBooks\n" +
+                "2.CheckOut\n" +
+                "3.ReturnBook\n" +
+                "0.quit");
     }
 }
