@@ -9,4 +9,7 @@ public interface Messages {
     public final String CHECKOUT_BOOK = "Enter book to checkout";
     public final String SUCCESSFUL_CHECKOUT = "Thanq you! Enjoy the book";
     public final String CHECKOUT_FAIL = "That book is not available";
+    public final String RETURN_BOOK = "Enter book to return";
+    public final String RETURN_FAIL = "That is not a valid book to return";
+    public final String SUCCESSFUL_RETURN = "Thank you for returning the book";
 }

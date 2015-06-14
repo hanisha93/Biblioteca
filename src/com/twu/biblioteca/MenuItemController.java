@@ -23,23 +23,39 @@ public class MenuItemController {
     }
 
     public void checkOut(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
-        int i = 0;
-        view.printToConsole(CHECKOUT_BOOK);
-        Book checkOutBook = view.readBook();
+        Book checkOutBook = getBook(CHECKOUT_BOOK);
+        int i;
         for (i = 0; i < booksList.size(); i++) {
-            if (checkOutBook.equals(booksList.get(i))) {
-                checkedOutBooks.add(booksList.get(i));
-                view.printToConsole(SUCCESSFUL_CHECKOUT);
-                booksList.remove(booksList.get(i));
-                break;
-            }
+            if (checkOutBook(checkedOutBooks, booksList, i, checkOutBook)) break;
         }
-        if (i == booksList.size()) {
-            view.printToConsole(CHECKOUT_FAIL);
-        }
+        checkOutFail(booksList, i);
+
+    }
+    public void returnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
+        Book returnBook = getBook(RETURN_BOOK);
+        
 
     }
 
-    public void returnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
+    private Book getBook(String msg) {
+        int i = 0;
+        view.printToConsole(msg);
+        return view.readBook();
+    }
+
+    private void checkOutFail(ArrayList<Book> booksList, int i) {
+        if (i == booksList.size()) {
+            view.printToConsole(CHECKOUT_FAIL);
+        }
+    }
+
+    private boolean checkOutBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList, int i, Book checkOutBook) {
+        if (checkOutBook.equals(booksList.get(i))) {
+            checkedOutBooks.add(booksList.get(i));
+            view.printToConsole(SUCCESSFUL_CHECKOUT);
+            booksList.remove(booksList.get(i));
+            return true;
+        }
+        return false;
     }
 }

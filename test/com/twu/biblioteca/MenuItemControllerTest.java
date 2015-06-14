@@ -133,4 +133,16 @@ public class MenuItemControllerTest {
 
         verify(view, Mockito.times(1)).printToConsole(CHECKOUT_FAIL);
     }
+
+    @Test
+    public void specToTestRetutnBookMenuItemDisplayingReturnBookMessage() {
+
+        View view = mock(View.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedOutList, listOfBooks);
+
+        verify(view, Mockito.times(1)).printToConsole(RETURN_BOOK);
+    }
 }
