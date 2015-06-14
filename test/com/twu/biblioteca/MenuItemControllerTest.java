@@ -23,7 +23,7 @@ public class MenuItemControllerTest {
 
         menuItemController.listBooks(books);
 
-        verify(view, Mockito.times(1)).printToConsole(books.toString());
+        verify(view).printToConsole(books.toString());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class MenuItemControllerTest {
 
         menuItemController.invalidOption();
 
-        verify(view, Mockito.times(1)).printToConsole(INVALID_OPTION);
+        verify(view).printToConsole(INVALID_OPTION);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view);
         menuItemController.checkOut(checkedOutList, listOfBooks);
 
-        verify(view, Mockito.times(1)).printToConsole(CHECKOUT_BOOK);
+        verify(view).printToConsole(CHECKOUT_BOOK);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view);
         menuItemController.checkOut(checkedOut, books);
 
-        verify(view, Mockito.times(1)).readBook();
+        verify(view).readBook();
 
     }
 
@@ -130,9 +130,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view);
         menuItemController.checkOut(checkedOutList, list);
 
-        ArrayList<Book> expectedList = new ArrayList<Book>();
-
-        verify(view, Mockito.times(1)).printToConsole(CHECKOUT_FAIL);
+        verify(view).printToConsole(CHECKOUT_FAIL);
     }
 
     @Test
@@ -144,7 +142,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view);
         menuItemController.returnBook(checkedOutList, listOfBooks);
 
-        verify(view, Mockito.times(1)).printToConsole(RETURN_BOOK);
+        verify(view).printToConsole(RETURN_BOOK);
     }
 
     @Test
@@ -195,6 +193,21 @@ public class MenuItemControllerTest {
         ArrayList<Book> expectedList = new ArrayList<Book>();
 
         assertThat(checkedOutList, is(expectedList));
+    }
+
+    @Test
+    public void specToTestReturnedBookIsNotAValidBookPrintsMessageOnConsole() {
+
+        View view = mock(View.class);
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("java", "john", "2000"));
+        when(view.readBook()).thenReturn(new Book("oops", "", ""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("oop", "wilson", "2001"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedOutList, list);
+
+        verify(view).printToConsole(RETURN_FAIL);
     }
 
 }

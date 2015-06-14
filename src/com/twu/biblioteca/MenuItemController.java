@@ -53,6 +53,9 @@ public class MenuItemController {
                 break;
             }
         }
+        if (i == checkedOutBooks.size()) {
+            view.printToConsole(RETURN_FAIL);
+        }
         checkedOutBooks.remove(returnBook);
     }
 
