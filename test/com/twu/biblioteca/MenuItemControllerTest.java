@@ -163,4 +163,21 @@ public class MenuItemControllerTest {
 
     }
 
+    @Test
+    public void specToTestReturnBookMenuItemAddingReturnedBookToBooksList() {
+
+        View view = mock(View.class);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        when(view.readBook()).thenReturn(new Book("java", "", ""));
+        ArrayList<Book> checkedList = new ArrayList<Book>();
+        checkedList.add(new Book("java", "jahn" , "2004"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedList, listOfBooks);
+
+        ArrayList<Book> expectedListOne = new ArrayList<Book>();
+        expectedListOne.add(new Book("java", "jahn", "2004"));
+
+        assertThat(listOfBooks, is(expectedListOne));
+    }
+
 }
