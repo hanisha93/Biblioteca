@@ -14,7 +14,7 @@ public class Books {
     public String toString() {
         String booksList = "";
         for (Book book : listOfBooks) {
-            booksList = booksList + "" + book.toString();
+            booksList = booksList + "" + book.toString()+"\n";
         }
         return booksList;
     }

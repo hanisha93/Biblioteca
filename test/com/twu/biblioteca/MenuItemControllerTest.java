@@ -50,20 +50,21 @@ public class MenuItemControllerTest {
         verify(view, Mockito.times(1)).printToConsole(CHECKOUT_BOOK);
     }
 
-   /* @Test
+    @Test
     public void specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut() {
 
         View view = mock(View.class);
+        when(view.readBook()).thenReturn(new Book("java", "john", "2001"));
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("java", "john", "2000"));
         ArrayList<Book> checkedOut = new ArrayList<Book>();
         checkedOut.add(new Book("java", "john", "2000"));
         MenuItemController menuItemController = new MenuItemController(view);
-        menuItemController.checkOut(checkedOut ,books);
+        menuItemController.checkOut(checkedOut, books);
 
         verify(view, Mockito.times(1)).readBook();
 
-    }*/
+    }
 
     @Test
     public void specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList() {
@@ -145,4 +146,21 @@ public class MenuItemControllerTest {
 
         verify(view, Mockito.times(1)).printToConsole(RETURN_BOOK);
     }
+
+    @Test
+    public void specToTestReturnBookMenuItemTakingBookToBeReturned() {
+
+        View view = mock(View.class);
+        when(view.readBook()).thenReturn(new Book("java", "john", "2001"));
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("java", "john", "2000"));
+        ArrayList<Book> checkedOut = new ArrayList<Book>();
+        checkedOut.add(new Book("java", "john", "2000"));
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.returnBook(checkedOut, books);
+
+        verify(view).readBook();
+
+    }
+
 }
