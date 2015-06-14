@@ -102,8 +102,8 @@
       <file leaf-file-name="MenuItemControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MenuItemControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73257697">
-              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.6353322">
+              <caret line="126" column="67" selection-start-line="126" selection-start-column="67" selection-end-line="126" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1257#1263#0" expanded="true" />
@@ -117,6 +117,9 @@
                 <element signature="e#3673#3679#0" expanded="true" />
                 <element signature="e#3910#3916#0" expanded="true" />
                 <element signature="e#4110#4116#0" expanded="true" />
+                <element signature="e#4356#4362#0" expanded="true" />
+                <element signature="e#4593#4599#0" expanded="true" />
+                <element signature="e#4793#4799#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -509,7 +512,7 @@
       <recent name="com.twu.biblioteca" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksList">
+  <component name="RunManager" selected="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole">
     <configuration default="false" name="MenuItemControllerTest.specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -523,32 +526,6 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuItemControllerTest" />
       <option name="METHOD_NAME" value="specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="MenuItemControllerTest.specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Biboleteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuItemControllerTest" />
-      <option name="METHOD_NAME" value="specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -621,6 +598,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuItemControllerTest" />
       <option name="METHOD_NAME" value="specToTestCheckOutBookIsNotInBooksList" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Biboleteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MenuItemControllerTest" />
+      <option name="METHOD_NAME" value="specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -865,18 +868,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.EntryPoint" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksList" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.EntryPoint" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksList" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksList" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut" />
-        <item index="3" class="java.lang.String" itemvalue="Application.EntryPoint" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToCheckCheckOutBookMenuItemAddingBookToCheckedOutList" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookIsNotInBooksList" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MenuItemControllerTest.specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut" />
+        <item index="4" class="java.lang.String" itemvalue="Application.EntryPoint" />
       </list>
     </recent_temporary>
   </component>
@@ -898,12 +901,12 @@
       <workItem from="1433821308315" duration="3226000" />
       <workItem from="1433862719598" duration="9147000" />
       <workItem from="1433908616648" duration="18921000" />
-      <workItem from="1434200809372" duration="24108000" />
+      <workItem from="1434200809372" duration="24390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158732000" />
+    <option name="totallyTimeSpent" value="159014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1441,8 +1444,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MenuItemControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73257697">
-          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.6353322">
+          <caret line="126" column="67" selection-start-line="126" selection-start-column="67" selection-end-line="126" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1257#1263#0" expanded="true" />
@@ -1456,6 +1459,9 @@
             <element signature="e#3673#3679#0" expanded="true" />
             <element signature="e#3910#3916#0" expanded="true" />
             <element signature="e#4110#4116#0" expanded="true" />
+            <element signature="e#4356#4362#0" expanded="true" />
+            <element signature="e#4593#4599#0" expanded="true" />
+            <element signature="e#4793#4799#0" expanded="true" />
           </folding>
         </state>
       </provider>

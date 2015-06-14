@@ -113,9 +113,24 @@ public class MenuItemControllerTest {
         menuItemController.checkOut(checkedOutList, list);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
-       
+
         assertThat(checkedOutList, is(expectedList));
     }
 
+    @Test
+    public void specToTestCheckOutBookIsNotInBooksListPrintsMessageOnConsole() {
 
+        View view = mock(View.class);
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("java", "john", "2000"));
+        list.add(new Book("oop", "wilson", "2001"));
+        when(view.readBook()).thenReturn(new Book("oops", "", ""));
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        MenuItemController menuItemController = new MenuItemController(view);
+        menuItemController.checkOut(checkedOutList, list);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+
+        verify(view, Mockito.times(1)).printToConsole(CHECKOUT_FAIL);
+    }
 }
