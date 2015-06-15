@@ -13,8 +13,9 @@ import static java.lang.System.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
-public class BibliotecaViewTest {
+public class ViewTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -34,12 +35,25 @@ public class BibliotecaViewTest {
     @Test
     public void specForCheckingReadingInputFromConsole() {
 
-        ByteArrayInputStream inContent = new ByteArrayInputStream("2 ".getBytes());
+        ByteArrayInputStream inContent = new ByteArrayInputStream("2".getBytes());
         System.setIn(inContent);
         View view = new View(new Scanner(System.in));
         String booksList = view.readInput();
 
         assertThat(booksList, is(equalTo("2")));
+    }
+
+    @Test
+    public void specForCheckingReturnBookIsReturningCorrectBookObject() {
+
+        ByteArrayInputStream inContent = new ByteArrayInputStream("Java core".getBytes());
+        System.setIn(inContent);
+        Book book = mock(Book.class);
+        View view = new View(new Scanner(System.in));
+        Book expectedBook = new Book("Java core", "", "");
+        book = view.readBook();
+
+        assertEquals(book, expectedBook);
     }
 
     @After

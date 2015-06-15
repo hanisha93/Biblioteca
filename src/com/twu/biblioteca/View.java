@@ -15,11 +15,11 @@ public class View implements Messages{
     }
 
     public String  readInput() {
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public Book readBook() {
-        String bookTitle = scanner.next();
+        String bookTitle = scanner.nextLine();
         return new Book(bookTitle, "", "");
     }
 

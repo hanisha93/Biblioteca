@@ -20,6 +20,10 @@
         <javac srcdir="test" destdir="out/test/classes" classpathref="classpath" classpath="out/src/classes"/>
     </target>
 
+    <target name="run" depends="compile" description="run the project">
+        <java classpath="out/src/classes/" classname="com.twu.biblioteca.BibliotecaInit"></java>
+    </target>
+
     <target name="test" depends="compile,compileTests">
         <junit printsummary="yes">
             <classpath>
