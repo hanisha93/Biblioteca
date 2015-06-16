@@ -17,7 +17,7 @@ public class LibraryTest {
         Library listOfBooks = new Library(list);
 
         String actualBooks = listOfBooks.toString();
-        String expectedBooks = "Java wilson  1998\nc johnson  2000\n";
+        String expectedBooks = "Java wilson 1998\nc johnson 2000\n";
 
         assertEquals(actualBooks, expectedBooks);
     }

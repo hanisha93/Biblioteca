@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import static com.twu.biblioteca.Messages.*;
 
-//controlling all items in menu
+//controls all items in menu
+
 public class MenuItemController {
     private View view;
     private Librarian librarian;
