@@ -5,7 +5,6 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -14,7 +13,7 @@ public class CheckOutTest {
     @Test
     public void specToCheckHandleOptionInCheckOut() {
         ArrayList<Book> searchResult = new ArrayList<Book>();
-        Library library = mock(Library.class);
+        Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         CheckOut checkOut = new CheckOut(menuItemController, searchResult);
         checkOut.handleOption();

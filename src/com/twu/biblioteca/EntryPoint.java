@@ -12,12 +12,13 @@ public class EntryPoint {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         ArrayList<Book> searchResult = new ArrayList<>();
         View view = new View(scanner);
-        booksList.add(new Book("java", "john", "2000"));
-        booksList.add(new Book("oop", "jhn", "2001"));
+        booksList.add(new Book("oop concepts", "john", "2000"));
+        booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
         checkedOutBooks.add(new Book("", "", ""));
-        Library library = new Library(booksList, checkedOutBooks);
+        Librarian librarian = new Librarian(booksList, checkedOutBooks);
+        Library library = new Library(booksList);
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
-        MenuItemController menuItemController = new MenuItemController(view, library);
+        MenuItemController menuItemController = new MenuItemController(view, librarian);
         menuAction.put("1", new ListBooks(menuItemController, library));
         menuAction.put("2", new CheckOut(menuItemController, searchResult));
         menuAction.put("3", new Return(menuItemController, searchResult));

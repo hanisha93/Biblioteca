@@ -7,10 +7,11 @@ import static com.twu.biblioteca.Messages.*;
 //controlling all items in menu
 public class MenuItemController {
     private View view;
-    private Library library;
-    public MenuItemController(View view,Library library) {
+    private Librarian librarian;
+
+    public MenuItemController(View view, Librarian librarian) {
         this.view = view;
-        this.library = library;
+        this.librarian = librarian;
     }
 
     public void listBooks(Library library) {
@@ -21,12 +22,12 @@ public class MenuItemController {
         view.printToConsole(INVALID_OPTION);
     }
 
-    public void checkOut(ArrayList<Book> result) {
+    public void checkOut(ArrayList<Book> matchedBook) {
         view.printToConsole(CHECKOUT_BOOK);
         String title = view.readInput();
-        result.clear();
-        library.searchBook(title, result);
-        String message = library.doCheckout(result);
+        matchedBook.clear();
+        librarian.searchBook(title, matchedBook);
+        String message = librarian.doCheckout(matchedBook);
         view.printToConsole(message);
     }
 
@@ -34,8 +35,8 @@ public class MenuItemController {
         view.printToConsole(RETURN_BOOK);
         String title = view.readInput();
         result.clear();
-        library.searchCheckedOutList(title, result);
-        String message = library.returnBook(result);
+        librarian.searchCheckedOutList(title, result);
+        String message = librarian.returnBook(result);
         view.printToConsole(message);
     }
 }
