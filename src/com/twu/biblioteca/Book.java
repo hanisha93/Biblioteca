@@ -26,10 +26,10 @@ public class Book {
 
     }
 
-    public Book matchBook(String title) {
+    public boolean matchBook(String title) {
         if (this.title.equals(title)) {
-            return this;
+            return true;
         }
-        return null;
+        return false;
     }
 }

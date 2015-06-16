@@ -3,8 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class BookTest {
 
@@ -28,12 +27,16 @@ public class BookTest {
     }
 
     @Test
-    public void specForCheckingMatchBookReturnsBookHavingSameTitle() {
+    public void specForCheckingMatchBookReturnsTrueHavingSameTitle() {
         Book book = new Book("oop concepts", "wilson", "1998");
 
-        Book actualBook = book.matchBook("oop concepts");
-        Book expectedBook = new Book("oop concepts", "wilson", "1998");
+        assertTrue(book.matchBook("oop concepts"));
+    }
 
-        assertThat(actualBook, is(expectedBook));
+    @Test
+    public void specForCheckingMatchBookReturnsFalseHavingSameTitle() {
+        Book book = new Book("oop concepts", "wilson", "1998");
+
+        assertFalse(book.matchBook("oop"));
     }
 }
