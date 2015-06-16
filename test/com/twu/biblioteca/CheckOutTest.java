@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuItemController;
+import com.twu.biblioteca.menuAction.CheckOut;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Librarian;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class CheckOutTest {
         ArrayList<Book> searchResult = new ArrayList<Book>();
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        menuAction.CheckOut checkOut = new menuAction.CheckOut(menuItemController, searchResult);
+        CheckOut checkOut = new CheckOut(menuItemController, searchResult);
         checkOut.handleOption();
 
         verify(menuItemController, Mockito.times(1)).checkOut(searchResult);

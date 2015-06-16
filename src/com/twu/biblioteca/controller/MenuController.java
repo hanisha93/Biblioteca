@@ -1,6 +1,6 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.MenuAction;
+import com.twu.biblioteca.menuAction.MenuAction;
 import com.twu.biblioteca.Messages;
 import com.twu.biblioteca.View;
 
@@ -10,7 +10,6 @@ public class MenuController implements Messages {
 
     private HashMap<String, MenuAction> menuAction;
     private View view;
-
 
     public MenuController(HashMap<String, MenuAction> menuAction, View view) {
         this.menuAction = menuAction;

@@ -20,7 +20,6 @@ public class BookTest {
 
     @Test
     public void specForCheckingEqualityOfBook() {
-
         Book actualBook = new Book("oopconcepts", "wilson", "1998");
         Book expectedBook = new Book("oopconcepts", "john", "1998");
 

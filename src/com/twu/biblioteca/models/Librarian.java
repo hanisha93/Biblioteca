@@ -17,7 +17,7 @@ public class Librarian {
     }
 
     public ArrayList<Book> searchBook(String title, ArrayList<Book> result) {
-        for(Book book : listOfBooks) {
+        for (Book book : listOfBooks) {
             if (book.matchBook(title)) {
                 result.add(book);
                 break;
@@ -37,7 +37,7 @@ public class Librarian {
     }
 
     public String doCheckout(ArrayList<Book> result) {
-        for(Book book : result) {
+        for (Book book : result) {
             listOfBooks.remove(book);
             checkedOutBooks.add(book);
             return SUCCESSFUL_CHECKOUT;
@@ -46,7 +46,7 @@ public class Librarian {
     }
 
     public String returnBook(ArrayList<Book> result) {
-        for(Book book : result) {
+        for (Book book : result) {
             listOfBooks.add(book);
             checkedOutBooks.remove(book);
             return SUCCESSFUL_RETURN;

@@ -35,7 +35,6 @@ public class ViewTest {
 
     @Test
     public void specForCheckingReadingInputFromConsole() {
-
         ByteArrayInputStream inContent = new ByteArrayInputStream("2".getBytes());
         System.setIn(inContent);
         View view = new View(new Scanner(System.in));
@@ -46,7 +45,6 @@ public class ViewTest {
 
     @Test
     public void specForCheckingReturnBookIsReturningCorrectBookObject() {
-
         ByteArrayInputStream inContent = new ByteArrayInputStream("Java core".getBytes());
         System.setIn(inContent);
         Book book = mock(Book.class);

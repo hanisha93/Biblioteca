@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuItemController;
+import com.twu.biblioteca.menuAction.ReturnBook;
 import com.twu.biblioteca.models.Book;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class ReturnBookTest {
         ArrayList<Book> searchResult = new ArrayList<Book>();
 
         MenuItemController menuItemController = mock(MenuItemController.class);
-        menuAction.ReturnBook returnBook = new menuAction.ReturnBook(menuItemController, searchResult);
+        ReturnBook returnBook = new ReturnBook(menuItemController, searchResult);
         returnBook.handleOption();
 
         verify(menuItemController).returnBook(searchResult);
