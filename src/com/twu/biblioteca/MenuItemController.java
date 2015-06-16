@@ -25,42 +25,15 @@ public class MenuItemController {
         view.printToConsole(CHECKOUT_BOOK);
         String title = view.readInput();
         library.searchBook(title, result);
-        if(result.isEmpty()) {
-            view.printToConsole(CHECKOUT_FAIL);
-        }
-        else {
-            library.doCheckout(result.get(0));
-            view.printToConsole(SUCCESSFUL_CHECKOUT);
-        }
-    }
-
-
-    private Book getBook(String message) {
+        String message = library.doCheckout(result);
         view.printToConsole(message);
-        return view.readBook();
     }
 
-    public void returnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
-        int i;
-        Book returnBook = getBook(RETURN_BOOK);
-        for (i = 0; i < checkedOutBooks.size(); i++) {
-            if(returnBook.equals(checkedOutBooks.get(i))) {
-                returnBook = getReturnBook(checkedOutBooks, booksList, i);
-                break;
-            }
-        }
-        if (i == checkedOutBooks.size()) {
-            view.printToConsole(RETURN_FAIL);
-        }
-        checkedOutBooks.remove(returnBook);
+    public void returnBook(ArrayList<Book> result) {
+        view.printToConsole(RETURN_BOOK);
+        String title = view.readInput();
+        library.searchCheckedOutList(title, result);
+        String message = library.returnBook(result);
+        view.printToConsole(message);
     }
-
-    private Book getReturnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList, int i) {
-        Book returnBook;
-        returnBook = checkedOutBooks.get(i);
-        view.printToConsole(SUCCESSFUL_RETURN);
-        booksList.add(checkedOutBooks.get(i));
-        return returnBook;
-    }
-
 }

@@ -13,13 +13,13 @@ public class ReturnTest {
 
     @Test
     public void specToCheckHandleOptionInReturn() {
-        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
-        ArrayList<Book> booksList = new ArrayList<Book>();
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+
         MenuItemController menuItemController = mock(MenuItemController.class);
-        Return returnBook = new Return(menuItemController , booksList,checkedOutBooks);
+        Return returnBook = new Return(menuItemController, searchResult);
         returnBook.handleOption();
 
-        verify(menuItemController).returnBook(checkedOutBooks, booksList);
+        verify(menuItemController).returnBook(searchResult);
     }
 
 }

@@ -27,7 +27,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void specForCheckingCompareBookReturningBooksWhenBookTitleMatches() {
+    public void specForCheckingSearchBookWhenBookTitleMatches() {
         ArrayList<Book> list = new ArrayList<Book>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
@@ -42,7 +42,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void specForCheckingCompareBookReturningBooksWhenBookTitleDoesNotMatches() {
+    public void specForCheckingSearchBookWhenBookTitleDoesNotMatches() {
 
 
         ArrayList<Book> list = new ArrayList<Book>();
@@ -58,13 +58,46 @@ public class LibraryTest {
     }
 
     @Test
+    public void specForCheckingSearchCheckedOutListWhenBookTitleMatches() {
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("Java", "wilson", "1998"));
+        list.add(new Book("c", "johnson", "2000"));
+        ArrayList<Book> result = new ArrayList<Book>();
+        Library listOfBooks = new Library(list, list);
+
+        ArrayList<Book> actualBooks = listOfBooks.searchCheckedOutList("Java", result);
+        ArrayList<Book> expectedBooks = new ArrayList<Book>();
+        expectedBooks.add(new Book("Java", "wilson", "1998"));
+
+        assertEquals(actualBooks, expectedBooks);
+    }
+
+    @Test
+    public void specForCheckingSearchCheckedOutListWhenBookTitleDoesNotMatches() {
+
+
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("Java", "wilson", "1998"));
+        list.add(new Book("c", "johnson", "2000"));
+        ArrayList<Book> result = new ArrayList<Book>();
+        Library listOfBooks = new Library(list,list);
+
+        ArrayList<Book> actualBooks = listOfBooks.searchCheckedOutList("The lord of rings", result);
+        ArrayList<Book> expectedBooks = new ArrayList<Book>();
+
+        assertEquals(actualBooks, expectedBooks);
+    }
+
+    @Test
     public void specToCheckAddingBookToCheckedOutList() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        searchResult.add(book);
         Library library = new Library(listOfBooks, checkedOutList);
-        library.doCheckout(book);
+        library.doCheckout(searchResult);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
         expectedList.add(new Book("java", "john", "2000"));
@@ -78,8 +111,10 @@ public class LibraryTest {
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        searchResult.add(book);
         Library library = new Library(listOfBooks, checkedOutList);
-        library.doCheckout(book);
+        library.doCheckout(searchResult);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
 
@@ -91,12 +126,14 @@ public class LibraryTest {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
-        checkedOutList.add(new Book("java", "john", "2000"));
+        checkedOutList.add(book);
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        searchResult.add(book);
         Library library = new Library(listOfBooks, checkedOutList);
-        library.returnBook(book);
+        library.returnBook(searchResult);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
-        expectedList.add(new Book("java", "john", "2000"));
+        expectedList.add(book);
 
         assertThat(listOfBooks, is(expectedList));
     }
@@ -106,9 +143,11 @@ public class LibraryTest {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
-        checkedOutList.add(new Book("java", "john", "2000"));
+        checkedOutList.add(book);
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        searchResult.add(book);
         Library library = new Library(listOfBooks, checkedOutList);
-        library.returnBook(book);
+        library.returnBook(searchResult);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
 

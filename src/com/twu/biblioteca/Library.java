@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+import static com.twu.biblioteca.Messages.*;
+
 public class Library {
 
     private ArrayList<Book> listOfBooks;
@@ -25,6 +27,7 @@ public class Library {
         for(Book eachBook : listOfBooks)
         if(eachBook.matchBook(title)) {
             result.add(eachBook);
+            break;
         }
         return result;
     }
@@ -33,18 +36,27 @@ public class Library {
         for (Book eachBook : checkedOutBooks)
             if (eachBook.matchBook(title)) {
                 result.add(eachBook);
+                break;
             }
         return result;
     }
 
-    public void doCheckout(Book book) {
-        listOfBooks.remove(book);
-        checkedOutBooks.add(book);
+    public String doCheckout(ArrayList<Book> result) {
+        for(Book book : result) {
+            listOfBooks.remove(book);
+            checkedOutBooks.add(book);
+            return SUCCESSFUL_CHECKOUT;
+        }
+        return CHECKOUT_FAIL;
     }
 
-    public void returnBook(Book book) {
-        listOfBooks.add(book);
-        checkedOutBooks.remove(book);
+    public String returnBook(ArrayList<Book> result) {
+        for(Book book : result) {
+            listOfBooks.add(book);
+            checkedOutBooks.remove(book);
+            return SUCCESSFUL_RETURN;
+        }
+        return RETURN_FAIL;
     }
 
 }
