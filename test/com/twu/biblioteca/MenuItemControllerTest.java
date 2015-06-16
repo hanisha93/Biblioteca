@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.MenuItemController;
+import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.models.Librarian;
+import com.twu.biblioteca.models.Library;
 import org.junit.Test;
 
 import java.util.ArrayList;

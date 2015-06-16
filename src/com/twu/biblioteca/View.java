@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.models.Book;
+
 import java.util.Scanner;
 //handles i/o
 public class View implements Messages{

@@ -1,4 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuAction;
+
+import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.MenuAction;
+import com.twu.biblioteca.controller.MenuItemController;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
+
+import com.twu.biblioteca.MenuAction;
+import com.twu.biblioteca.Messages;
+import com.twu.biblioteca.View;
 
 import java.util.HashMap;
 

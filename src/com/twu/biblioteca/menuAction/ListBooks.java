@@ -1,4 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuAction;
+
+import com.twu.biblioteca.models.Library;
+import com.twu.biblioteca.MenuAction;
+import com.twu.biblioteca.controller.MenuItemController;
 
 public class ListBooks implements MenuAction {
     private MenuItemController menuItemController;

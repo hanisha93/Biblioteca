@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.MenuController;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.HashMap;
 
@@ -15,7 +15,7 @@ public class MenuControllerTest {
 
         HashMap<String, MenuAction> menuAction = new HashMap<String , MenuAction>();
 
-        ListBooks list = mock(ListBooks.class);
+        menuAction.ListBooks list = mock(menuAction.ListBooks.class);
         menuAction.put("1", list);
         View view = mock(View.class);
         MenuController menuDispatcher = new MenuController(menuAction, view);
@@ -31,7 +31,7 @@ public class MenuControllerTest {
 
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         View view = mock(View.class);
-        ListBooks list = mock(ListBooks.class);
+        menuAction.ListBooks list = mock(menuAction.ListBooks.class);
         menuAction.put("1", list);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 

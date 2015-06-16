@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.MenuController;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
