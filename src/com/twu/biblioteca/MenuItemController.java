@@ -24,6 +24,7 @@ public class MenuItemController {
     public void checkOut(ArrayList<Book> result) {
         view.printToConsole(CHECKOUT_BOOK);
         String title = view.readInput();
+        result.clear();
         library.searchBook(title, result);
         String message = library.doCheckout(result);
         view.printToConsole(message);
@@ -32,6 +33,7 @@ public class MenuItemController {
     public void returnBook(ArrayList<Book> result) {
         view.printToConsole(RETURN_BOOK);
         String title = view.readInput();
+        result.clear();
         library.searchCheckedOutList(title, result);
         String message = library.returnBook(result);
         view.printToConsole(message);

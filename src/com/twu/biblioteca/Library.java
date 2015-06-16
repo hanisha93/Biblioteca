@@ -24,20 +24,22 @@ public class Library {
     }
 
     public ArrayList<Book> searchBook(String title, ArrayList<Book> result) {
-        for(Book eachBook : listOfBooks)
-        if(eachBook.matchBook(title)) {
-            result.add(eachBook);
-            break;
+        for(Book book : listOfBooks) {
+            if (book.matchBook(title)) {
+                result.add(book);
+                break;
+            }
         }
         return result;
     }
 
     public ArrayList<Book> searchCheckedOutList(String title, ArrayList<Book> result) {
-        for (Book eachBook : checkedOutBooks)
-            if (eachBook.matchBook(title)) {
-                result.add(eachBook);
+        for (Book book : checkedOutBooks) {
+            if (book.matchBook(title)) {
+                result.add(book);
                 break;
             }
+        }
         return result;
     }
 
