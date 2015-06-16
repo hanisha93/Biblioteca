@@ -16,8 +16,6 @@ public class LibraryTest {
 
     @Test
     public void specForCheckingToString() {
-
-
         ArrayList<Book> list = new ArrayList<Book>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
@@ -32,8 +30,6 @@ public class LibraryTest {
 
     @Test
     public void specForCheckingCompareBookReturningBooksWhenBookTitleMatches() {
-
-
         ArrayList<Book> list = new ArrayList<Book>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
@@ -65,34 +61,46 @@ public class LibraryTest {
 
     @Test
     public void specToCheckAddingBookToCheckedOutList() {
-
-
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
-        ArrayList<Book> checkedList = new ArrayList<Book>();
-        Library library = new Library(listOfBooks, checkedList);
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        Library library = new Library(listOfBooks, checkedOutList);
         library.doCheckout(book);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
         expectedList.add(new Book("java", "john", "2000"));
 
-        assertThat(checkedList, is(expectedList));
+        assertThat(checkedOutList, is(expectedList));
     }
 
     @Test
     public void specToCheckRemovingBookFromBooksListInLibrary() {
-
-
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
-        ArrayList<Book> checkedList = new ArrayList<Book>();
-        Library library = new Library(listOfBooks, checkedList);
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        Library library = new Library(listOfBooks, checkedOutList);
         library.doCheckout(book);
 
         ArrayList<Book> expectedList = new ArrayList<Book>();
-        
+
+        assertThat(listOfBooks, is(expectedList));
+    }
+
+    @Test
+    public void specToCheckReturnBookIsAddingBookToListOfBooksInLibrary() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+
+        Book book = new Book("java", "john", "2000");
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("java", "john", "2000"));
+        Library library = new Library(listOfBooks, checkedOutList);
+        library.returnBook(book);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+        expectedList.add(new Book("java", "john", "2000"));
+
         assertThat(listOfBooks, is(expectedList));
     }
 }

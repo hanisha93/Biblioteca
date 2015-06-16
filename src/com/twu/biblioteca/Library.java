@@ -34,4 +34,9 @@ public class Library {
         checkedOutBooks.add(book);
     }
 
+    public void returnBook(Book book) {
+        listOfBooks.add(book);
+        checkedOutBooks.remove(book);
+    }
+
 }
