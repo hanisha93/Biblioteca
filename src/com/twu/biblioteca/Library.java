@@ -21,11 +21,19 @@ public class Library {
         return booksList;
     }
 
-    public ArrayList<Book> compareBooks(String title,ArrayList<Book> result) {
+    public ArrayList<Book> searchBook(String title, ArrayList<Book> result) {
         for(Book eachBook : listOfBooks)
         if(eachBook.matchBook(title)) {
             result.add(eachBook);
         }
+        return result;
+    }
+
+    public ArrayList<Book> searchCheckedOutList(String title, ArrayList<Book> result) {
+        for (Book eachBook : checkedOutBooks)
+            if (eachBook.matchBook(title)) {
+                result.add(eachBook);
+            }
         return result;
     }
 

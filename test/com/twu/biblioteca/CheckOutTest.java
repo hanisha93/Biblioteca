@@ -13,13 +13,12 @@ public class CheckOutTest {
 
     @Test
     public void specToCheckHandleOptionInCheckOut() {
-        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
-        ArrayList<Book> booksList = new ArrayList<Book>();
-        Library library = new Library(booksList, checkedOutBooks);
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        Library library = mock(Library.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        CheckOut checkOut = new CheckOut(menuItemController, booksList, checkedOutBooks);
+        CheckOut checkOut = new CheckOut(menuItemController, searchResult);
         checkOut.handleOption();
 
-        verify(menuItemController, Mockito.times(1)).checkOut(checkedOutBooks, booksList);
+        verify(menuItemController, Mockito.times(1)).checkOut(searchResult);
     }
 }

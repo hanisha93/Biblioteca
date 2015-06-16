@@ -7,6 +7,7 @@ public class MenuController implements Messages {
     private HashMap<String, MenuAction> menuAction;
     private View view;
 
+
     public MenuController(HashMap<String, MenuAction> menuAction, View view) {
         this.menuAction = menuAction;
         this.view = view;

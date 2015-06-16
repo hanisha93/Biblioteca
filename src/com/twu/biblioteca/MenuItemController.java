@@ -7,9 +7,10 @@ import static com.twu.biblioteca.Messages.*;
 //controlling all items in menu
 public class MenuItemController {
     private View view;
-
-    public MenuItemController(View view) {
+    private Library library;
+    public MenuItemController(View view,Library library) {
         this.view = view;
+        this.library = library;
     }
 
     public void listBooks(Library library) {
@@ -20,33 +21,23 @@ public class MenuItemController {
         view.printToConsole(INVALID_OPTION);
     }
 
-    public void checkOut(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {
-        int i;
-        Book checkOutBook = getBook(CHECKOUT_BOOK);
-        for (i = 0; i < booksList.size(); i++) {
-            if(checkOutBook.equals(booksList.get(i))) {
-                checkOutBook = getCheckOutBook(checkedOutBooks, booksList, i);
-                break;
-            }
-        }
-        if (i == booksList.size()) {
+    public void checkOut(ArrayList<Book> result) {
+        view.printToConsole(CHECKOUT_BOOK);
+        String title = view.readInput();
+        library.searchBook(title, result);
+        if(result.isEmpty()) {
             view.printToConsole(CHECKOUT_FAIL);
         }
-        booksList.remove(checkOutBook);
+        else {
+            library.doCheckout(result.get(0));
+            view.printToConsole(SUCCESSFUL_CHECKOUT);
+        }
     }
 
 
     private Book getBook(String message) {
         view.printToConsole(message);
         return view.readBook();
-    }
-
-    private Book getCheckOutBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList, int i) {
-        Book checkOutBook;
-        checkedOutBooks.add(booksList.get(i));
-        view.printToConsole(SUCCESSFUL_CHECKOUT);
-        checkOutBook  = booksList.get(i);
-        return checkOutBook;
     }
 
     public void returnBook(ArrayList<Book> checkedOutBooks, ArrayList<Book> booksList) {

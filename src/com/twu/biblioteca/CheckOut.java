@@ -5,16 +5,14 @@ import java.util.ArrayList;
 public class CheckOut implements MenuAction {
 
     private MenuItemController menuItemController;
-    private ArrayList<Book> booksList;
-    private ArrayList<Book> checkedOutBooks;
-    public CheckOut(MenuItemController menuItemController, ArrayList<Book> booksList, ArrayList<Book> checkedOutList) {
+    private ArrayList<Book> searchResult;
+    public CheckOut(MenuItemController menuItemController,  ArrayList<Book> searchResult) {
         this.menuItemController = menuItemController;
-        this.booksList = booksList;
-        this.checkedOutBooks = checkedOutList;
+        this.searchResult = searchResult;
     }
 
     @Override
     public void handleOption() {
-        menuItemController.checkOut(checkedOutBooks, booksList);
+        menuItemController.checkOut(searchResult);
     }
 }

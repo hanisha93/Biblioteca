@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class LibraryTest {
 
@@ -36,7 +34,7 @@ public class LibraryTest {
         ArrayList<Book> result = new ArrayList<Book>();
         Library listOfBooks = new Library(list, list);
 
-        ArrayList<Book> actualBooks = listOfBooks.compareBooks("Java", result);
+        ArrayList<Book> actualBooks = listOfBooks.searchBook("Java", result);
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
         expectedBooks.add(new Book("Java", "wilson", "1998"));
 
@@ -53,7 +51,7 @@ public class LibraryTest {
         ArrayList<Book> result = new ArrayList<Book>();
         Library listOfBooks = new Library(list,list);
 
-        ArrayList<Book> actualBooks = listOfBooks.compareBooks("The lord of rings", result);
+        ArrayList<Book> actualBooks = listOfBooks.searchBook("The lord of rings", result);
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
 
         assertEquals(actualBooks, expectedBooks);
