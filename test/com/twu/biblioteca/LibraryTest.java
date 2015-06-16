@@ -91,7 +91,6 @@ public class LibraryTest {
     @Test
     public void specToCheckReturnBookIsAddingBookToListOfBooksInLibrary() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-
         Book book = new Book("java", "john", "2000");
         ArrayList<Book> checkedOutList = new ArrayList<Book>();
         checkedOutList.add(new Book("java", "john", "2000"));
@@ -102,6 +101,20 @@ public class LibraryTest {
         expectedList.add(new Book("java", "john", "2000"));
 
         assertThat(listOfBooks, is(expectedList));
+    }
+
+    @Test
+    public void specToCheckReturnBookIsRemovedFromCheckedOutList() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("java", "john", "2000");
+        ArrayList<Book> checkedOutList = new ArrayList<Book>();
+        checkedOutList.add(new Book("java", "john", "2000"));
+        Library library = new Library(listOfBooks, checkedOutList);
+        library.returnBook(book);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+
+        assertThat(checkedOutList, is(expectedList));
     }
 }
 
