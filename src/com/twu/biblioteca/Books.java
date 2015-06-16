@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Books {
 
-    private ArrayList<Book> listOfBooks = new ArrayList<Book>();
+    private ArrayList<Book> listOfBooks;
 
     public Books(ArrayList<Book> listOfBooks) {
         this.listOfBooks = listOfBooks;
@@ -17,5 +17,13 @@ public class Books {
             booksList = booksList + "" + book.toString()+"\n";
         }
         return booksList;
+    }
+
+    public ArrayList<Book> compareBooks(String title,ArrayList<Book> result) {
+        for(Book eachBook : listOfBooks)
+        if(eachBook.matchBook(title)) {
+            result.add(eachBook);
+        }
+        return result;
     }
 }
