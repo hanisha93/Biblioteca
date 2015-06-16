@@ -33,7 +33,7 @@ public class BooksTest {
     }
 
     @Test
-    public void specForCheckingCompareBookReturningBooksWithSameTitle() {
+    public void specForCheckingCompareBookReturningBooksWhenBookTitleMatches() {
 
 
         ArrayList<Book> list = new ArrayList<Book>();
@@ -46,6 +46,22 @@ public class BooksTest {
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
         expectedBooks.add(new Book("Java", "wilson","1998"));
 
+        assertEquals(actualBooks, expectedBooks);
+    }
+
+    @Test
+    public void specForCheckingCompareBookReturningBooksWhenBookTitleDoesNotMatches() {
+
+
+        ArrayList<Book> list = new ArrayList<Book>();
+        list.add(new Book("Java", "wilson", "1998"));
+        list.add(new Book("c", "johnson", "2000"));
+        ArrayList<Book> result = new ArrayList<Book>();
+        Books listOfBooks = new Books(list);
+
+        ArrayList<Book> actualBooks = listOfBooks.compareBooks("The lord of rings", result);
+        ArrayList<Book> expectedBooks = new ArrayList<Book>();
+        
         assertEquals(actualBooks, expectedBooks);
     }
 }
