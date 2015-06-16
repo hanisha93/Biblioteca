@@ -79,6 +79,22 @@ public class LibraryTest {
 
         assertThat(checkedList, is(expectedList));
     }
+
+    @Test
+    public void specToCheckRemovingBookFromBooksListInLibrary() {
+
+
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        listOfBooks.add(new Book("java", "john", "2000"));
+        Book book = new Book("java", "john", "2000");
+        ArrayList<Book> checkedList = new ArrayList<Book>();
+        Library library = new Library(listOfBooks, checkedList);
+        library.doCheckout(book);
+
+        ArrayList<Book> expectedList = new ArrayList<Book>();
+        
+        assertThat(listOfBooks, is(expectedList));
+    }
 }
 
 
