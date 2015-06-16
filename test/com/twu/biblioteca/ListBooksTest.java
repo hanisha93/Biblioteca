@@ -10,12 +10,12 @@ public class ListBooksTest {
 
     @Test
     public void specToCheckHandleOption() {
-        Books books = mock(Books.class);
+        Library library= mock(Library.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        ListBooks listBooks = new ListBooks(menuItemController,books);
+        ListBooks listBooks = new ListBooks(menuItemController,library);
         listBooks.handleOption();
 
-        verify(menuItemController, Mockito.times(1)).listBooks(books);
+        verify(menuItemController, Mockito.times(1)).listBooks(library);
     }
 
 }

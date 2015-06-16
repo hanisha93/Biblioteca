@@ -12,8 +12,8 @@ public class MenuItemController {
         this.view = view;
     }
 
-    public void listBooks(Books books) {
-        view.printToConsole(books.toString());
+    public void listBooks(Library library) {
+        view.printToConsole(library.toString());
     }
 
     public void invalidOption() {

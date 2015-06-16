@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.matches;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,19 +19,19 @@ public class MenuItemControllerTest {
     public void specToCheckListBooksMenuItem() {
 
         View view = mock(View.class);
-        Books books = mock(Books.class);
+        Library library = mock(Library.class);
         MenuItemController menuItemController = new MenuItemController(view);
 
-        menuItemController.listBooks(books);
+        menuItemController.listBooks(library);
 
-        verify(view).printToConsole(books.toString());
+        verify(view).printToConsole(library.toString());
     }
 
     @Test
     public void specToCheckInvalidOption() {
 
         View view = mock(View.class);
-        Books books = mock(Books.class);
+        Library library = mock(Library.class);
         MenuItemController menuItemController = new MenuItemController(view);
 
         menuItemController.invalidOption();

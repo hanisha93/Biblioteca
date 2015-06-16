@@ -2,12 +2,14 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class Books {
+public class Library {
 
     private ArrayList<Book> listOfBooks;
+    private ArrayList<Book> checkedOutBooks;
 
-    public Books(ArrayList<Book> listOfBooks) {
+    public Library(ArrayList<Book> listOfBooks , ArrayList<Book> checkedOutBooks) {
         this.listOfBooks = listOfBooks;
+        this.checkedOutBooks = checkedOutBooks;
     }
 
     @Override
@@ -25,5 +27,10 @@ public class Books {
             result.add(eachBook);
         }
         return result;
+    }
+
+    public void doCheckout(Book book) {
+        listOfBooks.remove(book);
+        checkedOutBooks.add(book);
     }
 }
