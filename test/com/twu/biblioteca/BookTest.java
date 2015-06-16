@@ -26,4 +26,14 @@ public class BookTest {
 
         assertThat(actualBook, is(expectedBook));
     }
+
+    @Test
+    public void specForCheckingMatchBookReturnsBookHavingSameTitle() {
+        Book book = new Book("oop concepts", "wilson", "1998");
+
+        Book actualBook = book.matchBook("oop concepts");
+        Book expectedBook = new Book("oop concepts", "wilson", "1998");
+
+        assertThat(actualBook, is(expectedBook));
+    }
 }

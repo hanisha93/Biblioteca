@@ -12,7 +12,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return  title + " " + author + "  " + publishedYear;
+        return title + " " + author + "  " + publishedYear;
     }
 
     @Override
@@ -26,8 +26,10 @@ public class Book {
 
     }
 
-    @Override
-    public int hashCode() {
-        return title.hashCode();
+    public Book matchBook(String title) {
+        if (this.title.equals(title)) {
+            return this;
+        }
+        return null;
     }
 }

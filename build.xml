@@ -49,8 +49,4 @@
         </jar>
     </target>
 
-    <target name="run">
-        <java jar="out/jar/LineLength.jar" fork="true"/>
-    </target>
-
 </project>

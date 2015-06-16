@@ -19,7 +19,7 @@ public class ReturnTest {
         Return returnBook = new Return(menuItemController , booksList,checkedOutBooks);
         returnBook.handleOption();
 
-        verify(menuItemController, Mockito.times(1)).returnBook(checkedOutBooks, booksList);
+        verify(menuItemController).returnBook(checkedOutBooks, booksList);
     }
 
 }
