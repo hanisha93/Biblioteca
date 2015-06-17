@@ -18,7 +18,7 @@ public class ReturnBookTest {
 
         MenuItemController menuItemController = mock(MenuItemController.class);
         ReturnBook returnBook = new ReturnBook(menuItemController, searchResult);
-        returnBook.handleOption();
+        returnBook.performAction();
 
         verify(menuItemController).returnBook(searchResult);
     }

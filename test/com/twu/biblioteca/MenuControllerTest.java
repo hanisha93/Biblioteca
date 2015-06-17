@@ -22,9 +22,9 @@ public class MenuControllerTest {
         View view = mock(View.class);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 
-        menuDispatcher.handleRequest("1");
+        menuDispatcher.handleOption("1");
 
-        verify(list).handleOption();
+        verify(list).performAction();
 
     }
 
@@ -37,7 +37,7 @@ public class MenuControllerTest {
         menuAction.put("1", list);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 
-        menuDispatcher.handleRequest("3");
+        menuDispatcher.handleOption("3");
 
         verify(view).printToConsole(Messages.INVALID_OPTION);
 

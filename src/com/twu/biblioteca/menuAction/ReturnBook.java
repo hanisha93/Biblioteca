@@ -14,11 +14,10 @@ public class ReturnBook implements MenuAction {
     public ReturnBook(MenuItemController menuItemController, ArrayList<Book> searchResult) {
         this.menuItemController = menuItemController;
         this.searchResult = searchResult;
-
     }
 
     @Override
-    public void handleOption() {
+    public void performAction() {
         menuItemController.returnBook(searchResult);
     }
 }

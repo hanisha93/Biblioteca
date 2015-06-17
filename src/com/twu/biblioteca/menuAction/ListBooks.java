@@ -13,7 +13,7 @@ public class ListBooks implements MenuAction {
     }
 
     @Override
-    public void handleOption() {
+    public void performAction() {
         menuItemController.listBooks(library);
     }
 }

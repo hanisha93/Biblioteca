@@ -16,10 +16,10 @@ public class MenuController implements Messages {
         this.view = view;
     }
 
-    public void handleRequest(String option) {
+    public void handleOption(String option) {
         if (menuAction.containsKey(option)) {
             MenuAction menu = menuAction.get(option);
-            menu.handleOption();
+            menu.performAction();
         } else if (!option.equals("0")) {
             view.printToConsole(Messages.INVALID_OPTION);
         }

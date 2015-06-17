@@ -16,7 +16,7 @@ public class ListBooksTest {
         Library library = mock(Library.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         ListBooks listBooks = new ListBooks(menuItemController, library);
-        listBooks.handleOption();
+        listBooks.performAction();
 
         verify(menuItemController, Mockito.times(1)).listBooks(library);
     }

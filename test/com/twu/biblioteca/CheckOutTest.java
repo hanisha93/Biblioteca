@@ -20,7 +20,7 @@ public class CheckOutTest {
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         CheckOut checkOut = new CheckOut(menuItemController, searchResult);
-        checkOut.handleOption();
+        checkOut.performAction();
 
         verify(menuItemController, Mockito.times(1)).checkOut(searchResult);
     }

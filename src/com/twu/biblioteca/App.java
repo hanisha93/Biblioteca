@@ -10,11 +10,11 @@ public class App {
 
         printMessage(view);
         String option = view.readInput();
-        menuController.handleRequest(option);
+        menuController.handleOption(option);
         while (!option.equals("0")) {
             printMessage(view);
             option = view.readInput();
-            menuController.handleRequest(option);
+            menuController.handleOption(option);
         }
     }
 

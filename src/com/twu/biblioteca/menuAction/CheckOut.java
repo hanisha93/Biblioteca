@@ -16,7 +16,7 @@ public class CheckOut implements MenuAction {
     }
 
     @Override
-    public void handleOption() {
+    public void performAction() {
         menuItemController.checkOut(searchResult);
     }
 }
