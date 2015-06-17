@@ -15,4 +15,11 @@ public class Movie {
         return name + "  " + year + "  " + director + "  " + rating + "*";
 
     }
+
+    public boolean matchMovie(String title) {
+        if(this.name.equals(title) ) {
+            return true;
+        }
+        return false;
+    }
 }

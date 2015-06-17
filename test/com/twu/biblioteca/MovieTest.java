@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class MovieTest {
 
@@ -16,5 +17,10 @@ public class MovieTest {
         assertThat(actualMovie, is(expectedMovie));
     }
 
-
+    @Test
+    public void specToTestMatchMovieReturnsTrueWhenMovieNameMatches() {
+        Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
+        boolean matched = movie.matchMovie("Avatar");
+        assertTrue(matched);
+    }
 }
