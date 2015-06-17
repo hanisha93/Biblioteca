@@ -2,15 +2,9 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.menuAction.CheckOut;
-import com.twu.biblioteca.menuAction.ListBooks;
-import com.twu.biblioteca.menuAction.MenuAction;
+import com.twu.biblioteca.menuAction.*;
 
-import com.twu.biblioteca.menuAction.ReturnBook;
-import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.models.Librarian;
-import com.twu.biblioteca.models.BookSection;
-import com.twu.biblioteca.models.Movie;
+import com.twu.biblioteca.models.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,13 +26,13 @@ public class EntryPoint {
 
         Librarian librarian = new Librarian(booksList, checkedOutBooks);
         BookSection bookSection = new BookSection(booksList);
-
+        MoviesSection moviesSection = new MoviesSection(moviesList);
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view, librarian);
         menuAction.put("1", new ListBooks(menuItemController, bookSection));
         menuAction.put("2", new CheckOut(menuItemController, searchResult));
         menuAction.put("3", new ReturnBook(menuItemController, searchResult));
-
+        menuAction.put("4", new ListMovies(menuItemController,moviesSection));
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();

@@ -48,5 +48,6 @@ public class MenuItemController {
     }
 
     public void listMovies(MoviesSection movieSection) {
+        view.printToConsole(movieSection.toString());
     }
 }
