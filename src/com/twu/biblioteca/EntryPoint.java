@@ -32,7 +32,7 @@ public class EntryPoint {
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view, librarian);
         menuAction.put("1", new ListBooks(menuItemController, bookSection));
-        menuAction.put("2", new CheckOut(menuItemController, searchResult));
+        menuAction.put("2", new CheckOutBook(menuItemController, searchResult));
         menuAction.put("3", new ReturnBook(menuItemController, searchResult));
         menuAction.put("4", new ListMovies(menuItemController, moviesSection));
         view.printToConsole(Messages.WELCOME_MESSAGE);

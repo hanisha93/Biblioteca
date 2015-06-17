@@ -1,10 +1,7 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.View;
-import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.models.Librarian;
-import com.twu.biblioteca.models.BookSection;
-import com.twu.biblioteca.models.MoviesSection;
+import com.twu.biblioteca.models.*;
 
 import java.util.ArrayList;
 
@@ -49,5 +46,8 @@ public class MenuItemController {
 
     public void listMovies(MoviesSection movieSection) {
         view.printToConsole(movieSection.toString());
+    }
+
+    public void checkOutMovie(ArrayList<Movie> searchResult) {
     }
 }
