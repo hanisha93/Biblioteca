@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.controller.MenuItemController;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Librarian;
-import com.twu.biblioteca.models.Library;
+import com.twu.biblioteca.models.BookSection;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,13 +19,13 @@ public class MenuItemControllerTest {
     @Test
     public void specToCheckListBooksMenuItem() {
         View view = mock(View.class);
-        Library library = mock(Library.class);
+        BookSection bookSection = mock(BookSection.class);
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = new MenuItemController(view, librarian);
 
-        menuItemController.listBooks(library);
+        menuItemController.listBooks(bookSection);
 
-        verify(view).printToConsole(library.toString());
+        verify(view).printToConsole(bookSection.toString());
     }
 
     @Test

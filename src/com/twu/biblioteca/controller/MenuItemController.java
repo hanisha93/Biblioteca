@@ -3,7 +3,7 @@ package com.twu.biblioteca.controller;
 import com.twu.biblioteca.View;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Librarian;
-import com.twu.biblioteca.models.Library;
+import com.twu.biblioteca.models.BookSection;
 
 import java.util.ArrayList;
 
@@ -20,8 +20,8 @@ public class MenuItemController {
         this.librarian = librarian;
     }
 
-    public void listBooks(Library library) {
-        view.printToConsole(library.toString());
+    public void listBooks(BookSection bookSection) {
+        view.printToConsole(bookSection.toString());
     }
 
     public void invalidOption() {

@@ -13,22 +13,28 @@ public class MovieTest {
     @Test
     public void specToTestToString() {
         Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
+
         String actualMovie = movie.toString();
         String expectedMovie = "Avatar  2011  Cameroon  7*";
+
         assertThat(actualMovie, is(expectedMovie));
     }
 
     @Test
     public void specToTestMatchMovieReturnsTrueWhenMovieNameMatches() {
         Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
+
         boolean matched = movie.matchMovie("Avatar");
+
         assertTrue(matched);
     }
 
     @Test
     public void specToTestMatchMovieReturnsTrueWhenMovieNameDoesNotMatches() {
         Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
+
         boolean matched = movie.matchMovie("vatar");
+
         assertFalse(matched);
     }
 }

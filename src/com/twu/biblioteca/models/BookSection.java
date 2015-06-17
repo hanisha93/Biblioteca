@@ -4,12 +4,13 @@ import com.twu.biblioteca.models.Book;
 
 import java.util.ArrayList;
 
-public class Library {
+public class BookSection {
 
     private ArrayList<Book> books;
 
-    public Library(ArrayList<Book> books) {
+    public BookSection(ArrayList<Book> books) {
         this.books = books;
+
     }
 
     @Override
