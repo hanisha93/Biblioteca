@@ -4,6 +4,7 @@ import com.twu.biblioteca.View;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Librarian;
 import com.twu.biblioteca.models.BookSection;
+import com.twu.biblioteca.models.MoviesSection;
 
 import java.util.ArrayList;
 
@@ -44,5 +45,8 @@ public class MenuItemController {
         librarian.searchCheckedOutList(title, result);
         String message = librarian.returnBook(result);
         view.printToConsole(message);
+    }
+
+    public void listMovies(MoviesSection movieSection) {
     }
 }
