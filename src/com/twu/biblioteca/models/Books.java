@@ -1,14 +1,15 @@
 package com.twu.biblioteca.models;
 
-import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.Item;
+import com.twu.biblioteca.item.Book;
 
 import java.util.ArrayList;
 
-public class BookSection {
+public class Books {
 
-    private ArrayList<Book> books;
+    private ArrayList<Item> books;
 
-    public BookSection(ArrayList<Book> books) {
+    public Books(ArrayList<Item> books) {
         this.books = books;
 
     }
@@ -16,7 +17,7 @@ public class BookSection {
     @Override
     public String toString() {
         String booksList = "";
-        for (Book book : books) {
+        for (Item book : books) {
             booksList = booksList + "" + book.toString() + "\n";
         }
         return booksList;

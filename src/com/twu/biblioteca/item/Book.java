@@ -1,6 +1,8 @@
-package com.twu.biblioteca.models;
+package com.twu.biblioteca.item;
 
-public class Book {
+import com.twu.biblioteca.Item;
+
+public class Book implements Item {
     private String title, author;
     private String publishedYear;
 
@@ -8,6 +10,14 @@ public class Book {
         this.title = title;
         this.author = author;
         this.publishedYear = publishedYear;
+    }
+
+    @Override
+    public boolean match(String title) {
+        if (this.title.equals(title)) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -26,10 +36,4 @@ public class Book {
 
     }
 
-    public boolean matchBook(String title) {
-        if (this.title.equals(title)) {
-            return true;
-        }
-        return false;
-    }
 }

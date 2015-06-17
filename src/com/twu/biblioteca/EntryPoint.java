@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.controller.MenuItemController;
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.menuAction.*;
 
 import com.twu.biblioteca.models.*;
@@ -14,10 +16,11 @@ public class EntryPoint {
 
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Book> booksList = new ArrayList<Book>();
-        ArrayList<Movie> moviesList = new ArrayList<Movie>();
-        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
-        ArrayList<Book> searchResult = new ArrayList<>();
+        ArrayList<Item> booksList = new ArrayList<Item>();
+        ArrayList<Item> moviesList = new ArrayList<Item>();
+        ArrayList<Item> checkedOutBooks = new ArrayList<Item>();
+        ArrayList<Item> checkedOutMovies = new ArrayList<Item>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         View view = new View(scanner);
 
         booksList.add(new Book("oop concepts", "john", "2000"));
@@ -26,15 +29,21 @@ public class EntryPoint {
 
         moviesList.add(new Movie("Avatar", "cameroon", "2011", "7"));
 
-        Librarian librarian = new Librarian(booksList, checkedOutBooks);
-        BookSection bookSection = new BookSection(booksList);
-        MoviesSection moviesSection = new MoviesSection(moviesList);
+        Librarian librarianHandlesBooks = new Librarian(booksList, checkedOutBooks);
+        Librarian librarianHandlesMovies = new Librarian(moviesList, checkedOutMovies);
+
+        Books books = new Books(booksList);
+        Movies movies = new Movies(moviesList);
+
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuAction.put("1", new ListBooks(menuItemController, bookSection));
-        menuAction.put("2", new CheckOutBook(menuItemController, searchResult));
-        menuAction.put("3", new ReturnBook(menuItemController, searchResult));
-        menuAction.put("4", new ListMovies(menuItemController, moviesSection));
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuAction.put("1", new ListBooks(menuItemController, books));
+        menuAction.put("2", new CheckOut(menuItemController, librarianHandlesBooks));
+        menuAction.put("3", new Return(menuItemController, librarianHandlesBooks));
+        menuAction.put("4", new ListMovies(menuItemController, movies));
+        menuAction.put("5", new CheckOut(menuItemController, librarianHandlesMovies));
+        menuAction.put("6", new Return(menuItemController,librarianHandlesMovies));
+
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();

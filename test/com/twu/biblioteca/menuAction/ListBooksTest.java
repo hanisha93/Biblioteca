@@ -1,8 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuAction;
 
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.menuAction.ListBooks;
-import com.twu.biblioteca.models.BookSection;
+import com.twu.biblioteca.models.Books;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -13,12 +12,12 @@ public class ListBooksTest {
 
     @Test
     public void specToCheckHandleOption() {
-        BookSection bookSection = mock(BookSection.class);
+        Books books = mock(Books.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        ListBooks listBooks = new ListBooks(menuItemController, bookSection);
+        ListBooks listBooks = new ListBooks(menuItemController, books);
         listBooks.performAction();
 
-        verify(menuItemController, Mockito.times(1)).listBooks(bookSection);
+        verify(menuItemController, Mockito.times(1)).listBooks(books);
     }
 
 }

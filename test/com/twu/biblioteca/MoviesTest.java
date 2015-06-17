@@ -1,23 +1,23 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.Movie;
-import com.twu.biblioteca.models.MoviesSection;
+import com.twu.biblioteca.item.Movie;
+import com.twu.biblioteca.models.Movies;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class MoviesSectionTest {
+public class MoviesTest {
 
     @Test
     public void specForCheckingToString() {
-        ArrayList<Movie> moviesList = new ArrayList<Movie>();
+        ArrayList<Item> moviesList = new ArrayList<Item>();
         moviesList.add(new Movie("Avatar","2011","cameroon","7"));
         moviesList.add(new Movie("2012", "2011","james" , "5"));
-        MoviesSection moviesSection = new MoviesSection(moviesList);
+        Movies movies = new Movies(moviesList);
 
-        String actualBooks = moviesSection.toString();
+        String actualBooks = movies.toString();
         String expectedBooks = "Avatar  2011  cameroon  7*\n" +
                 "2012  2011  james  5*\n";
 

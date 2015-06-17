@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.item;
 
-import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.item.Book;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -30,13 +30,13 @@ public class BookTest {
     public void specForCheckingMatchBookReturnsTrueHavingSameTitle() {
         Book book = new Book("oop concepts", "wilson", "1998");
 
-        assertTrue(book.matchBook("oop concepts"));
+        assertTrue(book.match("oop concepts"));
     }
 
     @Test
     public void specForCheckingMatchBookReturnsFalseHavingSameTitle() {
         Book book = new Book("oop concepts", "wilson", "1998");
 
-        assertFalse(book.matchBook("oop"));
+        assertFalse(book.match("oop"));
     }
 }

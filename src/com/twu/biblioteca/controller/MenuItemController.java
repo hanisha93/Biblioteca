@@ -1,6 +1,9 @@
 package com.twu.biblioteca.controller;
 
+import com.twu.biblioteca.Item;
 import com.twu.biblioteca.View;
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.models.*;
 
 import java.util.ArrayList;
@@ -11,43 +14,40 @@ import static com.twu.biblioteca.Messages.*;
 
 public class MenuItemController {
     private View view;
-    private Librarian librarian;
-
-    public MenuItemController(View view, Librarian librarian) {
+    private ArrayList<Item> searchResult;
+    public MenuItemController(View view,ArrayList<Item> searchResult) {
         this.view = view;
-        this.librarian = librarian;
+        this.searchResult = searchResult;
     }
 
-    public void listBooks(BookSection bookSection) {
-        view.printToConsole(bookSection.toString());
+    public void listBooks(Books books) {
+        view.printToConsole(books.toString());
     }
 
     public void invalidOption() {
         view.printToConsole(INVALID_OPTION);
     }
 
-    public void checkOut(ArrayList<Book> matchedBook) {
+    public void checkOut(Librarian librarian) {
         view.printToConsole(CHECKOUT_BOOK);
         String title = view.readInput();
-        matchedBook.clear();
-        librarian.searchBook(title, matchedBook);
-        String message = librarian.doCheckout(matchedBook);
+        searchResult.clear();
+        librarian.searchBook(title, searchResult);
+        String message = librarian.doCheckout(searchResult);
         view.printToConsole(message);
     }
 
-    public void returnBook(ArrayList<Book> result) {
+    public void returnBook(Librarian librarian) {
         view.printToConsole(RETURN_BOOK);
         String title = view.readInput();
-        result.clear();
-        librarian.searchCheckedOutList(title, result);
-        String message = librarian.returnBook(result);
+        searchResult.clear();
+        librarian.searchCheckedOutList(title, searchResult);
+        String message = librarian.returnBook(searchResult);
         view.printToConsole(message);
     }
 
-    public void listMovies(MoviesSection movieSection) {
-        view.printToConsole(movieSection.toString());
+    public void listMovies(Movies movies) {
+        view.printToConsole(movies.toString());
     }
 
-    public void checkOutMovie(ArrayList<Movie> searchResult) {
-    }
 }

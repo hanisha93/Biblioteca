@@ -1,20 +1,19 @@
 package com.twu.biblioteca.menuAction;
 
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.menuAction.MenuAction;
-import com.twu.biblioteca.models.MoviesSection;
+import com.twu.biblioteca.models.Movies;
 
 public class ListMovies implements MenuAction {
 
     private MenuItemController menuItemController;
-    private MoviesSection moviesSection;
-    public ListMovies(MenuItemController menuItemController, MoviesSection moviesSection) {
+    private Movies movies;
+    public ListMovies(MenuItemController menuItemController, Movies movies) {
         this.menuItemController = menuItemController;
-        this.moviesSection = moviesSection;
+        this.movies = movies;
     }
 
     @Override
     public void performAction() {
-        menuItemController.listMovies(moviesSection);
+        menuItemController.listMovies(movies);
     }
 }

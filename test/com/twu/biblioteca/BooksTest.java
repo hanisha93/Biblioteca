@@ -1,24 +1,24 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.models.BookSection;
-import com.twu.biblioteca.models.Movie;
-import com.twu.biblioteca.models.MoviesSection;
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.models.Books;
+import com.twu.biblioteca.item.Movie;
+import com.twu.biblioteca.models.Movies;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class BookSectionTest {
+public class BooksTest {
 
     @Test
     public void specForCheckingToString() {
-        ArrayList<Book> list = new ArrayList<Book>();
+        ArrayList<Item> list = new ArrayList<Item>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
 
-        BookSection listOfBooks = new BookSection(list);
+        Books listOfBooks = new Books(list);
 
         String actualBooks = listOfBooks.toString();
         String expectedBooks = "Java wilson 1998\nc johnson 2000\n";
@@ -26,16 +26,16 @@ public class BookSectionTest {
         assertEquals(actualBooks, expectedBooks);
     }
 
-    public static class MoviesSectionTest {
+    public static class MoviesTest {
 
         @Test
         public void specForCheckingToString() {
-            ArrayList<Movie> moviesList = new ArrayList<Movie>();
+            ArrayList<Item> moviesList = new ArrayList<Item>();
             moviesList.add(new Movie("Avatar","2011","cameroon","7"));
             moviesList.add(new Movie("2012", "2011","james" , "5"));
-            MoviesSection moviesSection = new MoviesSection(moviesList);
+            Movies movies = new Movies(moviesList);
 
-            String actualBooks = moviesSection.toString();
+            String actualBooks = movies.toString();
             String expectedBooks = "Avatar  2011  cameroon  7*\n" +
                     "2012  2011  james  5*\n";
 

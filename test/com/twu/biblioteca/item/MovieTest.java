@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.item;
 
-import com.twu.biblioteca.models.Movie;
+import com.twu.biblioteca.item.Movie;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -24,7 +24,7 @@ public class MovieTest {
     public void specToTestMatchMovieReturnsTrueWhenMovieNameMatches() {
         Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
 
-        boolean matched = movie.matchMovie("Avatar");
+        boolean matched = movie.match("Avatar");
 
         assertTrue(matched);
     }
@@ -33,7 +33,7 @@ public class MovieTest {
     public void specToTestMatchMovieReturnsTrueWhenMovieNameDoesNotMatches() {
         Movie movie = new Movie("Avatar", "2011", "Cameroon", "7");
 
-        boolean matched = movie.matchMovie("vatar");
+        boolean matched = movie.match("vatar");
 
         assertFalse(matched);
     }

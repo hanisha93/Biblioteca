@@ -1,6 +1,8 @@
-package com.twu.biblioteca.models;
+package com.twu.biblioteca.item;
 
-public class Movie {
+import com.twu.biblioteca.Item;
+
+public class Movie implements Item{
     private String name, year, director, rating;
 
     public Movie(String name, String year, String director, String rating) {
@@ -16,7 +18,8 @@ public class Movie {
 
     }
 
-    public boolean matchMovie(String title) {
+    @Override
+    public boolean match(String title) {
         if(this.name.equals(title) ) {
             return true;
         }

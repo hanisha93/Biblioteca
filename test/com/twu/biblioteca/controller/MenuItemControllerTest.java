@@ -1,10 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
 
+import com.twu.biblioteca.Item;
+import com.twu.biblioteca.View;
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.models.Librarian;
-import com.twu.biblioteca.models.BookSection;
-import com.twu.biblioteca.models.MoviesSection;
+import com.twu.biblioteca.models.Books;
+import com.twu.biblioteca.models.Movies;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,20 +22,20 @@ public class MenuItemControllerTest {
     @Test
     public void specToCheckListBooksMenuItem() {
         View view = mock(View.class);
-        BookSection bookSection = mock(BookSection.class);
-        Librarian librarian = mock(Librarian.class);
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
+        Books books = mock(Books.class);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
 
-        menuItemController.listBooks(bookSection);
+        menuItemController.listBooks(books);
 
-        verify(view).printToConsole(bookSection.toString());
+        verify(view).printToConsole(books.toString());
     }
 
     @Test
     public void specToCheckInvalidOption() {
         View view = mock(View.class);
-        Librarian librarian = mock(Librarian.class);
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
 
         menuItemController.invalidOption();
 
@@ -44,10 +46,10 @@ public class MenuItemControllerTest {
     public void specToTestCheckOutBookMenuItemDisplayingCheckOutMessages() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.checkOut(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.checkOut(librarian);
 
         verify(view, times(2)).printToConsole(anyString());
     }
@@ -56,10 +58,10 @@ public class MenuItemControllerTest {
     public void specToTestCheckOutBookMenuItemTakingBookToBeCheckedOut() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.checkOut(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.checkOut(librarian);
 
         verify(view).readInput();
 
@@ -69,10 +71,10 @@ public class MenuItemControllerTest {
     public void specToTestCheckoutOptionSearchesMatchingBookInLibrary() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.checkOut(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.checkOut(librarian);
 
         verify(librarian).searchBook("java", searchResult);
 
@@ -82,10 +84,10 @@ public class MenuItemControllerTest {
     public void specToTestWhenThereAreBooksThatMatchesBooksInLibaryPerformsCheckout() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.checkOut(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.checkOut(librarian);
 
         verify(librarian).doCheckout(searchResult);
     }
@@ -94,10 +96,10 @@ public class MenuItemControllerTest {
     public void specToTestReturnBookMenuItemDisplayingReturnMessages() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.returnBook(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.returnBook(librarian);
 
         verify(view, times(2)).printToConsole(anyString());
     }
@@ -106,10 +108,10 @@ public class MenuItemControllerTest {
     public void specToTestReturnBookMenuItemTakingBookToBeReturned() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.returnBook(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.returnBook(librarian);
 
         verify(view).readInput();
 
@@ -119,10 +121,10 @@ public class MenuItemControllerTest {
     public void specToTestReturnOptionSearchesMatchingBookInCheckedOutList() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.returnBook(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.returnBook(librarian);
 
         verify(librarian).searchCheckedOutList("java", searchResult);
 
@@ -132,10 +134,10 @@ public class MenuItemControllerTest {
     public void specToTestWhenThereAreBooksThatMatchesBookInCheckedOutListTakeReturnedBook() {
         View view = mock(View.class);
         Librarian librarian = mock(Librarian.class);
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
-        menuItemController.returnBook(searchResult);
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        menuItemController.returnBook(librarian);
 
         verify(librarian).returnBook(searchResult);
     }
@@ -143,12 +145,13 @@ public class MenuItemControllerTest {
     @Test
     public void specToCheckListMoviesMenuItem() {
         View view = mock(View.class);
-        MoviesSection moviesSection = mock(MoviesSection.class);
+        Movies movies = mock(Movies.class);
         Librarian librarian = mock(Librarian.class);
-        MenuItemController menuItemController = new MenuItemController(view, librarian);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        MenuItemController menuItemController = new MenuItemController(view,searchResult);
 
-        menuItemController.listMovies(moviesSection);
+        menuItemController.listMovies(movies);
 
-        verify(view).printToConsole(moviesSection.toString());
+        verify(view).printToConsole(movies.toString());
     }
 }

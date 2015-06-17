@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
 
+import com.twu.biblioteca.Messages;
+import com.twu.biblioteca.View;
 import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.menuAction.ListBooks;
 import com.twu.biblioteca.menuAction.MenuAction;

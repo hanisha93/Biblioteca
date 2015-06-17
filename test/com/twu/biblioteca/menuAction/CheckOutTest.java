@@ -1,8 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuAction;
 
+import com.twu.biblioteca.Item;
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.menuAction.CheckOutBook;
-import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Librarian;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -12,16 +11,16 @@ import java.util.ArrayList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class CheckOutBookTest {
+public class CheckOutTest {
 
     @Test
     public void specToCheckHandleOptionInCheckOut() {
-        ArrayList<Book> searchResult = new ArrayList<Book>();
+        ArrayList<Item> searchResult = new ArrayList<Item>();
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        CheckOutBook checkOutBook = new CheckOutBook(menuItemController, searchResult);
-        checkOutBook.performAction();
+        CheckOut checkOut = new CheckOut(menuItemController, librarian);
+        checkOut.performAction();
 
-        verify(menuItemController, Mockito.times(1)).checkOut(searchResult);
+        verify(menuItemController, Mockito.times(1)).checkOut(librarian);
     }
 }
