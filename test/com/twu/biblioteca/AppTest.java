@@ -31,6 +31,7 @@ public class AppTest {
         verify(view, Mockito.times(2)).printToConsole("1.ListBooks\n" +
                 "2.CheckOut\n" +
                 "3.ReturnBook\n" +
+                "4.ListMovies\n" +
                 "0.quit");
     }
 }

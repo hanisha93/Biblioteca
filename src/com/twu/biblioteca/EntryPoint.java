@@ -24,6 +24,8 @@ public class EntryPoint {
         booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
         checkedOutBooks.add(new Book("", "", ""));
 
+        moviesList.add(new Movie("Avatar", "cameroon", "2011", "7"));
+
         Librarian librarian = new Librarian(booksList, checkedOutBooks);
         BookSection bookSection = new BookSection(booksList);
         MoviesSection moviesSection = new MoviesSection(moviesList);
@@ -32,7 +34,7 @@ public class EntryPoint {
         menuAction.put("1", new ListBooks(menuItemController, bookSection));
         menuAction.put("2", new CheckOut(menuItemController, searchResult));
         menuAction.put("3", new ReturnBook(menuItemController, searchResult));
-        menuAction.put("4", new ListMovies(menuItemController,moviesSection));
+        menuAction.put("4", new ListMovies(menuItemController, moviesSection));
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();
