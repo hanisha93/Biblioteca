@@ -30,11 +30,13 @@ public class EntryPoint {
 
         Librarian librarian = new Librarian(booksList, checkedOutBooks);
         Library library = new Library(booksList);
+
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view, librarian);
         menuAction.put("1", new ListBooks(menuItemController, library));
         menuAction.put("2", new CheckOut(menuItemController, searchResult));
         menuAction.put("3", new ReturnBook(menuItemController, searchResult));
+
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();
