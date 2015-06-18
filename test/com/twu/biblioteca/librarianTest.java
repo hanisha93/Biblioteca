@@ -249,6 +249,23 @@ public class LibrarianTest {
         assertThat(checkedOutlist, is(expectedList));
     }
 
+    @Test
+    public void specToTestReturnItemAddingMovieItemFromItemsInLibraryWhenSearchResultHasMovie() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        searchResult.add(movie);
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        librarian.returnItem(searchResult, "movie");
+        ArrayList<Item> expectedList = new ArrayList<Item>();
+        expectedList.add(movie);
+
+        assertThat(movieslist, is(expectedList));
+    }
+
 }
 
 
