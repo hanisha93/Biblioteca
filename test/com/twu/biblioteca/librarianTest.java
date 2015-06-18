@@ -292,7 +292,22 @@ public class LibrarianTest {
 
         String message = librarian.returnItem(searchResult, "movie");
 
-        assertThat(message, is("That is not a valid moviea"));
+        assertThat(message, is("That is not a valid movie"));
+    }
+
+    @Test
+    public void specToTestDoCheckOutReturnsSuccesfulMessageWhenSearchResultHasItem() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        searchResult.add(movie);
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        String message = librarian.doCheckout(searchResult, "movie");
+
+        assertThat(message, is("Thanq you! Enjoy the movie"));
     }
 
 }
