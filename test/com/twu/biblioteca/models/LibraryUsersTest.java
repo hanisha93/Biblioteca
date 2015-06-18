@@ -12,6 +12,12 @@ public class LibraryUsersTest {
         LibraryUsers libraryUsersTwo = new LibraryUsers("Bhanisha1", "hanisha");
 
         assertTrue(libraryUsersOne.equals(libraryUsersTwo));
-     }
+    }
 
+    @Test
+    public void specToCheckMatchUserReturnsTrueWhenIdAndPasswordMatchesTheOther() {
+        LibraryUsers libraryUsers = new LibraryUsers("Bhanisha1", "hanisha");
+
+        assertTrue(libraryUsers.matchUser("Bhanisha1", "hanisha"));
+    }
 }

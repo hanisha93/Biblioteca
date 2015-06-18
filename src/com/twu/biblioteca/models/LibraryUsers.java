@@ -16,8 +16,11 @@ public class LibraryUsers {
 
         LibraryUsers that = (LibraryUsers) o;
 
-        if (!libraryId.equals(that.libraryId)) return false;
-        return password.equals(that.password);
+        return libraryId.equals(that.libraryId) && password.equals(that.password);
 
+    }
+
+    public boolean matchUser(String libraryId, String password) {
+        return (this.libraryId.equals(libraryId)) && (this.password.equals(password));
     }
 }
