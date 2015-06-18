@@ -266,6 +266,21 @@ public class LibrarianTest {
         assertThat(movieslist, is(expectedList));
     }
 
+    @Test
+    public void specToTestReturnItemReturnsSuccesfulMessageWhenSearchResultHasItem() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        searchResult.add(movie);
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        String message = librarian.returnItem(searchResult, "movie");
+
+        assertThat(message, is("Thank you for returning the movie"));
+    }
+
 }
 
 
