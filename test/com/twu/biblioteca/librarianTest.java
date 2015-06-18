@@ -76,7 +76,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckAddingBookItemToCheckedOutList() {
+    public void specToTestDoCheckoutAddingBookItemToCheckedOutListWhenSearchResultHasBook() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
@@ -198,6 +198,23 @@ public class LibrarianTest {
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
 
         assertThat(actualMovies, is(expectedMovies));
+    }
+
+    @Test
+    public void specToTestDoCheckoutAddingMovieItemToCheckedOutListWhenSearchResultHasMovie() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        movieslist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        searchResult.add(movie);
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        librarian.doCheckout(searchResult, "movie");
+        ArrayList<Item> expectedMovies = new ArrayList<Item>();
+        expectedMovies.add(movie);
+
+        assertThat(checkedOutlist, is(expectedMovies));
     }
 
 }
