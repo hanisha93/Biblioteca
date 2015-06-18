@@ -93,7 +93,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckRemovingBookItemFromBooksListInLibrary() {
+    public void specToCheckDoCheckOutIsRemovingBookItemFromBooksListInLibraryWhenSearchResultHasBook() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
@@ -109,7 +109,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckReturnBookItemIsAddingItemToListOfItemInLibrary() {
+    public void specToCheckReturnBookItemIsAddingItemToListOfItemsInLibraryWhenSearcHListIsNotEmpty() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
@@ -231,6 +231,22 @@ public class LibrarianTest {
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(movieslist, is(expectedList));
+    }
+
+    @Test
+    public void specToTestReturnItemRemovingMovieItemFromCheckedOutListWhenSearchResultHasMovie() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        searchResult.add(movie);
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        librarian.returnItem(searchResult, "movie");
+        ArrayList<Item> expectedList = new ArrayList<Item>();
+
+        assertThat(checkedOutlist, is(expectedList));
     }
 
 }
