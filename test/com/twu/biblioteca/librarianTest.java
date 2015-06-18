@@ -281,6 +281,20 @@ public class LibrarianTest {
         assertThat(message, is("Thank you for returning the movie"));
     }
 
+    @Test
+    public void specToTestReturnItemReturnsFailureMessageWhenSearchResultIsEmpty() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        String message = librarian.returnItem(searchResult, "movie");
+
+        assertThat(message, is("That is not a valid moviea"));
+    }
+
 }
 
 
