@@ -2,8 +2,6 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.Item;
 import com.twu.biblioteca.View;
-import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.models.Librarian;
 import com.twu.biblioteca.models.Books;
 import com.twu.biblioteca.models.Movies;
@@ -76,7 +74,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
         menuItemController.checkOut(librarian, "book");
 
-        verify(librarian).searchBook("java", searchResult);
+        verify(librarian).searchItem("java", searchResult);
 
     }
 
@@ -138,7 +136,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
         menuItemController.returnBook(librarian, "book");
 
-        verify(librarian).returnBook(searchResult, "book");
+        verify(librarian).returnItem(searchResult, "book");
     }
 
     @Test

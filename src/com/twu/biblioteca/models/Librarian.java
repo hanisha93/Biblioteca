@@ -17,7 +17,7 @@ public class Librarian {
         this.checkedOutItems = checkedOutItems;
     }
 
-    public ArrayList<Item> searchBook(String title, ArrayList<Item> result) {
+    public ArrayList<Item> searchItem(String title, ArrayList<Item> result) {
         for (Item item : itemsInLibrary) {
             if (item.match(title)) {
                 result.add(item);
@@ -46,7 +46,7 @@ public class Librarian {
         return itm +CHECKOUT_FAIL;
     }
 
-    public String returnBook(ArrayList<Item> result, String itm) {
+    public String returnItem(ArrayList<Item> result, String itm) {
         for (Item item : result) {
             itemsInLibrary.add(item);
             checkedOutItems.remove(item);

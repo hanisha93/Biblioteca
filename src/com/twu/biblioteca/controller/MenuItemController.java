@@ -2,8 +2,6 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.Item;
 import com.twu.biblioteca.View;
-import com.twu.biblioteca.item.Book;
-import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.models.*;
 
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ public class MenuItemController {
         view.printToConsole("Enter " + item + " to checkout");
         String title = view.readInput();
         searchResult.clear();
-        librarian.searchBook(title, searchResult);
+        librarian.searchItem(title, searchResult);
         String message = librarian.doCheckout(searchResult, item);
         view.printToConsole(message);
     }
@@ -43,7 +41,7 @@ public class MenuItemController {
         String title = view.readInput();
         searchResult.clear();
         librarian.searchCheckedOutList(title, searchResult);
-        String message = librarian.returnBook(searchResult, item);
+        String message = librarian.returnItem(searchResult, item);
         view.printToConsole(message);
     }
 

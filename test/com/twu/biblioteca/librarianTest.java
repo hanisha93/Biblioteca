@@ -1,28 +1,29 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.models.Librarian;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
+import org.mockito.cglib.core.CollectionUtils;
 
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 public class LibrarianTest {
 
     @Test
-    public void specForCheckingSearchItemWhenItemTitleMatches() {
+    public void specForCheckingSearchBookItemWhenItemTitleMatches() {
         ArrayList<Item> list = new ArrayList<Item>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian listOfBooks = new Librarian(list, list);
+        Librarian librarian = new Librarian(list, list);
 
-        ArrayList<Item> actualBooks = listOfBooks.searchBook("Java", result);
+        ArrayList<Item> actualBooks = librarian.searchItem("Java", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
         expectedBooks.add(new Book("Java", "wilson", "1998"));
 
@@ -30,21 +31,21 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specForCheckingSearchItemWhenItemTitleDoesNotMatches() {
+    public void specForCheckingSearchBookItemWhenBookTitleDoesNotMatches() {
         ArrayList<Item> list = new ArrayList<Item>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
         Librarian listOfBooks = new Librarian(list, list);
 
-        ArrayList<Item> actualBooks = listOfBooks.searchBook("The lord of rings", result);
+        ArrayList<Item> actualBooks = listOfBooks.searchItem("The lord of rings", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
 
         assertEquals(actualBooks, expectedBooks);
     }
 
     @Test
-    public void specForCheckingSearchCheckedOutListWhenItemTitleMatches() {
+    public void specToTestSearchCheckedOutListWhenBookTitleMatches() {
         ArrayList<Item> list = new ArrayList<Item>();
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
@@ -59,7 +60,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specForCheckingSearchCheckedOutListWhenItemTitleDoesNotMatches() {
+    public void specToTestSearchCheckedOutListWhenBookItemTitleDoesNotMatches() {
 
 
         ArrayList<Item> list = new ArrayList<Item>();
@@ -75,7 +76,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckAddingItemToCheckedOutList() {
+    public void specToCheckAddingBookItemToCheckedOutList() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
@@ -92,7 +93,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckRemovingItemFromBooksListInLibrary() {
+    public void specToCheckRemovingBookItemFromBooksListInLibrary() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         listOfBooks.add(new Book("java", "john", "2000"));
         Book book = new Book("java", "john", "2000");
@@ -108,7 +109,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckReturnBookIsAddingItemToListOfitemInLibrary() {
+    public void specToCheckReturnBookItemIsAddingItemToListOfItemInLibrary() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
@@ -116,7 +117,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnBook(searchResult, "book");
+        librarian.returnItem(searchResult, "book");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(book);
@@ -125,7 +126,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckReturnItemIsRemovedFromCheckedOutList() {
+    public void specToCheckReturnBookItemIsRemovedFromCheckedOutList() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
@@ -133,12 +134,29 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnBook(searchResult, "book");
+        librarian.returnItem(searchResult, "book");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(checkedOutList, is(expectedList));
     }
+
+    @Test
+    public void specForCheckingSearchMovieItemWhenItemTitleMatches() {
+        ArrayList<Item> list = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        list.add(movie);
+        ArrayList<Item> result = new ArrayList<Item>();
+        Librarian librarian = new Librarian(list, list);
+
+        ArrayList<Item> actualMovies = librarian.searchItem("Avatar", result);
+        ArrayList<Item> expectedMovies = new ArrayList<Item>();
+        expectedMovies.add(movie);
+
+        assertThat(actualMovies,is(expectedMovies));
+    }
+
+
 }
 
 
