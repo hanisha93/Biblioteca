@@ -23,5 +23,18 @@ public class UserValidationTest {
 
         assertTrue(userValidation.validateUser());
     }
-    
+
+    @Test
+    public void specToValidateUserReturnsFalseWhenUserIsInValid() {
+        View view = mock(View.class);
+        when(view.readInput()).thenReturn("Bhanisha1", "hanisha");
+        LibraryUser libraryUser = new LibraryUser("Bhanish", "hanisha");
+        LibraryUser libraryUserTwo  = new LibraryUser("Bpriya2","priya");
+        ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
+        libraryUsers.add(libraryUser);
+        libraryUsers.add(libraryUserTwo);
+        UserValidation userValidation = new UserValidation(view, libraryUsers, libraryUser);
+
+        assertFalse(userValidation.validateUser());
+    }
 }
