@@ -1,10 +1,10 @@
 package com.twu.biblioteca.models;
 
-public class LibraryUsers {
+public class LibraryUser {
     private String libraryId;
     private String password;
 
-    public LibraryUsers(String libraryId, String password) {
+    public LibraryUser(String libraryId, String password) {
         this.libraryId = libraryId;
         this.password =password;
     }
@@ -14,7 +14,7 @@ public class LibraryUsers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        LibraryUsers that = (LibraryUsers) o;
+        LibraryUser that = (LibraryUser) o;
 
         return libraryId.equals(that.libraryId) && password.equals(that.password);
 
