@@ -19,42 +19,24 @@ public class UserValidationTest {
 
     @Test
     public void specToValidateUserReturnsTrueWhenUserIsValid() {
-        View view = mock(View.class);
-        when(view.readInput()).thenReturn("Bhanisha1", "hanisha");
-        LibraryUser libraryUser = new LibraryUser("Bhanisha1", "hanisha");
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
-        UserValidation userValidation = new UserValidation(view, libraryUsers, libraryUser);
+        UserValidation userValidation = new UserValidation(libraryUsers);
 
-        assertTrue(userValidation.validateUser());
+        assertTrue(userValidation.validateUser("b01-0001", "hanisha"));
     }
 
     @Test
     public void specToValidateUserReturnsFalseWhenUserIsInValid() {
-        View view = mock(View.class);
-        when(view.readInput()).thenReturn("Bhanisha1", "hanisha");
-        LibraryUser libraryUser = new LibraryUser("Bhanish", "hanisha");
-        LibraryUser libraryUserTwo = new LibraryUser("Bpriya2", "priya");
+
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha");
+        LibraryUser libraryUserTwo = new LibraryUser("b01-0002", "priya");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
         libraryUsers.add(libraryUserTwo);
-        UserValidation userValidation = new UserValidation(view, libraryUsers, libraryUser);
+        UserValidation userValidation = new UserValidation(libraryUsers);
 
-        assertFalse(userValidation.validateUser());
-    }
-
-    @Test
-    public void specToValidateUserDisplaysMessagesToGuideUserToGiveInput() {
-        View view = mock(View.class);
-        when(view.readInput()).thenReturn("Bhanisha1", "hanisha");
-        LibraryUser libraryUser = new LibraryUser("Bhanish", "hanisha");
-        LibraryUser libraryUserTwo = new LibraryUser("Bpriya2", "priya");
-        ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
-        libraryUsers.add(libraryUser);
-        libraryUsers.add(libraryUserTwo);
-        UserValidation userValidation = new UserValidation(view, libraryUsers, libraryUser);
-        userValidation.validateUser();
-
-        verify(view,times(2)).printToConsole(anyString());
+        assertFalse(userValidation.validateUser("b01-001", "hani"));
     }
 }

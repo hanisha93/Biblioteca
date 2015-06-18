@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuController;
+import com.twu.biblioteca.controller.UserValidation;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -14,9 +15,10 @@ public class AppTest {
     public void specToCheckAppReadingInput() {
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
+        UserValidation userValidation = mock(UserValidation.class);
         when(view.readInput()).thenReturn("1", "1", "2", "0");
         App app = new App();
-        app.start(view, menuController);
+        app.start(view, menuController,userValidation);
 
         verify(view, Mockito.times(4)).readInput();
     }
@@ -25,9 +27,10 @@ public class AppTest {
     public void specToCheckAppDisplayingMenuList() {
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
+        UserValidation userValidation = mock(UserValidation.class);
         App app = new App();
         when(view.readInput()).thenReturn("1", "0");
-        app.start(view, menuController);
+        app.start(view, menuController, userValidation);
         verify(view, Mockito.times(2)).printToConsole("1.ListBooks\n" +
                 "2.CheckOut\n" +
                 "3.Return\n" +

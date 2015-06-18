@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.controller.MenuItemController;
+import com.twu.biblioteca.controller.UserValidation;
 import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.menuAction.*;
@@ -21,16 +22,20 @@ public class EntryPoint {
         ArrayList<Item> checkedOutBooks = new ArrayList<Item>();
         ArrayList<Item> checkedOutMovies = new ArrayList<Item>();
         ArrayList<Item> searchResult = new ArrayList<Item>();
+        ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
+        libraryUsers.add(new LibraryUser("b01-0001", "hanisha"));
+        libraryUsers.add(new LibraryUser("b01-0002", "priya"));
+
         View view = new View(scanner);
 
         booksList.add(new Book("oop concepts", "john", "2000"));
         booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
         checkedOutBooks.add(new Book("", "", ""));
-
         moviesList.add(new Movie("Avatar", "cameroon", "2011", "7"));
 
         Librarian librarianHandlesBooks = new Librarian(booksList, checkedOutBooks);
         Librarian librarianHandlesMovies = new Librarian(moviesList, checkedOutMovies);
+        UserValidation userValidation = new UserValidation(libraryUsers);
 
         Books books = new Books(booksList);
         Movies movies = new Movies(moviesList);
@@ -48,6 +53,6 @@ public class EntryPoint {
         MenuController menuController = new MenuController(menuAction, view);
         App app = new App();
 
-        app.start(view, menuController);
+        app.start(view, menuController, userValidation);
     }
 }
