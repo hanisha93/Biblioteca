@@ -1,19 +1,12 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.Messages;
-import com.twu.biblioteca.View;
-import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.models.LibraryUser;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-import static com.twu.biblioteca.Messages.*;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class UserValidationTest {
 

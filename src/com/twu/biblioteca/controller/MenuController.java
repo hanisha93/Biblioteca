@@ -16,7 +16,7 @@ public class MenuController implements Messages {
         this.view = view;
     }
 
-    public void handleOption(String option) {
+    public void handleOption(String option,String libraryNo) {
         if (menuAction.containsKey(option)) {
             MenuAction menu = menuAction.get(option);
             menu.performAction();

@@ -12,18 +12,18 @@ public class App {
         String libraryId = view.readInput();
         view.printToConsole(ENTER_PWD);
         String password = view.readInput();
-        userValidation.validateUser(libraryId, password);
-
-            view.printToConsole(LOGIN_SUCCESS);
+        boolean validate = userValidation.validateUser(libraryId, password);
+        if(validate) {
             printMessage(view);
             String option = view.readInput();
-            menuController.handleOption(option);
+            menuController.handleOption(option,libraryId);
             while (!option.equals("0")) {
                 printMessage(view);
                 option = view.readInput();
-                menuController.handleOption(option);
+                menuController.handleOption(option,libraryId);
             }
         }
+    }
 
 
     private void printMessage(View view) {

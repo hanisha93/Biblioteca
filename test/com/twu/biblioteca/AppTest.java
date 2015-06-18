@@ -5,6 +5,7 @@ import com.twu.biblioteca.controller.UserValidation;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -16,9 +17,10 @@ public class AppTest {
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
         UserValidation userValidation = mock(UserValidation.class);
-        when(view.readInput()).thenReturn("1", "1", "2", "0");
+        when(userValidation.validateUser("001-0001", "hanisha")).thenReturn(true);
+        when(view.readInput()).thenReturn("001-0001", "hanisha", "1", "0");
         App app = new App();
-        app.start(view, menuController,userValidation);
+        app.start(view, menuController, userValidation);
 
         verify(view, Mockito.times(4)).readInput();
     }
@@ -28,15 +30,11 @@ public class AppTest {
         View view = mock(View.class);
         MenuController menuController = mock(MenuController.class);
         UserValidation userValidation = mock(UserValidation.class);
+        when(userValidation.validateUser("001-0001", "hanisha")).thenReturn(true);
         App app = new App();
-        when(view.readInput()).thenReturn("1", "0");
+        when(view.readInput()).thenReturn("001-0001", "hanisha", "1", "0");
         app.start(view, menuController, userValidation);
-        verify(view, Mockito.times(2)).printToConsole("1.ListBooks\n" +
-                "2.CheckOut\n" +
-                "3.Return\n" +
-                "4.ListMovies\n" +
-                "5.CheckOutMovie\n" +
-                "6.ReturnMovie\n" +
-                "0.quit");
+        verify(view, Mockito.times(6)).printToConsole(anyString());
+
     }
 }
