@@ -24,9 +24,9 @@ public class MenuControllerTest {
         View view = mock(View.class);
         MenuController menuDispatcher = new MenuController(menuAction, view);
 
-        menuDispatcher.handleOption("1","001-0001");
+        menuDispatcher.handleOption("1","b01-0001");
 
-        verify(list).performAction();
+        verify(list).performAction("b01-0001");
 
     }
 

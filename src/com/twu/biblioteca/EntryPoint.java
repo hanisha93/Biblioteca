@@ -28,11 +28,12 @@ public class EntryPoint {
 
         View view = new View(scanner);
 
+        HashMap<String , ArrayList<Item>> users= new HashMap<>();
+
         booksList.add(new Book("oop concepts", "john", "2000"));
         booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
         checkedOutBooks.add(new Book("", "", ""));
         moviesList.add(new Movie("Avatar", "cameroon", "2011", "7"));
-
         Librarian librarianHandlesBooks = new Librarian(booksList, checkedOutBooks);
         Librarian librarianHandlesMovies = new Librarian(moviesList, checkedOutMovies);
         UserValidation userValidation = new UserValidation(libraryUsers);

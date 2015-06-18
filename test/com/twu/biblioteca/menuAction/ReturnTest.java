@@ -18,8 +18,8 @@ public class ReturnTest {
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         Return returnBook = new Return(menuItemController, librarian, "book");
-        returnBook.performAction();
+        returnBook.performAction("b01-0001");
 
-        verify(menuItemController).returnBook(librarian, "book");
+        verify(menuItemController).returnBook(librarian, "book", "b01-0001");
     }
 }

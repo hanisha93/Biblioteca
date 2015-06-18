@@ -37,16 +37,16 @@ public class Librarian {
         return result;
     }
 
-    public String doCheckout(ArrayList<Item> result, String itm) {
+    public String doCheckout(ArrayList<Item> result, String itm, String libraryNo) {
         for (Item item : result) {
             itemsInLibrary.remove(item);
             checkedOutItems.add(item);
             return SUCCESSFUL_CHECKOUT + itm;
         }
-        return itm +CHECKOUT_FAIL;
+        return itm + CHECKOUT_FAIL;
     }
 
-    public String returnItem(ArrayList<Item> result, String itm) {
+    public String returnItem(ArrayList<Item> result, String itm, String libraryNo) {
         for (Item item : result) {
             itemsInLibrary.add(item);
             checkedOutItems.remove(item);

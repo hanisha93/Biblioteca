@@ -20,7 +20,7 @@ public class CheckOut implements MenuAction {
     }
 
     @Override
-    public void performAction() {
-        menuItemController.checkOut(librarian, item);
+    public void performAction(String libraryNo) {
+        menuItemController.checkOut(librarian, item,libraryNo);
     }
 }

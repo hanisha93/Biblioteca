@@ -47,7 +47,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.checkOut(librarian, "book");
+        menuItemController.checkOut(librarian, "book", "b01-001");
 
         verify(view, times(2)).printToConsole(anyString());
     }
@@ -59,7 +59,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.checkOut(librarian, "movie");
+        menuItemController.checkOut(librarian, "movie", "b01-001");
 
         verify(view).readInput();
 
@@ -72,7 +72,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.checkOut(librarian, "book");
+        menuItemController.checkOut(librarian, "book", "b01-0001");
 
         verify(librarian).searchItem("java", searchResult);
 
@@ -85,9 +85,9 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.checkOut(librarian, "movie");
+        menuItemController.checkOut(librarian, "movie", "b01-0001");
 
-        verify(librarian).doCheckout(searchResult, "movie");
+        verify(librarian).doCheckout(searchResult, "movie", "b01-0001");
     }
 
     @Test
@@ -97,7 +97,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.returnBook(librarian, "book");
+        menuItemController.returnBook(librarian, "book", "b01-001");
 
         verify(view, times(2)).printToConsole(anyString());
     }
@@ -109,7 +109,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.returnBook(librarian, "book");
+        menuItemController.returnBook(librarian, "book", "b01-0001");
 
         verify(view).readInput();
     }
@@ -121,7 +121,7 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.returnBook(librarian, "book");
+        menuItemController.returnBook(librarian, "book", "b01-0001");
 
         verify(librarian).searchCheckedOutList("java", searchResult);
 
@@ -134,9 +134,9 @@ public class MenuItemControllerTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         when(view.readInput()).thenReturn("java");
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuItemController.returnBook(librarian, "book");
+        menuItemController.returnBook(librarian, "book", "b01-0001");
 
-        verify(librarian).returnItem(searchResult, "book");
+        verify(librarian).returnItem(searchResult, "book","b01-0001");
     }
 
     @Test

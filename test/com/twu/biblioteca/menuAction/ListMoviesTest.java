@@ -14,7 +14,7 @@ public class ListMoviesTest {
         Movies movieSection = mock(Movies.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         ListMovies listMovies = new ListMovies(menuItemController, movieSection);
-        listMovies.performAction();
+        listMovies.performAction("b01-0001");
 
         verify(menuItemController, Mockito.times(1)).listMovies(movieSection);
     }

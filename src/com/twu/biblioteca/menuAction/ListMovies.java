@@ -13,7 +13,7 @@ public class ListMovies implements MenuAction {
     }
 
     @Override
-    public void performAction() {
+    public void performAction(String t) {
         menuItemController.listMovies(movies);
     }
 }

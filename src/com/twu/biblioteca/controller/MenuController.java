@@ -19,7 +19,7 @@ public class MenuController implements Messages {
     public void handleOption(String option,String libraryNo) {
         if (menuAction.containsKey(option)) {
             MenuAction menu = menuAction.get(option);
-            menu.performAction();
+            menu.performAction(libraryNo);
         } else if (!option.equals("0")) {
             view.printToConsole(Messages.INVALID_OPTION);
         }

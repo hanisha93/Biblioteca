@@ -1,5 +1,5 @@
 package com.twu.biblioteca.menuAction;
 
 public interface MenuAction {
-    void performAction();
+    void performAction(String libraryNo);
 }

@@ -84,7 +84,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.doCheckout(searchResult, "book");
+        librarian.doCheckout(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(new Book("java", "john", "2000"));
@@ -101,7 +101,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.doCheckout(searchResult, "book");
+        librarian.doCheckout(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
@@ -117,7 +117,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnItem(searchResult, "book");
+        librarian.returnItem(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(book);
@@ -134,7 +134,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnItem(searchResult, "book");
+        librarian.returnItem(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
@@ -210,7 +210,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        librarian.doCheckout(searchResult, "movie");
+        librarian.doCheckout(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
         expectedMovies.add(movie);
 
@@ -227,7 +227,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        librarian.doCheckout(searchResult, "movie");
+        librarian.doCheckout(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(movieslist, is(expectedList));
@@ -243,7 +243,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        librarian.returnItem(searchResult, "movie");
+        librarian.returnItem(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(checkedOutlist, is(expectedList));
@@ -259,7 +259,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        librarian.returnItem(searchResult, "movie");
+        librarian.returnItem(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(movie);
 
@@ -276,7 +276,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        String message = librarian.returnItem(searchResult, "movie");
+        String message = librarian.returnItem(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("Thank you for returning the movie"));
     }
@@ -290,7 +290,7 @@ public class LibrarianTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        String message = librarian.returnItem(searchResult, "movie");
+        String message = librarian.returnItem(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("That is not a valid movie"));
     }
@@ -305,7 +305,7 @@ public class LibrarianTest {
         searchResult.add(movie);
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        String message = librarian.doCheckout(searchResult, "movie");
+        String message = librarian.doCheckout(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("Thanq you! Enjoy the movie"));
     }
@@ -320,7 +320,7 @@ public class LibrarianTest {
 
         Librarian librarian = new Librarian(movieslist, checkedOutlist);
 
-        String message = librarian.doCheckout(searchResult, "Movie");
+        String message = librarian.doCheckout(searchResult, "Movie", "b01-0001");
 
         assertThat(message, is("Movie is not available"));
     }

@@ -14,15 +14,15 @@ public class Return implements MenuAction {
     private Librarian librarian;
     private String item;
 
-    public Return(MenuItemController menuItemController, Librarian librarian,String item) {
+    public Return(MenuItemController menuItemController, Librarian librarian, String item) {
         this.menuItemController = menuItemController;
         this.librarian = librarian;
-        this.item =item;
+        this.item = item;
     }
 
     @Override
-    public void performAction() {
-        menuItemController.returnBook(librarian, item);
+    public void performAction(String libraryNo) {
+        menuItemController.returnBook(librarian, item, libraryNo);
     }
 }
 
