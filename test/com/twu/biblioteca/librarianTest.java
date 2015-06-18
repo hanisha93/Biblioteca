@@ -142,7 +142,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specForCheckingSearchMovieItemWhenItemTitleMatches() {
+    public void specForTestingSearchItemAddsMovieItemToSearchResultWhenTitleMatches() {
         ArrayList<Item> list = new ArrayList<Item>();
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         list.add(movie);
@@ -154,6 +154,20 @@ public class LibrarianTest {
         expectedMovies.add(movie);
 
         assertThat(actualMovies,is(expectedMovies));
+    }
+
+    @Test
+    public void specForTestingSearchItemReturnsEmptySearchResultWhenTitleOfItemDoesNotMatches() {
+        ArrayList<Item> list = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        list.add(movie);
+        ArrayList<Item> result = new ArrayList<Item>();
+        Librarian librarian = new Librarian(list, list);
+
+        ArrayList<Item> actualMovies = librarian.searchItem("Avata", result);
+        ArrayList<Item> expectedMovies = new ArrayList<Item>();
+
+        assertThat(actualMovies, is(expectedMovies));
     }
 
 
