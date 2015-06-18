@@ -15,7 +15,8 @@ import static com.twu.biblioteca.Messages.*;
 public class MenuItemController {
     private View view;
     private ArrayList<Item> searchResult;
-    public MenuItemController(View view,ArrayList<Item> searchResult) {
+
+    public MenuItemController(View view, ArrayList<Item> searchResult) {
         this.view = view;
         this.searchResult = searchResult;
     }
@@ -28,21 +29,21 @@ public class MenuItemController {
         view.printToConsole(INVALID_OPTION);
     }
 
-    public void checkOut(Librarian librarian) {
-        view.printToConsole(CHECKOUT_BOOK);
+    public void checkOut(Librarian librarian, String item) {
+        view.printToConsole("Enter " + item + " to checkout");
         String title = view.readInput();
         searchResult.clear();
         librarian.searchBook(title, searchResult);
-        String message = librarian.doCheckout(searchResult);
+        String message = librarian.doCheckout(searchResult, item);
         view.printToConsole(message);
     }
 
-    public void returnBook(Librarian librarian) {
-        view.printToConsole(RETURN_BOOK);
+    public void returnBook(Librarian librarian, String item) {
+        view.printToConsole("Enter " + item + " to Return");
         String title = view.readInput();
         searchResult.clear();
         librarian.searchCheckedOutList(title, searchResult);
-        String message = librarian.returnBook(searchResult);
+        String message = librarian.returnBook(searchResult, item);
         view.printToConsole(message);
     }
 

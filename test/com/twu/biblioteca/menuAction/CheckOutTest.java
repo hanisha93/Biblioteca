@@ -18,9 +18,9 @@ public class CheckOutTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        CheckOut checkOut = new CheckOut(menuItemController, librarian);
+        CheckOut checkOut = new CheckOut(menuItemController, librarian, "book");
         checkOut.performAction();
 
-        verify(menuItemController, Mockito.times(1)).checkOut(librarian);
+        verify(menuItemController, Mockito.times(1)).checkOut(librarian, "book");
     }
 }

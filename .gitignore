@@ -1,6 +1,5 @@
 .DS_Store
 .idea/
-README
 *.iml
 out/
-build.properties
+

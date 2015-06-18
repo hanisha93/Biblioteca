@@ -11,14 +11,16 @@ public class CheckOut implements MenuAction {
 
     private MenuItemController menuItemController;
     private Librarian librarian;
+    private String item;
 
-    public CheckOut(MenuItemController menuItemController, Librarian librarian) {
+    public CheckOut(MenuItemController menuItemController, Librarian librarian, String item) {
         this.menuItemController = menuItemController;
         this.librarian = librarian;
+        this.item =item;
     }
 
     @Override
     public void performAction() {
-        menuItemController.checkOut(librarian);
+        menuItemController.checkOut(librarian, item);
     }
 }

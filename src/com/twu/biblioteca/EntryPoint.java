@@ -38,11 +38,11 @@ public class EntryPoint {
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
         menuAction.put("1", new ListBooks(menuItemController, books));
-        menuAction.put("2", new CheckOut(menuItemController, librarianHandlesBooks));
-        menuAction.put("3", new Return(menuItemController, librarianHandlesBooks));
+        menuAction.put("2", new CheckOut(menuItemController, librarianHandlesBooks, "book"));
+        menuAction.put("3", new Return(menuItemController, librarianHandlesBooks, "book"));
         menuAction.put("4", new ListMovies(menuItemController, movies));
-        menuAction.put("5", new CheckOut(menuItemController, librarianHandlesMovies));
-        menuAction.put("6", new Return(menuItemController,librarianHandlesMovies));
+        menuAction.put("5", new CheckOut(menuItemController, librarianHandlesMovies, "movie"));
+        menuAction.put("6", new Return(menuItemController, librarianHandlesMovies, "movie"));
 
         view.printToConsole(Messages.WELCOME_MESSAGE);
         MenuController menuController = new MenuController(menuAction, view);

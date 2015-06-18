@@ -17,9 +17,9 @@ public class ReturnTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         Librarian librarian = mock(Librarian.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        Return returnBook = new Return(menuItemController, librarian);
+        Return returnBook = new Return(menuItemController, librarian, "book");
         returnBook.performAction();
 
-        verify(menuItemController).returnBook(librarian);
+        verify(menuItemController).returnBook(librarian, "book");
     }
 }
