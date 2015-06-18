@@ -10,4 +10,8 @@ public interface Messages {
     public final String CHECKOUT_FAIL = " is not available";
     public final String RETURN_FAIL = "That is not a valid ";
     public final String SUCCESSFUL_RETURN = "Thank you for returning the ";
+    public final String ENTER_LIBID = "Enter the library id";
+    public final String ENTER_PWD = "Enter password";
+    public final String LOGIN_SUCCESS = "Welcome user";
+    public final String LOGIN_FAIL = "Invalid username or password";
 }
