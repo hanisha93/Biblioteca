@@ -7,7 +7,6 @@ import static com.twu.biblioteca.Messages.*;
 public class App {
 
     public void start(View view, MenuController menuController) {
-
         printMessage(view);
         String option = view.readInput();
         menuController.handleOption(option);
@@ -22,5 +21,4 @@ public class App {
         view.printToConsole(MENU_LIST);
         view.printToConsole(CHOOSE_OPTION);
     }
-
 }

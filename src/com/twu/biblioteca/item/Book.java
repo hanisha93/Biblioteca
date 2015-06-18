@@ -14,10 +14,7 @@ public class Book implements Item {
 
     @Override
     public boolean match(String title) {
-        if (this.title.equals(title)) {
-            return true;
-        }
-        return false;
+        return this.title.equals(title);
     }
 
     @Override

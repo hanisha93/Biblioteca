@@ -126,7 +126,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void specToCheckReturnBookItemIsRemovedFromCheckedOutList() {
+    public void specToTestReturnItemRemovesBookFromCheckedOutListWhenSearchResultHasBook() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();

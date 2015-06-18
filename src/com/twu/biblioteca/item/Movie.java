@@ -20,9 +20,6 @@ public class Movie implements Item{
 
     @Override
     public boolean match(String title) {
-        if(this.name.equals(title) ) {
-            return true;
-        }
-        return false;
+        return this.name.equals(title);
     }
 }
