@@ -310,6 +310,21 @@ public class LibrarianTest {
         assertThat(message, is("Thanq you! Enjoy the movie"));
     }
 
+    @Test
+    public void specToTestDoCheckOutReturnsFailureMessageWhenSearchResultHasNoItem() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+
+        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+
+        String message = librarian.doCheckout(searchResult, "Movie");
+
+        assertThat(message, is("Movie is not available"));
+    }
+
 }
 
 
