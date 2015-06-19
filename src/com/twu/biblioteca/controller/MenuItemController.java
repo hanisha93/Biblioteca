@@ -5,6 +5,8 @@ import com.twu.biblioteca.View;
 import com.twu.biblioteca.models.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.twu.biblioteca.Messages.*;
 
@@ -50,5 +52,9 @@ public class MenuItemController {
     }
 
     public void handleCheckoutDetails(LibrarianJob librarianJob) {
+        HashMap<Item, String> users = librarianJob.getCheckOutDetails();
+        for (Map.Entry<Item, String> entry : users.entrySet()) {
+            view.printToConsole(entry.getKey() + "   " + entry.getValue());
+        }
     }
 }

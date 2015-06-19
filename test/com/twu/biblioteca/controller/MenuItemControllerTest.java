@@ -151,4 +151,17 @@ public class MenuItemControllerTest {
 
         verify(view).printToConsole(movies.toString());
     }
+
+    @Test
+    public  void specToTestCheckedOutDetailsGettingDetailFromLibrarainJob() {
+        View view = mock(View.class);
+        Movies movies = mock(Movies.class);
+        LibrarianJob librarianJob = mock(LibrarianJob.class);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+
+        menuItemController.handleCheckoutDetails(librarianJob);
+
+        verify(librarianJob).getCheckOutDetails();
+    }
 }

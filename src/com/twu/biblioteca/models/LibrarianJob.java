@@ -13,10 +13,11 @@ public class LibrarianJob {
     private ArrayList<Item> itemsInLibrary;
     private ArrayList<Item> checkedOutItems;
     private HashMap<Item, String> users;
+
     public LibrarianJob(ArrayList<Item> ItemsInLibrary, ArrayList<Item> checkedOutItems, HashMap<Item, String> users) {
         this.itemsInLibrary = ItemsInLibrary;
         this.checkedOutItems = checkedOutItems;
-        this.users =users;
+        this.users = users;
     }
 
     public ArrayList<Item> searchItem(String title, ArrayList<Item> result) {
@@ -43,7 +44,7 @@ public class LibrarianJob {
         for (Item item : result) {
             itemsInLibrary.remove(item);
             checkedOutItems.add(item);
-            users.put(item,libraryNo);
+            users.put(item, libraryNo);
             return SUCCESSFUL_CHECKOUT + itm;
         }
         return itm + CHECKOUT_FAIL;
@@ -57,6 +58,10 @@ public class LibrarianJob {
             return SUCCESSFUL_RETURN + itm;
         }
         return RETURN_FAIL + itm;
+    }
+
+    public HashMap<Item, String> getCheckOutDetails() {
+        return users;
     }
 
 }
