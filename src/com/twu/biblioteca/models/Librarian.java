@@ -12,6 +12,6 @@ public class Librarian implements User {
 
     @Override
     public void perform() {
-        userController.displayLibrarianOptions();
+        userController.handleLibrarianOptions();
     }
 }

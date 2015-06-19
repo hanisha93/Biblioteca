@@ -51,6 +51,16 @@ public class EntryPoint {
         menuAction.put("5", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
         menuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
 
+        HashMap<String, MenuAction> librarianMenuAction = new HashMap<>();
+        librarianMenuAction.put("1", new ListBooks(menuItemController, books));
+        librarianMenuAction.put("2", new CheckOut(menuItemController, librarianJobHandlesBooks, "book"));
+        librarianMenuAction.put("3", new Return(menuItemController, librarianJobHandlesBooks, "book"));
+        librarianMenuAction.put("4", new ListMovies(menuItemController, movies));
+        librarianMenuAction.put("5", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
+        librarianMenuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
+        librarianMenuAction.put("7", new CheckedOutItemDetails(menuItemController, librarianJobHandlesBooks));
+        librarianMenuAction.put("8", new CheckedOutItemDetails(menuItemController, librarianJobHandlesMovies));
+
         MenuController menuController = new MenuController(menuAction, view);
 
         App app = new App();

@@ -49,4 +49,6 @@ public class MenuItemController {
         view.printToConsole(movies.toString());
     }
 
+    public void handleCheckoutDetails(LibrarianJob librarianJob) {
+    }
 }
