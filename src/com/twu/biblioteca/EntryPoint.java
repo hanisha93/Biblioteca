@@ -31,6 +31,7 @@ public class EntryPoint {
         HashMap<Item, String> checkedOutItemsAndUsers = new HashMap<>();
         HashMap<String, User> roleOfUser = new HashMap<>();
 
+
         booksList.add(new Book("oop concepts", "john", "2000"));
         booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
         checkedOutBooks.add(new Book("", "", ""));
@@ -60,6 +61,11 @@ public class EntryPoint {
         librarianMenuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
         librarianMenuAction.put("7", new CheckedOutItemDetails(menuItemController, librarianJobHandlesBooks));
         librarianMenuAction.put("8", new CheckedOutItemDetails(menuItemController, librarianJobHandlesMovies));
+
+        HashMap<String, HashMap<String, MenuAction>> menu = new HashMap<>();
+        menu.put("member", menuAction);
+        menu.put("librarian", librarianMenuAction);
+
 
         MenuController menuController = new MenuController(menuAction, view);
 
