@@ -8,21 +8,23 @@ import static com.twu.biblioteca.Messages.*;
 public class App {
 
     public void start(View view, MenuController menuController, UserValidation userValidation) {
-        view.printToConsole(ENTER_LIBID);
-        String libraryId = view.readInput();
-        view.printToConsole(ENTER_PWD);
-        String password = view.readInput();
-        boolean validate = userValidation.validateUser(libraryId, password);
-        if(validate) {
-            printMessage(view);
-            String option = view.readInput();
-            menuController.handleOption(option,libraryId);
-            while (!option.equals("0")) {
+
+            view.printToConsole(ENTER_LIBID);
+            String libraryId = view.readInput();
+            view.printToConsole(ENTER_PWD);
+            String password = view.readInput();
+            boolean validate = userValidation.validateUser(libraryId, password);
+            if (validate) {
                 printMessage(view);
-                option = view.readInput();
-                menuController.handleOption(option,libraryId);
-            }
-        }
+                String option = view.readInput();
+                menuController.handleOption(option, libraryId);
+                while (!option.equals("0")) {
+                    printMessage(view);
+                    option = view.readInput();
+                    menuController.handleOption(option, libraryId);
+                }
+            } else
+                view.printToConsole(LOGIN_FAIL);
     }
 
 

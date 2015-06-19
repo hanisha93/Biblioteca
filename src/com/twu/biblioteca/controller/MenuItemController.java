@@ -27,21 +27,21 @@ public class MenuItemController {
         view.printToConsole(INVALID_OPTION);
     }
 
-    public void checkOut(Librarian librarian, String item, String libraryNo) {
+    public void checkOut(LibrarianJob librarianJob, String item, String libraryNo) {
         view.printToConsole("Enter " + item + " to checkout");
         String title = view.readInput();
         searchResult.clear();
-        librarian.searchItem(title, searchResult);
-        String message = librarian.doCheckout(searchResult, item, libraryNo);
+        librarianJob.searchItem(title, searchResult);
+        String message = librarianJob.doCheckout(searchResult, item, libraryNo);
         view.printToConsole(message);
     }
 
-    public void returnBook(Librarian librarian, String item, String libraryNo) {
+    public void returnBook(LibrarianJob librarianJob, String item, String libraryNo) {
         view.printToConsole("Enter " + item + " to Return");
         String title = view.readInput();
         searchResult.clear();
-        librarian.searchCheckedOutList(title, searchResult);
-        String message = librarian.returnItem(searchResult, item, libraryNo);
+        librarianJob.searchCheckedOutList(title, searchResult);
+        String message = librarianJob.acceptReturnItem(searchResult, item, libraryNo);
         view.printToConsole(message);
     }
 

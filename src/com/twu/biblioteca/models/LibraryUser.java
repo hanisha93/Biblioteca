@@ -3,10 +3,12 @@ package com.twu.biblioteca.models;
 public class LibraryUser {
     private String libraryId;
     private String password;
+    private String role;
 
-    public LibraryUser(String libraryId, String password) {
+    public LibraryUser(String libraryId, String password, String role) {
         this.libraryId = libraryId;
-        this.password =password;
+        this.password = password;
+        this.role = role;
     }
 
     @Override
@@ -23,4 +25,5 @@ public class LibraryUser {
     public boolean matchUser(String libraryId, String password) {
         return (this.libraryId.equals(libraryId)) && (this.password.equals(password));
     }
+
 }

@@ -12,7 +12,7 @@ public class UserValidationTest {
 
     @Test
     public void specToValidateUserReturnsTrueWhenUserIsValid() {
-        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha");
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
         UserValidation userValidation = new UserValidation(libraryUsers);
@@ -23,8 +23,8 @@ public class UserValidationTest {
     @Test
     public void specToValidateUserReturnsFalseWhenUserIsInValid() {
 
-        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha");
-        LibraryUser libraryUserTwo = new LibraryUser("b01-0002", "priya");
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
+        LibraryUser libraryUserTwo = new LibraryUser("b01-0002", "priya", "admin");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
         libraryUsers.add(libraryUserTwo);

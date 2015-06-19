@@ -2,18 +2,17 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.item.Movie;
-import com.twu.biblioteca.models.Librarian;
-import org.hamcrest.CoreMatchers;
+import com.twu.biblioteca.models.LibrarianJob;
 import org.junit.Test;
-import org.mockito.cglib.core.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
-public class LibrarianTest {
+public class LibrarianJobTest {
 
     @Test
     public void specForCheckingSearchBookItemWhenItemTitleMatches() {
@@ -21,9 +20,10 @@ public class LibrarianTest {
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian librarian = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualBooks = librarian.searchItem("Java", result);
+        ArrayList<Item> actualBooks = librarianJob.searchItem("Java", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
         expectedBooks.add(new Book("Java", "wilson", "1998"));
 
@@ -36,7 +36,8 @@ public class LibrarianTest {
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian listOfBooks = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob listOfBooks = new LibrarianJob(list, list, users);
 
         ArrayList<Item> actualBooks = listOfBooks.searchItem("The lord of rings", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
@@ -50,7 +51,8 @@ public class LibrarianTest {
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian listOfBooks = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob listOfBooks = new LibrarianJob(list, list, users);
 
         ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("Java", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
@@ -67,7 +69,8 @@ public class LibrarianTest {
         list.add(new Book("Java", "wilson", "1998"));
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian listOfBooks = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob listOfBooks = new LibrarianJob(list, list, users);
 
         ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("The lord of rings", result);
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
@@ -82,9 +85,10 @@ public class LibrarianTest {
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
         ArrayList<Item> searchResult = new ArrayList<Item>();
+        HashMap<Item, String> users = new HashMap<>();
         searchResult.add(book);
-        Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.doCheckout(searchResult, "book", "b01-0001");
+        LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
+        librarianJob.doCheckout(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(new Book("java", "john", "2000"));
@@ -99,9 +103,10 @@ public class LibrarianTest {
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
         ArrayList<Item> searchResult = new ArrayList<Item>();
+        HashMap<Item, String> users = new HashMap<>();
         searchResult.add(book);
-        Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.doCheckout(searchResult, "book", "b01-0001");
+        LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
+        librarianJob.doCheckout(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
@@ -111,13 +116,14 @@ public class LibrarianTest {
     @Test
     public void specToCheckReturnBookItemIsAddingItemToListOfItemsInLibraryWhenSearcHListIsNotEmpty() {
         ArrayList<Item> listOfBooks = new ArrayList<Item>();
+        HashMap<Item, String> users = new HashMap<>();
         Book book = new Book("java", "john", "2000");
         ArrayList<Item> checkedOutList = new ArrayList<Item>();
         checkedOutList.add(book);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
-        Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnItem(searchResult, "book", "b01-0001");
+        LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
+        librarianJob.acceptReturnItem(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(book);
@@ -133,8 +139,9 @@ public class LibrarianTest {
         checkedOutList.add(book);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
-        Librarian librarian = new Librarian(listOfBooks, checkedOutList);
-        librarian.returnItem(searchResult, "book", "b01-0001");
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
+        librarianJob.acceptReturnItem(searchResult, "book", "b01-0001");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
@@ -147,9 +154,10 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         list.add(movie);
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian librarian = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualMovies = librarian.searchItem("Avatar", result);
+        ArrayList<Item> actualMovies = librarianJob.searchItem("Avatar", result);
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
         expectedMovies.add(movie);
 
@@ -162,9 +170,10 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         list.add(movie);
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian librarian = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualMovies = librarian.searchItem("Avata", result);
+        ArrayList<Item> actualMovies = librarianJob.searchItem("Avata", result);
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
 
         assertThat(actualMovies, is(expectedMovies));
@@ -176,9 +185,10 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         list.add(movie);
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian librarian = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualMovies = librarian.searchItem("Avatar", result);
+        ArrayList<Item> actualMovies = librarianJob.searchItem("Avatar", result);
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
         expectedMovies.add(movie);
 
@@ -192,9 +202,10 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         list.add(movie);
         ArrayList<Item> result = new ArrayList<Item>();
-        Librarian librarian = new Librarian(list, list);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualMovies = librarian.searchItem("Avata", result);
+        ArrayList<Item> actualMovies = librarianJob.searchItem("Avata", result);
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
 
         assertThat(actualMovies, is(expectedMovies));
@@ -208,9 +219,10 @@ public class LibrarianTest {
         movieslist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarian.doCheckout(searchResult, "movie", "b01-0001");
+        librarianJob.doCheckout(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedMovies = new ArrayList<Item>();
         expectedMovies.add(movie);
 
@@ -225,9 +237,10 @@ public class LibrarianTest {
         movieslist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarian.doCheckout(searchResult, "movie", "b01-0001");
+        librarianJob.doCheckout(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(movieslist, is(expectedList));
@@ -241,9 +254,10 @@ public class LibrarianTest {
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarian.returnItem(searchResult, "movie", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(checkedOutlist, is(expectedList));
@@ -257,9 +271,10 @@ public class LibrarianTest {
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarian.returnItem(searchResult, "movie", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(movie);
 
@@ -274,9 +289,10 @@ public class LibrarianTest {
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarian.returnItem(searchResult, "movie", "b01-0001");
+        String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("Thank you for returning the movie"));
     }
@@ -288,9 +304,10 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarian.returnItem(searchResult, "movie", "b01-0001");
+        String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("That is not a valid movie"));
     }
@@ -303,9 +320,10 @@ public class LibrarianTest {
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(movie);
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        HashMap<Item, String> users = new HashMap<>();
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarian.doCheckout(searchResult, "movie", "b01-0001");
+        String message = librarianJob.doCheckout(searchResult, "movie", "b01-0001");
 
         assertThat(message, is("Thanq you! Enjoy the movie"));
     }
@@ -317,10 +335,11 @@ public class LibrarianTest {
         Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
         checkedOutlist.add(movie);
         ArrayList<Item> searchResult = new ArrayList<Item>();
+        HashMap<Item, String> users = new HashMap<>();
 
-        Librarian librarian = new Librarian(movieslist, checkedOutlist);
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarian.doCheckout(searchResult, "Movie", "b01-0001");
+        String message = librarianJob.doCheckout(searchResult, "Movie", "b01-0001");
 
         assertThat(message, is("Movie is not available"));
     }

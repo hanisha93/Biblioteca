@@ -1,28 +1,24 @@
 package com.twu.biblioteca.menuAction;
 
-import com.twu.biblioteca.Item;
-import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.models.Librarian;
-
-import java.util.ArrayList;
+import com.twu.biblioteca.models.LibrarianJob;
 
 
 public class Return implements MenuAction {
 
     private MenuItemController menuItemController;
-    private Librarian librarian;
+    private LibrarianJob librarianJob;
     private String item;
 
-    public Return(MenuItemController menuItemController, Librarian librarian, String item) {
+    public Return(MenuItemController menuItemController, LibrarianJob librarianJob, String item) {
         this.menuItemController = menuItemController;
-        this.librarian = librarian;
+        this.librarianJob = librarianJob;
         this.item = item;
     }
 
     @Override
     public void performAction(String libraryNo) {
-        menuItemController.returnBook(librarian, item, libraryNo);
+        menuItemController.returnBook(librarianJob, item, libraryNo);
     }
 }
 
