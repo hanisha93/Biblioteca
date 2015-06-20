@@ -8,23 +8,25 @@ public class LibraryUserTest {
 
     @Test
     public void specToCheckEqualityOfLibraryUsers() {
-        LibraryUser libraryUserOne = new LibraryUser("Bhanisha1", "hanisha", "admin");
-        LibraryUser libraryUserTwo = new LibraryUser("Bhanisha1", "hanisha", "admin");
+        LibraryUser libraryUserOne = new LibraryUser("b01-0001", "hanisha", "admin");
+        LibraryUser libraryUserTwo = new LibraryUser("b01-0001", "hanisha", "admin");
 
         assertTrue(libraryUserOne.equals(libraryUserTwo));
     }
 
     @Test
     public void specToCheckMatchUserReturnsTrueWhenIdAndPasswordMatchesTheOther() {
-        LibraryUser libraryUser = new LibraryUser("Bhanisha1", "hanisha", "admin");
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
+        String role = libraryUser.matchUser("b01-0001", "hanisha");
 
-        assertTrue(libraryUser.matchUser("Bhanisha1", "hanisha"));
+        assertEquals("admin", role);
     }
 
     @Test
     public void specToCheckMatchUserReturnFalseWhenIdAndPasswordDoesNotMatches() {
-        LibraryUser libraryUser = new LibraryUser("Bhanisha1", "hanisha", "admin");
+        LibraryUser libraryUser = new LibraryUser("b02-0001", "hanisha", "admin");
+        String role = libraryUser.matchUser("b01-00001", "hanisha");
 
-        assertFalse(libraryUser.matchUser("Bhanisha", "hanisha"));
+        assertEquals(null, role);
     }
 }

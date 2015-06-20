@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+import static com.twu.biblioteca.Messages.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -22,7 +23,7 @@ public class MenuControllerTest {
         ListBooks list = mock(ListBooks.class);
         menuAction.put("1", list);
         View view = mock(View.class);
-        MenuController menuDispatcher = new MenuController(menuAction, view);
+        MenuController menuDispatcher = new MenuController(menuAction, view, "");
 
         menuDispatcher.handleOption("1","b01-0001");
 
@@ -37,12 +38,26 @@ public class MenuControllerTest {
         View view = mock(View.class);
         ListBooks list = mock(ListBooks.class);
         menuAction.put("1", list);
-        MenuController menuDispatcher = new MenuController(menuAction, view);
+        MenuController menuDispatcher = new MenuController(menuAction, view, "");
 
         menuDispatcher.handleOption("3","001-0001");
 
-        verify(view).printToConsole(Messages.INVALID_OPTION);
+        verify(view).printToConsole(INVALID_OPTION);
 
+    }
+
+    @Test
+    public void specToCheckDisplayMenu() {
+        HashMap<String, MenuAction> menuAction = new HashMap<String , MenuAction>();
+
+        ListBooks list = mock(ListBooks.class);
+        menuAction.put("1", list);
+        View view = mock(View.class);
+        MenuController menuDispatcher = new MenuController(menuAction, view, LIBRARIAN_MENU);
+
+        menuDispatcher.displayMenu();
+
+        verify(view).printToConsole(LIBRARIAN_MENU);
     }
 
 

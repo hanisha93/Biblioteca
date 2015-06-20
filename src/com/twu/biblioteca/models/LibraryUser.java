@@ -22,8 +22,10 @@ public class LibraryUser {
 
     }
 
-    public boolean matchUser(String libraryId, String password) {
-        return (this.libraryId.equals(libraryId)) && (this.password.equals(password));
+    public String matchUser(String libraryId, String password) {
+        if((this.libraryId.equals(libraryId)) && (this.password.equals(password)))
+                return this.role;
+        return null;
     }
 
 }

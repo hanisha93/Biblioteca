@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import static com.twu.biblioteca.Messages.*;
+
 public class EntryPoint {
 
     public static void main(String args[]) {
@@ -23,14 +25,13 @@ public class EntryPoint {
         ArrayList<Item> checkedOutMovies = new ArrayList<Item>();
         ArrayList<Item> searchResult = new ArrayList<Item>();
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
-        libraryUsers.add(new LibraryUser("b01-0001", "hanisha", "admin"));
-        libraryUsers.add(new LibraryUser("b01-0002", "priya", "user"));
+        libraryUsers.add(new LibraryUser("b01-0002", "priya", "member"));
+        libraryUsers.add(new LibraryUser("b01-0003", "sowmya", "librarian"));
 
         View view = new View(scanner);
 
         HashMap<Item, String> checkedOutItemsAndUsers = new HashMap<>();
         HashMap<String, User> roleOfUser = new HashMap<>();
-
 
         booksList.add(new Book("oop concepts", "john", "2000"));
         booksList.add(new Book("The Lord Of Rings", "wilson", "2001"));
@@ -66,13 +67,14 @@ public class EntryPoint {
         menu.put("member", menuAction);
         menu.put("librarian", librarianMenuAction);
 
-
-        MenuController menuController = new MenuController(menuAction, view);
+        HashMap<String, String> printMenu = new HashMap<>();
+        printMenu.put("librarian", LIBRARIAN_MENU);
+        printMenu.put("member", MENU_LIST);
 
         App app = new App();
 
-        view.printToConsole(Messages.WELCOME_MESSAGE);
-        app.start(view, menuController, userValidation);
+        view.printToConsole(WELCOME_MESSAGE);
+        app.start(view, menu, userValidation, printMenu);
 
     }
 }

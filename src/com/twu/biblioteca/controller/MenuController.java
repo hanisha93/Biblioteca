@@ -10,10 +10,12 @@ public class MenuController implements Messages {
 
     private HashMap<String, MenuAction> menuAction;
     private View view;
+    private String menu;
 
-    public MenuController(HashMap<String, MenuAction> menuAction, View view) {
+    public MenuController(HashMap<String, MenuAction> menuAction, View view, String menu) {
         this.menuAction = menuAction;
         this.view = view;
+        this.menu = menu;
     }
 
     public void handleOption(String option,String libraryNo) {
@@ -24,4 +26,9 @@ public class MenuController implements Messages {
             view.printToConsole(Messages.INVALID_OPTION);
         }
     }
+
+    public void displayMenu() {
+        view.printToConsole(menu);
+    }
+
 }
