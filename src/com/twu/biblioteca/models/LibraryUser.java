@@ -1,5 +1,9 @@
 package com.twu.biblioteca.models;
 
+import com.twu.biblioteca.menuAction.MenuAction;
+
+import java.util.HashMap;
+
 public class LibraryUser {
     private String libraryId;
     private String password;
@@ -22,10 +26,13 @@ public class LibraryUser {
 
     }
 
-    public String matchUser(String libraryId, String password) {
+    public boolean matchUser(String libraryId, String password) {
         if((this.libraryId.equals(libraryId)) && (this.password.equals(password)))
-                return this.role;
-        return null;
+                return true;
+        return false;
     }
 
+    public String getRole() {
+        return this.role;
+    }
 }

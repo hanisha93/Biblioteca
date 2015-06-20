@@ -5,31 +5,36 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class UserValidationTest {
 
     @Test
-    public void specToValidateUserReturnsTrueWhenUserIsValid() {
-        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
+    public void specToValidateUserReturnsRoleOfUserWhenUserIsValid() {
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "member");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
         UserValidation userValidation = new UserValidation(libraryUsers);
 
-        //assertTrue(userValidation.validateUser("b01-0001", "hanisha"));
+        String role = userValidation.validateUser("b01-0001", "hanisha");
+
+        assertEquals("member", role);
     }
 
     @Test
-    public void specToValidateUserReturnsFalseWhenUserIsInValid() {
+    public void specToValidateUserReturnsNullWhenUserIsInValid() {
 
-        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
-        LibraryUser libraryUserTwo = new LibraryUser("b01-0002", "priya", "admin");
+        LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "librarian");
+        LibraryUser libraryUserTwo = new LibraryUser("b01-0002", "priya", "member");
         ArrayList<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         libraryUsers.add(libraryUser);
         libraryUsers.add(libraryUserTwo);
         UserValidation userValidation = new UserValidation(libraryUsers);
 
-       //assertFalse(userValidation.validateUser("b01-001", "hani"));
+        String role = userValidation.validateUser("b01-000", "hanisha");
+
+        assertEquals(role, null);
     }
 }

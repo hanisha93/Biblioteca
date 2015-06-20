@@ -10,19 +10,18 @@ import static com.twu.biblioteca.Messages.*;
 
 public class App {
 
-    public void start(View view, HashMap<String, HashMap<String, MenuAction>> menu, UserValidation userValidation, HashMap<String, String> printMenu) {
-        while (true) {
+    public void start(View view, HashMap<String, HashMap<String, MenuAction>> menu, UserValidation userValidation, HashMap<String, String> printMenu, boolean quit) {
+        String option="";
+        while (!quit) {
             view.printToConsole(ENTER_LIBID);
             String libraryId = view.readInput();
             view.printToConsole(ENTER_PWD);
             String password = view.readInput();
             String role = userValidation.validateUser(libraryId, password);
             if (role != null) {
-
-                String option = view.readInput();
                 MenuController menuController = new MenuController(menu.get(role), view, printMenu.get(role));
-                menuController.handleOption(option, libraryId);
-                while (!option.equals("7")) {
+                menuController.displayMenu();
+                while (!option.equals("0")) {
                     option = view.readInput();
                     menuController.handleOption(option, libraryId);
                 }

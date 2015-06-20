@@ -48,17 +48,15 @@ public class MenuControllerTest {
 
     @Test
     public void specToCheckDisplayMenu() {
-        HashMap<String, MenuAction> menuAction = new HashMap<String , MenuAction>();
-
+        HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
+        View view = mock(View.class);
         ListBooks list = mock(ListBooks.class);
         menuAction.put("1", list);
-        View view = mock(View.class);
-        MenuController menuDispatcher = new MenuController(menuAction, view, LIBRARIAN_MENU);
+        MenuController menuDispatcher = new MenuController(menuAction, view, "librarianMenu");
 
         menuDispatcher.displayMenu();
 
-        verify(view).printToConsole(LIBRARIAN_MENU);
+        verify(view).printToConsole("librarianMenu");
+
     }
-
-
 }

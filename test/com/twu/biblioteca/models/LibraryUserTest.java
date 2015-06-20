@@ -17,16 +17,15 @@ public class LibraryUserTest {
     @Test
     public void specToCheckMatchUserReturnsTrueWhenIdAndPasswordMatchesTheOther() {
         LibraryUser libraryUser = new LibraryUser("b01-0001", "hanisha", "admin");
-        String role = libraryUser.matchUser("b01-0001", "hanisha");
 
-        assertEquals("admin", role);
+        assertTrue(libraryUser.matchUser("b01-0001", "hanisha"));
     }
 
     @Test
     public void specToCheckMatchUserReturnFalseWhenIdAndPasswordDoesNotMatches() {
         LibraryUser libraryUser = new LibraryUser("b02-0001", "hanisha", "admin");
-        String role = libraryUser.matchUser("b01-00001", "hanisha");
 
-        assertEquals(null, role);
+        assertFalse(libraryUser.matchUser("b01-0002", "hanisha"));
     }
+
 }

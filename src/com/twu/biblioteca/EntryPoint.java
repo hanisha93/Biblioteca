@@ -18,6 +18,7 @@ import static com.twu.biblioteca.Messages.*;
 public class EntryPoint {
 
     public static void main(String args[]) {
+        boolean quit = false;
         Scanner scanner = new Scanner(System.in);
         ArrayList<Item> booksList = new ArrayList<Item>();
         ArrayList<Item> moviesList = new ArrayList<Item>();
@@ -62,6 +63,8 @@ public class EntryPoint {
         librarianMenuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
         librarianMenuAction.put("7", new CheckedOutItemDetails(menuItemController, librarianJobHandlesBooks));
         librarianMenuAction.put("8", new CheckedOutItemDetails(menuItemController, librarianJobHandlesMovies));
+        librarianMenuAction.put("9", new QuitOption(quit));
+
 
         HashMap<String, HashMap<String, MenuAction>> menu = new HashMap<>();
         menu.put("member", menuAction);
@@ -74,7 +77,7 @@ public class EntryPoint {
         App app = new App();
 
         view.printToConsole(WELCOME_MESSAGE);
-        app.start(view, menu, userValidation, printMenu);
+        app.start(view, menu, userValidation, printMenu, quit);
 
     }
 }
