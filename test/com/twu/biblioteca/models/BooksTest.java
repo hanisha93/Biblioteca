@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.models;
 
+import com.twu.biblioteca.Item;
 import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.models.Books;
 import com.twu.biblioteca.item.Movie;
@@ -24,23 +25,5 @@ public class BooksTest {
         String expectedBooks = "Java wilson 1998\nc johnson 2000\n";
 
         assertEquals(actualBooks, expectedBooks);
-    }
-
-    public static class MoviesTest {
-
-        @Test
-        public void specForCheckingToString() {
-            ArrayList<Item> moviesList = new ArrayList<Item>();
-            moviesList.add(new Movie("Avatar","2011","cameroon","7"));
-            moviesList.add(new Movie("2012", "2011","james" , "5"));
-            Movies movies = new Movies(moviesList);
-
-            String actualBooks = movies.toString();
-            String expectedBooks = "Avatar  2011  cameroon  7*\n" +
-                    "2012  2011  james  5*\n";
-
-            assertEquals(actualBooks, expectedBooks);
-        }
-
     }
 }

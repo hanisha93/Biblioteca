@@ -1,6 +1,7 @@
-package com.twu.biblioteca.controller;
+package com.twu.biblioteca.models;
 
 import com.twu.biblioteca.models.LibraryUser;
+import com.twu.biblioteca.models.UserValidation;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -12,11 +12,11 @@ public class CheckOut implements MenuAction {
     public CheckOut(MenuItemController menuItemController, LibrarianJob librarianJob, String item) {
         this.menuItemController = menuItemController;
         this.librarianJob = librarianJob;
-        this.item =item;
+        this.item = item;
     }
 
     @Override
     public void performAction(String libraryNo) {
-        menuItemController.checkOut(librarianJob, item,libraryNo);
+        menuItemController.checkOut(librarianJob, item, libraryNo);
     }
 }

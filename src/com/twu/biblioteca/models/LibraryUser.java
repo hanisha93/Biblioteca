@@ -1,9 +1,5 @@
 package com.twu.biblioteca.models;
 
-import com.twu.biblioteca.menuAction.MenuAction;
-
-import java.util.HashMap;
-
 public class LibraryUser {
     private String libraryId;
     private String password;

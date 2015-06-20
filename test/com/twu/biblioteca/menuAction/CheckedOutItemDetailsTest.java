@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuAction;
 
 import com.twu.biblioteca.controller.MenuItemController;
 import com.twu.biblioteca.menuAction.CheckedOutItemDetails;

@@ -10,7 +10,7 @@ import static org.mockito.Mockito.verify;
 
 public class ListMoviesTest {
     @Test
-    public void specToCheckPerformActionOfListingMovies() {
+    public void testPerformActionOfListingMovies() {
         Movies movieSection = mock(Movies.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         ListMovies listMovies = new ListMovies(menuItemController, movieSection);

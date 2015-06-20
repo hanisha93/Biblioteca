@@ -1,10 +1,12 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.Item;
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.View;
 import com.twu.biblioteca.models.LibrarianJob;
 import com.twu.biblioteca.models.Books;
 import com.twu.biblioteca.models.Movies;
+import com.twu.biblioteca.models.UserProfile;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -153,7 +155,7 @@ public class MenuItemControllerTest {
     }
 
     @Test
-    public  void specToTestCheckedOutDetailsGettingDetailFromLibrarainJob() {
+    public void specToTestCheckedOutDetailsGettingDetailFromLibrarainJob() {
         View view = mock(View.class);
         Movies movies = mock(Movies.class);
         LibrarianJob librarianJob = mock(LibrarianJob.class);
@@ -164,4 +166,32 @@ public class MenuItemControllerTest {
 
         verify(librarianJob).getCheckOutDetails();
     }
+
+    @Test
+    public void specToTestDisplayingUserInformation() {
+        View view = mock(View.class);
+        UserProfile userProfile = mock(UserProfile.class);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        ArrayList<UserProfile> userProfiles = new ArrayList<>();
+        userProfiles.add(new UserProfile("b01-0002", "hansiha", "897757488", "hanisha@gmail.com"));
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+
+        menuItemController.displayUserInformation(userProfiles, "b01-0002");
+
+        verify(view).printToConsole("b01-0002  hansiha  897757488  hanisha@gmail.com");
+    }
+
+    /*@Test
+    public void specToTestDisplayingUserInformationCalling() {
+        View view = mock(View.class);
+        UserProfile userProfile = mock(UserProfile.class);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        ArrayList<UserProfile> userProfiles = new ArrayList<>();
+        userProfiles.add(new UserProfile("b01-0002", "hansiha", "897757488", "hanisha@gmail.com"));
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+
+        menuItemController.displayUserInformation(userProfiles, "b01-0002");
+
+        verify(userProfile, times(1)).matchLibraryId("b01-0002");
+    }*/
 }

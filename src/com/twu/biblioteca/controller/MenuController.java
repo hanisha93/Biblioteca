@@ -29,6 +29,7 @@ public class MenuController implements Messages {
 
     public void displayMenu() {
         view.printToConsole(menu);
+        view.printToConsole(CHOOSE_OPTION);
     }
 
 }

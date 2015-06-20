@@ -13,7 +13,7 @@ import static org.mockito.Mockito.verify;
 public class ReturnTest {
 
     @Test
-    public void specToCheckHandleOptionInReturn() {
+    public void testPerformInReturn() {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         LibrarianJob librarianJob = mock(LibrarianJob.class);
         MenuItemController menuItemController = mock(MenuItemController.class);

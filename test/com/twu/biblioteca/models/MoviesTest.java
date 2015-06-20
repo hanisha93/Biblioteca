@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.models;
 
+import com.twu.biblioteca.Item;
 import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.models.Movies;
 import org.junit.Test;

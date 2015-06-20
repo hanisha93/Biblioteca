@@ -57,4 +57,12 @@ public class MenuItemController {
             view.printToConsole(entry.getKey() + "   " + entry.getValue());
         }
     }
+
+    public void displayUserInformation(ArrayList<UserProfile> userProfiles, String libraryNo) {
+        for (UserProfile userProfile : userProfiles) {
+            if (userProfile.matchLibraryId(libraryNo)) {
+                view.printToConsole(userProfile.toString());
+            }
+        }
+    }
 }

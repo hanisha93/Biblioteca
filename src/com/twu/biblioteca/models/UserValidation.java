@@ -1,4 +1,4 @@
-package com.twu.biblioteca.controller;
+package com.twu.biblioteca.models;
 
 import com.twu.biblioteca.models.LibraryUser;
 
@@ -11,13 +11,14 @@ public class  UserValidation {
         this.libraryUsers = libraryUsers;
     }
 
-    public String  validateUser(String libraryId, String password) {
+    public String validateUser(String libraryId, String password) {
         String role = null;
-        for (LibraryUser libraryUser : libraryUsers)
-             if(libraryUser.matchUser(libraryId, password)) {
-                 role = libraryUser.getRole();
-                 break;
-             }
+        for (LibraryUser libraryUser : libraryUsers) {
+            if (libraryUser.matchUser(libraryId, password)) {
+                role = libraryUser.getRole();
+                break;
+            }
+        }
         return role;
     }
 }

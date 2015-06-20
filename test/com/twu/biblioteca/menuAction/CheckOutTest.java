@@ -14,13 +14,13 @@ import static org.mockito.Mockito.verify;
 public class CheckOutTest {
 
     @Test
-    public void specToCheckHandleOptionInCheckOut() {
+    public void specToCheckPerFormActionInCheckOut() {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         LibrarianJob librarianJob = mock(LibrarianJob.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         CheckOut checkOut = new CheckOut(menuItemController, librarianJob, "book");
         checkOut.performAction("b01-0001");
 
-        verify(menuItemController, Mockito.times(1)).checkOut(librarianJob, "book" ,"b01-0001");
+        verify(menuItemController).checkOut(librarianJob, "book" ,"b01-0001");
     }
 }

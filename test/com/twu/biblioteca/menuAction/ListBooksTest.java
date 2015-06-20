@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 public class ListBooksTest {
 
     @Test
-    public void specToCheckHandleOption() {
+    public void testPerformAction() {
         Books books = mock(Books.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         ListBooks listBooks = new ListBooks(menuItemController, books);
