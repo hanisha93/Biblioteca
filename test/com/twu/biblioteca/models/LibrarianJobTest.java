@@ -345,6 +345,21 @@ public class LibrarianJobTest {
         assertThat(message, is("Movie is not available"));
     }
 
+    @Test
+    public void specToCheckGetCheckedOutItemsDetails() {
+        ArrayList<Item> movieslist = new ArrayList<Item>();
+        ArrayList<Item> checkedOutlist = new ArrayList<Item>();
+        Movie movie = new Movie("Avatar", "2011", "cameroon", "7");
+        checkedOutlist.add(movie);
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        HashMap<Item, String> users = new HashMap<>();
+
+        LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
+        HashMap<Item,String > ExpectedUsers = librarianJob.getCheckOutDetails();
+
+        assertEquals(ExpectedUsers, users);
+    }
+
 }
 
 

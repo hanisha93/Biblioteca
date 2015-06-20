@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.menuAction.ListBooks;
 import com.twu.biblioteca.menuAction.QuitOption;
 import com.twu.biblioteca.models.UserValidation;
