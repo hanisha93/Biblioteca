@@ -17,7 +17,7 @@ public class Movies {
     public String toString() {
         String movieList = "";
         for (Item movie : moviesList) {
-            movieList = movieList + "" + movie.toString() + "\n";
+            movieList += "     " + movie.toString() + "\n";
         }
         return movieList;
     }

@@ -28,7 +28,7 @@ public class MenuItemControllerTest {
 
         menuItemController.listBooks(books);
 
-        verify(view).printToConsole(books.toString());
+        verify(view).printToConsole("     " + books.toString());
     }
 
     @Test
@@ -178,20 +178,7 @@ public class MenuItemControllerTest {
 
         menuItemController.displayUserInformation(userProfiles, "b01-0002");
 
-        verify(view).printToConsole("b01-0002  hansiha  897757488  hanisha@gmail.com");
+        verify(view).printToConsole("     b01-0002  hansiha  897757488  hanisha@gmail.com");
     }
 
-    @Test
-    public void specToTestDisplayingUserInformationCalling() {
-        View view = mock(View.class);
-        UserProfile userProfile = mock(UserProfile.class);
-        ArrayList<Item> searchResult = new ArrayList<Item>();
-        ArrayList<UserProfile> userProfiles = new ArrayList<>();
-        userProfiles.add(new UserProfile("b01-0002", "hansiha", "897757488", "hanisha@gmail.com"));
-        MenuItemController menuItemController = new MenuItemController(view, searchResult);
-
-        menuItemController.displayUserInformation(userProfiles, "b01-0002");
-
-        verify(userProfile, times(1)).matchLibraryId("b01-0002");
-    }
 }

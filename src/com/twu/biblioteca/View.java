@@ -14,16 +14,11 @@ public class View implements Messages {
     }
 
     public void printToConsole(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 
     public String readInput() {
         return scanner.nextLine();
-    }
-
-    public Book readBook() {
-        String bookTitle = scanner.nextLine();
-        return new Book(bookTitle, "", "");
     }
 
 }

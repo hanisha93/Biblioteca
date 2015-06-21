@@ -22,7 +22,7 @@ public class MenuItemController {
     }
 
     public void listBooks(Books books) {
-        view.printToConsole(books.toString());
+        view.printToConsole("     " + books.toString());
     }
 
     public void invalidOption() {
@@ -30,21 +30,21 @@ public class MenuItemController {
     }
 
     public void checkOut(LibrarianJob librarianJob, String item, String libraryNo) {
-        view.printToConsole("Enter " + item + " to checkout");
+        view.printToConsole("     Enter " + item + " to checkout");
         String title = view.readInput();
         searchResult.clear();
         librarianJob.searchItem(title, searchResult);
         String message = librarianJob.doCheckout(searchResult, item, libraryNo);
-        view.printToConsole(message);
+        view.printToConsole("     " + message);
     }
 
     public void returnBook(LibrarianJob librarianJob, String item, String libraryNo) {
-        view.printToConsole("Enter " + item + " to Return");
+        view.printToConsole("     Enter " + item + " to Return");
         String title = view.readInput();
         searchResult.clear();
         librarianJob.searchCheckedOutList(title, searchResult);
         String message = librarianJob.acceptReturnItem(searchResult, item, libraryNo);
-        view.printToConsole(message);
+        view.printToConsole("     " + message);
     }
 
     public void listMovies(Movies movies) {
@@ -54,14 +54,14 @@ public class MenuItemController {
     public void handleCheckoutDetails(LibrarianJob librarianJob) {
         HashMap<Item, String> users = librarianJob.getCheckOutDetails();
         for (Map.Entry<Item, String> entry : users.entrySet()) {
-            view.printToConsole(entry.getKey() + "   " + entry.getValue());
+            view.printToConsole("     " + entry.getKey() + "   " + entry.getValue() + "\n     ");
         }
     }
 
     public void displayUserInformation(ArrayList<UserProfile> userProfiles, String libraryNo) {
         for (UserProfile userProfile : userProfiles) {
             if (userProfile.matchLibraryId(libraryNo)) {
-                view.printToConsole(userProfile.toString());
+                view.printToConsole("     " + userProfile.toString());
             }
         }
     }

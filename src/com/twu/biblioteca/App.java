@@ -14,6 +14,7 @@ public class App {
         String option, role;
         boolean quit = false;
         while (!quit) {
+            view.printToConsole(WELCOME_MESSAGE);
             option = "";
             view.printToConsole(ENTER_LIBID);
             String libraryId = view.readInput();

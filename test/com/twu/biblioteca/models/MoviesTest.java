@@ -19,8 +19,8 @@ public class MoviesTest {
         Movies movies = new Movies(moviesList);
 
         String actualBooks = movies.toString();
-        String expectedBooks = "Avatar  2011  cameroon  7*\n" +
-                "2012  2011  james  5*\n";
+        String expectedBooks = "     Avatar  2011  cameroon  7*\n" +
+                "     2012  2011  james  5*\n";
 
         assertEquals(actualBooks, expectedBooks);
     }

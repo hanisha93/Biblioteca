@@ -295,7 +295,7 @@ public class LibrarianJobTest {
 
         String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
 
-        assertThat(message, is("Thank you for returning the movie"));
+        assertThat(message, is("     Thank you for returning the movie"));
     }
 
     @Test
@@ -310,7 +310,7 @@ public class LibrarianJobTest {
 
         String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
 
-        assertThat(message, is("That is not a valid movie"));
+        assertThat(message, is("    That is not a valid movie"));
     }
 
     @Test
@@ -326,7 +326,7 @@ public class LibrarianJobTest {
 
         String message = librarianJob.doCheckout(searchResult, "movie", "b01-0001");
 
-        assertThat(message, is("Thanq you! Enjoy the movie"));
+        assertThat(message, is("     Thanq you! Enjoy the movie"));
     }
 
     @Test
@@ -342,7 +342,7 @@ public class LibrarianJobTest {
 
         String message = librarianJob.doCheckout(searchResult, "Movie", "b01-0001");
 
-        assertThat(message, is("Movie is not available"));
+        assertThat(message, is("Movie is not available\n"));
     }
 
     @Test

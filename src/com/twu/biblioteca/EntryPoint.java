@@ -56,7 +56,7 @@ public class EntryPoint {
 
         App app = new App();
 
-        view.printToConsole(WELCOME_MESSAGE);
+
         app.start(view, menu, userValidation, printMenu);
 
     }

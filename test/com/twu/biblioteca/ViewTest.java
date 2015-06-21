@@ -30,7 +30,7 @@ public class ViewTest {
         View view = new View(new Scanner(System.in));
         view.printToConsole("Welcome");
 
-        assertEquals("Welcome\n", outContent.toString());
+        assertEquals("Welcome", outContent.toString());
     }
 
     @Test
@@ -41,18 +41,6 @@ public class ViewTest {
         String booksList = view.readInput();
 
         assertThat(booksList, is(equalTo("2")));
-    }
-
-    @Test
-    public void specForCheckingReturnBookIsReturningCorrectBookObject() {
-        ByteArrayInputStream inContent = new ByteArrayInputStream("Java core".getBytes());
-        System.setIn(inContent);
-        Book book = mock(Book.class);
-        View view = new View(new Scanner(System.in));
-        Book expectedBook = new Book("Java core", "", "");
-        book = view.readBook();
-
-        assertEquals(book, expectedBook);
     }
 
     @After
