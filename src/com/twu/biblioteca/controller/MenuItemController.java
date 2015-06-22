@@ -30,7 +30,7 @@ public class MenuItemController {
     }
 
     public void checkOut(LibrarianJob librarianJob, String item, String libraryNo) {
-        view.printToConsole("     Enter " + item + " to checkout");
+        view.printToConsole("     Enter " + item + " to checkout\n     ");
         String title = view.readInput();
         searchResult.clear();
         librarianJob.searchItem(title, searchResult);
@@ -39,7 +39,7 @@ public class MenuItemController {
     }
 
     public void returnBook(LibrarianJob librarianJob, String item, String libraryNo) {
-        view.printToConsole("     Enter " + item + " to ReturnOption");
+        view.printToConsole("     Enter " + item + " to ReturnOption\n     ");
         String title = view.readInput();
         searchResult.clear();
         librarianJob.searchCheckedOutList(title, searchResult, libraryNo);

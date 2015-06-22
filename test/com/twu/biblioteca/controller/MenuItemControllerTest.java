@@ -3,6 +3,7 @@ package com.twu.biblioteca.controller;
 import com.twu.biblioteca.Item;
 import com.twu.biblioteca.User;
 import com.twu.biblioteca.View;
+import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.models.LibrarianJob;
 import com.twu.biblioteca.models.Books;
 import com.twu.biblioteca.models.Movies;
@@ -10,6 +11,7 @@ import com.twu.biblioteca.models.UserProfile;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.core.Is.is;
@@ -164,6 +166,21 @@ public class MenuItemControllerTest {
         menuItemController.handleCheckoutDetails(librarianJob);
 
         verify(librarianJob).getCheckOutDetails();
+    }
+
+    @Test
+    public void specToTestCheckedOutDetailsDisplayingDetails() {
+        View view = mock(View.class);
+        Book book = mock(Book.class);
+        LibrarianJob librarianJob = mock(LibrarianJob.class);
+        HashMap<Item, String> details  = new HashMap<>();
+        details.put(book, "b01-0002");
+        ArrayList<Item> searchResult = new ArrayList<Item>();
+        MenuItemController menuItemController = new MenuItemController(view, searchResult);
+        when(librarianJob.getCheckOutDetails()).thenReturn(details);
+        menuItemController.handleCheckoutDetails(librarianJob);
+
+        verify(view).printToConsole(anyString());
     }
 
 
