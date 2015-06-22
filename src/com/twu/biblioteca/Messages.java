@@ -5,7 +5,7 @@ public interface Messages {
     public final String WELCOME_MESSAGE = "\n\n************* WELCOME TO BIBLIOTECA **************\n\n";
     public final String CHOOSE_OPTION = "     Choose option\n     ";
     public final String INVALID_OPTION = "     Choose a valid Option\n     ";
-    public final String COMMON_MENU = "\n     1.ListBooks\n     2.ListMovies\n     3.LogIn to CheckOut Or Return an Item\n";
+    public final String COMMON_MENU = "\n     1.ListBooks\n     2.ListMovies\n     3.LogIn to CheckOutOption Or ReturnOption an Item\n";
     public final String MENU_LIST = "\n\n     1.CheckOutBook\n     2.ReturnBook\n     3.CheckOutMovie" +
             "\n     4.ReturnMovie\n     5.YourProfile\n     0.LogOut\n"     ;
     public final String LIBRARIAN_MENU = " \n\n     1.CheckOutBook\n     2.ReturnBook\n     3.CheckOutMovie\n     4.ReturnMovie" +

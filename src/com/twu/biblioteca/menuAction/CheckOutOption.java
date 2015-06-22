@@ -1,20 +1,22 @@
 package com.twu.biblioteca.menuAction;
 
 import com.twu.biblioteca.controller.MenuItemController;
-import com.twu.biblioteca.menuAction.MenuAction;
 import com.twu.biblioteca.models.LibrarianJob;
 
-public class CheckedOutItemDetails implements MenuAction {
+public class CheckOutOption implements MenuAction {
+
     private MenuItemController menuItemController;
     private LibrarianJob librarianJob;
+    private String item;
 
-    public CheckedOutItemDetails(MenuItemController menuItemController, LibrarianJob librarianJobHandlesBooks) {
+    public CheckOutOption(MenuItemController menuItemController, LibrarianJob librarianJob, String item) {
         this.menuItemController = menuItemController;
-        this.librarianJob = librarianJobHandlesBooks;
+        this.librarianJob = librarianJob;
+        this.item = item;
     }
 
     @Override
     public void performAction(String libraryNo) {
-        menuItemController.handleCheckoutDetails(librarianJob);
+        menuItemController.checkOut(librarianJob, item, libraryNo);
     }
 }

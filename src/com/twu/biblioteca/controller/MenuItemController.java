@@ -39,7 +39,7 @@ public class MenuItemController {
     }
 
     public void returnBook(LibrarianJob librarianJob, String item, String libraryNo) {
-        view.printToConsole("     Enter " + item + " to Return");
+        view.printToConsole("     Enter " + item + " to ReturnOption");
         String title = view.readInput();
         searchResult.clear();
         librarianJob.searchCheckedOutList(title, searchResult, libraryNo);

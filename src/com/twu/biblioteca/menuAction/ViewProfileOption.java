@@ -6,11 +6,11 @@ import com.twu.biblioteca.models.UserProfile;
 
 import java.util.ArrayList;
 
-public class UserInformation implements MenuAction {
+public class ViewProfileOption implements MenuAction {
     private MenuItemController menuItemController;
     private ArrayList<UserProfile> userProfiles;
 
-    public UserInformation(MenuItemController menuItemController , ArrayList<UserProfile> userProfiles) {
+    public ViewProfileOption(MenuItemController menuItemController, ArrayList<UserProfile> userProfiles) {
         this.menuItemController = menuItemController;
         this.userProfiles = userProfiles;
     }

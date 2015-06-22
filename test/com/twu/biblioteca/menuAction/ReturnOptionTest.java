@@ -4,23 +4,22 @@ import com.twu.biblioteca.Item;
 import com.twu.biblioteca.controller.MenuItemController;
 import com.twu.biblioteca.models.LibrarianJob;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class CheckOutTest {
+public class ReturnOptionTest {
 
     @Test
-    public void specToCheckPerFormActionInCheckOut() {
+    public void testPerformInReturn() {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         LibrarianJob librarianJob = mock(LibrarianJob.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        CheckOut checkOut = new CheckOut(menuItemController, librarianJob, "book");
-        checkOut.performAction("b01-0001");
+        ReturnOption returnBookOption = new ReturnOption(menuItemController, librarianJob, "book");
+        returnBookOption.performAction("b01-0001");
 
-        verify(menuItemController).checkOut(librarianJob, "book" ,"b01-0001");
+        verify(menuItemController).returnBook(librarianJob, "book", "b01-0001");
     }
 }

@@ -125,7 +125,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
         menuItemController.returnBook(librarianJob, "book", "b01-0001");
 
-        verify(librarianJob).searchCheckedOutList("java", searchResult,"b01-0001");
+        verify(librarianJob).searchCheckedOutList("java", searchResult, "b01-0001");
 
     }
 
@@ -157,7 +157,6 @@ public class MenuItemControllerTest {
     @Test
     public void specToTestCheckedOutDetailsGettingDetailFromLibrarainJob() {
         View view = mock(View.class);
-        Movies movies = mock(Movies.class);
         LibrarianJob librarianJob = mock(LibrarianJob.class);
         ArrayList<Item> searchResult = new ArrayList<Item>();
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
@@ -166,6 +165,7 @@ public class MenuItemControllerTest {
 
         verify(librarianJob).getCheckOutDetails();
     }
+
 
     @Test
     public void specToTestDisplayingUserInformation() {

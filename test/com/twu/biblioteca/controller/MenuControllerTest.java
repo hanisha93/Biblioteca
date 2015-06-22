@@ -1,9 +1,9 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.CommonMenuAction.CommonMenuAction;
+import com.twu.biblioteca.CommonMenuAction.ListBooksOption;
 import com.twu.biblioteca.View;
-import com.twu.biblioteca.CommonMenuAction.ListBooks;
-import com.twu.biblioteca.menuAction.CheckOut;
+import com.twu.biblioteca.menuAction.CheckOutOption;
 import com.twu.biblioteca.menuAction.MenuAction;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class MenuControllerTest {
 
         HashMap<String, CommonMenuAction> commonMenuAction = new HashMap<>();
 
-        ListBooks list = mock(ListBooks.class);
+        ListBooksOption list = mock(ListBooksOption.class);
         commonMenuAction.put("1", list);
         View view = mock(View.class);
         MenuController menuController = new MenuController(view, "");
@@ -34,8 +34,8 @@ public class MenuControllerTest {
     @Test
     public void specToCheckInavalidOptionForCommonMenu() {
         HashMap<String, CommonMenuAction> commonMenuAction = new HashMap<>();
-        ListBooks listBooks = mock(ListBooks.class);
-        commonMenuAction.put("1", listBooks);
+        ListBooksOption listBooksOption = mock(ListBooksOption.class);
+        commonMenuAction.put("1", listBooksOption);
         View view = mock(View.class);
         MenuController menuController = new MenuController(view, "");
 
@@ -48,14 +48,14 @@ public class MenuControllerTest {
     @Test
     public void specToCheckDisplayMenuForCommonMenu() {
         HashMap<String, CommonMenuAction> commonMenuAction = new HashMap<>();
-        ListBooks listBooks = mock(ListBooks.class);
-        commonMenuAction.put("1", listBooks);
+        ListBooksOption listBooksOption = mock(ListBooksOption.class);
+        commonMenuAction.put("1", listBooksOption);
         View view = mock(View.class);
-        MenuController menuController = new MenuController(view, "Dispaly ListBooks And ListMenu Option");
+        MenuController menuController = new MenuController(view, "Dispaly ListBooksOption And ListMenu Option");
 
         menuController.displayMenu();
 
-        verify(view).printToConsole("Dispaly ListBooks And ListMenu Option");
+        verify(view).printToConsole("Dispaly ListBooksOption And ListMenu Option");
 
     }
 
@@ -64,8 +64,8 @@ public class MenuControllerTest {
 
         HashMap<String, MenuAction> menuAction = new HashMap<>();
 
-        CheckOut checkOut = mock(CheckOut.class);
-        menuAction.put("1", checkOut);
+        CheckOutOption checkOutOption = mock(CheckOutOption.class);
+        menuAction.put("1", checkOutOption);
         View view = mock(View.class);
         MenuController menuController = new MenuController(view, "");
 
@@ -78,22 +78,22 @@ public class MenuControllerTest {
     @Test
     public void specToCheckHandleRequestForUserMenu() {
         HashMap<String, MenuAction> menuAction = new HashMap<>();
-        CheckOut checkOut = mock(CheckOut.class);
-        menuAction.put("1", checkOut);
+        CheckOutOption checkOutOption = mock(CheckOutOption.class);
+        menuAction.put("1", checkOutOption);
         View view = mock(View.class);
         MenuController menuController = new MenuController(view, "");
 
         menuController.handleOption("1", "b01-0002", menuAction);
 
-        verify(checkOut).performAction("b01-0002");
+        verify(checkOutOption).performAction("b01-0002");
 
     }
 
     @Test
    public void specToCheckDisplayMenuForUserLoggedIn() {
         HashMap<String, MenuAction> MenuAction = new HashMap<>();
-        CheckOut checkOut = mock(CheckOut.class);
-        MenuAction.put("1", checkOut);
+        CheckOutOption checkOutOption = mock(CheckOutOption.class);
+        MenuAction.put("1", checkOutOption);
         View view = mock(View.class);
         MenuController menuController = new MenuController(view, "librarianMenu");
         menuController.displayMenu();

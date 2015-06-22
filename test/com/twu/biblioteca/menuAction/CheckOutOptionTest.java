@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class ReturnTest {
+public class CheckOutOptionTest {
 
     @Test
-    public void testPerformInReturn() {
+    public void specToCheckPerFormActionInCheckOut() {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         LibrarianJob librarianJob = mock(LibrarianJob.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
-        Return returnBook = new Return(menuItemController, librarianJob, "book");
-        returnBook.performAction("b01-0001");
+        CheckOutOption checkOutOption = new CheckOutOption(menuItemController, librarianJob, "book");
+        checkOutOption.performAction("b01-0001");
 
-        verify(menuItemController).returnBook(librarianJob, "book", "b01-0001");
+        verify(menuItemController).checkOut(librarianJob, "book" ,"b01-0001");
     }
 }
