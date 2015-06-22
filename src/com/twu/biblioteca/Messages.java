@@ -17,5 +17,5 @@ public interface Messages {
     public final String ENTER_LIBID = "     Enter the library id\n\n     ";
     public final String ENTER_PWD = "     Enter password\n\n     ";
     public final String LOGIN_SUCCESS = "      Welcome user";
-    public final String LOGIN_FAIL = "\n     Invalid username or password\n     ";
+    public final String LOGIN_FAIL = "\n     Invalid libraryID or password\n     ";
 }

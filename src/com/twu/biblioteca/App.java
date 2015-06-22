@@ -21,13 +21,13 @@ public class App {
                 String libraryId = getLibraryId(view);
                 String password = view.readInput();
                 role = userValidation.validateUser(libraryId, password);
-                quit = isLibraraianLogin(view, menu, printMenu, option, role, quit, libraryId);
+                quit = isLibrarianLogin(view, menu, printMenu, option, role, quit, libraryId);
             } else
                 commonMenuController.handleCommonMenuOption(option, commonMenuAction);
         }
     }
 
-    private boolean isLibraraianLogin(View view, HashMap<String, HashMap<String, MenuAction>> menu, HashMap<String, String> printMenu, String option, String role, boolean quit, String libraryId) {
+    private boolean isLibrarianLogin(View view, HashMap<String, HashMap<String, MenuAction>> menu, HashMap<String, String> printMenu, String option, String role, boolean quit, String libraryId) {
         if (role != null) {
             MenuController menuController = new MenuController(view, printMenu.get(role));
             quit = isQuit(view, menu, option, role, quit, libraryId, menuController);
