@@ -1,10 +1,13 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.CommonMenuAction.CommonMenuAction;
+import com.twu.biblioteca.controller.MenuController;
 import com.twu.biblioteca.controller.MenuItemController;
 import com.twu.biblioteca.models.UserValidation;
 import com.twu.biblioteca.item.Book;
 import com.twu.biblioteca.item.Movie;
 import com.twu.biblioteca.menuAction.*;
+import com.twu.biblioteca.CommonMenuAction.*;
 
 import com.twu.biblioteca.models.*;
 
@@ -26,14 +29,12 @@ public class EntryPoint {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         ArrayList<LibraryUser> libraryUsers = getLibraryUsers();
 
-        ArrayList<UserProfile> userProfiles =new ArrayList<>();
-        userProfiles.add(new UserProfile("b01-0002", "priya", "9988776655","priya@gmail.com"));
-
+        ArrayList<UserProfile> userProfiles = new ArrayList<>();
+        userProfiles.add(new UserProfile("b01-0002", "priya", "9988776655", "priya@gmail.com"));
 
         View view = new View(scanner);
 
         HashMap<Item, String> checkedOutItemsAndUsers = new HashMap<>();
-        HashMap<String, User> roleOfUser = new HashMap<>();
 
         getItemsList(booksList, moviesList, checkedOutBooks);
         LibrarianJob librarianJobHandlesBooks = new LibrarianJob(booksList, checkedOutBooks, checkedOutItemsAndUsers);
@@ -42,23 +43,21 @@ public class EntryPoint {
 
         Books books = new Books(booksList);
         Movies movies = new Movies(moviesList);
-
         HashMap<String, MenuAction> menuAction = new HashMap<String, MenuAction>();
         MenuItemController menuItemController = getMemberHashMap(searchResult, userProfiles, view, librarianJobHandlesBooks, librarianJobHandlesMovies, books, movies, menuAction);
 
-
         HashMap<String, MenuAction> librarianMenuAction = getLibrarianHashMap(librarianJobHandlesBooks, librarianJobHandlesMovies, books, movies, menuItemController);
-
-
         HashMap<String, HashMap<String, MenuAction>> menu = getUserMenuActionHashMap(menuAction, librarianMenuAction);
-
         HashMap<String, String> printMenu = getUserMenuHashMap();
 
+        HashMap<String, CommonMenuAction> commonMenu = new HashMap<>();
+        commonMenu.put("1", new ListBooks(menuItemController, books));
+        commonMenu.put("2", new ListMovies(menuItemController, movies));
+
+        MenuController commonMenuController = new MenuController(view, COMMON_MENU);
+
         App app = new App();
-
-
-        app.start(view, menu, userValidation, printMenu);
-
+        app.start(view, menu, userValidation, printMenu,commonMenuController,commonMenu);
     }
 
     private static void getItemsList(ArrayList<Item> booksList, ArrayList<Item> moviesList, ArrayList<Item> checkedOutBooks) {
@@ -91,27 +90,25 @@ public class EntryPoint {
 
     private static HashMap<String, MenuAction> getLibrarianHashMap(LibrarianJob librarianJobHandlesBooks, LibrarianJob librarianJobHandlesMovies, Books books, Movies movies, MenuItemController menuItemController) {
         HashMap<String, MenuAction> librarianMenuAction = new HashMap<>();
-        librarianMenuAction.put("1", new ListBooks(menuItemController, books));
-        librarianMenuAction.put("2", new CheckOut(menuItemController, librarianJobHandlesBooks, "book"));
-        librarianMenuAction.put("3", new Return(menuItemController, librarianJobHandlesBooks, "book"));
-        librarianMenuAction.put("4", new ListMovies(menuItemController, movies));
-        librarianMenuAction.put("5", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
-        librarianMenuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
-        librarianMenuAction.put("7", new CheckedOutItemDetails(menuItemController, librarianJobHandlesBooks));
-        librarianMenuAction.put("8", new CheckedOutItemDetails(menuItemController, librarianJobHandlesMovies));
+
+        librarianMenuAction.put("1", new CheckOut(menuItemController, librarianJobHandlesBooks, "book"));
+        librarianMenuAction.put("2", new Return(menuItemController, librarianJobHandlesBooks, "book"));
+        librarianMenuAction.put("3", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
+        librarianMenuAction.put("4", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
+        librarianMenuAction.put("5", new CheckedOutItemDetails(menuItemController, librarianJobHandlesBooks));
+        librarianMenuAction.put("6", new CheckedOutItemDetails(menuItemController, librarianJobHandlesMovies));
 
         return librarianMenuAction;
     }
 
     private static MenuItemController getMemberHashMap(ArrayList<Item> searchResult, ArrayList<UserProfile> userProfiles, View view, LibrarianJob librarianJobHandlesBooks, LibrarianJob librarianJobHandlesMovies, Books books, Movies movies, HashMap<String, MenuAction> menuAction) {
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
-        menuAction.put("1", new ListBooks(menuItemController, books));
-        menuAction.put("2", new CheckOut(menuItemController, librarianJobHandlesBooks, "book"));
-        menuAction.put("3", new Return(menuItemController, librarianJobHandlesBooks, "book"));
-        menuAction.put("4", new ListMovies(menuItemController, movies));
-        menuAction.put("5", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
-        menuAction.put("6", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
-        menuAction.put("7", new UserInformation(menuItemController,userProfiles));
+
+        menuAction.put("1", new CheckOut(menuItemController, librarianJobHandlesBooks, "book"));
+        menuAction.put("2", new Return(menuItemController, librarianJobHandlesBooks, "book"));
+        menuAction.put("3", new CheckOut(menuItemController, librarianJobHandlesMovies, "movie"));
+        menuAction.put("4", new Return(menuItemController, librarianJobHandlesMovies, "movie"));
+        menuAction.put("5", new UserInformation(menuItemController, userProfiles));
         return menuItemController;
     }
 }

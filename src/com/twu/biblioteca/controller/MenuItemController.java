@@ -42,7 +42,7 @@ public class MenuItemController {
         view.printToConsole("     Enter " + item + " to Return");
         String title = view.readInput();
         searchResult.clear();
-        librarianJob.searchCheckedOutList(title, searchResult);
+        librarianJob.searchCheckedOutList(title, searchResult, libraryNo);
         String message = librarianJob.acceptReturnItem(searchResult, item, libraryNo);
         view.printToConsole("     " + message);
     }

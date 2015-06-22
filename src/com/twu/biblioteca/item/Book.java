@@ -19,7 +19,7 @@ public class Book implements Item {
 
     @Override
     public String toString() {
-        return title + " " + author + " " + publishedYear;
+        return title + "    " + author + "    " + publishedYear;
     }
 
     @Override

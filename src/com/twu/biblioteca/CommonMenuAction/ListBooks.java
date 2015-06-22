@@ -1,9 +1,9 @@
-package com.twu.biblioteca.menuAction;
+package com.twu.biblioteca.CommonMenuAction;
 
 import com.twu.biblioteca.models.Books;
 import com.twu.biblioteca.controller.MenuItemController;
 
-public class ListBooks implements MenuAction {
+public class ListBooks implements CommonMenuAction {
     private MenuItemController menuItemController;
     private Books books;
 
@@ -13,7 +13,7 @@ public class ListBooks implements MenuAction {
     }
 
     @Override
-    public void performAction(String libraryNo) {
+    public void performMenuAction() {
         menuItemController.listBooks(books);
     }
 }

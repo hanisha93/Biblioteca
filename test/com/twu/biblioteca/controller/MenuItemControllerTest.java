@@ -125,7 +125,7 @@ public class MenuItemControllerTest {
         MenuItemController menuItemController = new MenuItemController(view, searchResult);
         menuItemController.returnBook(librarianJob, "book", "b01-0001");
 
-        verify(librarianJob).searchCheckedOutList("java", searchResult);
+        verify(librarianJob).searchCheckedOutList("java", searchResult,"b01-0001");
 
     }
 

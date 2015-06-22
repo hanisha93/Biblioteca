@@ -13,7 +13,7 @@ public class BookTest {
         Book book = new Book("oopconcepts", "wilson", "1998");
 
         String actualBook = book.toString();
-        String expectedBook = "oopconcepts wilson 1998";
+        String expectedBook = "oopconcepts    wilson    1998";
 
         assertThat(actualBook, is(expectedBook));
     }

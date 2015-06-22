@@ -1,5 +1,7 @@
 package com.twu.biblioteca.menuAction;
 
+import com.twu.biblioteca.CommonMenuAction.CommonMenuAction;
+import com.twu.biblioteca.CommonMenuAction.ListBooks;
 import com.twu.biblioteca.controller.MenuItemController;
 import com.twu.biblioteca.models.Books;
 import org.junit.Test;
@@ -15,7 +17,7 @@ public class ListBooksTest {
         Books books = mock(Books.class);
         MenuItemController menuItemController = mock(MenuItemController.class);
         ListBooks listBooks = new ListBooks(menuItemController, books);
-        listBooks.performAction("b01-0001");
+        listBooks.performMenuAction();
 
         verify(menuItemController, Mockito.times(1)).listBooks(books);
     }

@@ -49,13 +49,15 @@ public class LibrarianJobTest {
     @Test
     public void specToTestSearchCheckedOutListWhenBookTitleMatches() {
         ArrayList<Item> list = new ArrayList<Item>();
-        list.add(new Book("Java", "wilson", "1998"));
+        Book book = new Book("Java", "wilson", "1998");
+        list.add(book);
         list.add(new Book("c", "johnson", "2000"));
         ArrayList<Item> result = new ArrayList<Item>();
         HashMap<Item, String> users = new HashMap<>();
+        users.put(book, "b01-0001");
         LibrarianJob listOfBooks = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("Java", result);
+        ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("Java", result, "b01-0001");
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
         expectedBooks.add(new Book("Java", "wilson", "1998"));
 
@@ -73,7 +75,7 @@ public class LibrarianJobTest {
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob listOfBooks = new LibrarianJob(list, list, users);
 
-        ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("The lord of rings", result);
+        ArrayList<Item> actualBooks = listOfBooks.searchCheckedOutList("The lord of rings", result,"b01-0002");
         ArrayList<Item> expectedBooks = new ArrayList<Item>();
 
         assertEquals(actualBooks, expectedBooks);

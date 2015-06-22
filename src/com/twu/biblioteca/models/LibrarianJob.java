@@ -5,6 +5,7 @@ import com.twu.biblioteca.item.Book;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.twu.biblioteca.Messages.*;
 
@@ -30,10 +31,11 @@ public class LibrarianJob {
         return result;
     }
 
-    public ArrayList<Item> searchCheckedOutList(String title, ArrayList<Item> result) {
+    public ArrayList<Item> searchCheckedOutList(String title, ArrayList<Item> result, String libraryNo) {
         for (Item item : checkedOutItems) {
             if (item.match(title)) {
-                result.add(item);
+                if(users.get(item).equals(libraryNo))
+                    result.add(item);
                 break;
             }
         }
