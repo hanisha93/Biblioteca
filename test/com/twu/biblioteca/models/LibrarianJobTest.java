@@ -126,7 +126,7 @@ public class LibrarianJobTest {
         ArrayList<Item> searchResult = new ArrayList<Item>();
         searchResult.add(book);
         LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
-        librarianJob.acceptReturnItem(searchResult, "book", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "book");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(book);
@@ -144,7 +144,7 @@ public class LibrarianJobTest {
         searchResult.add(book);
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob librarianJob = new LibrarianJob(listOfBooks, checkedOutList, users);
-        librarianJob.acceptReturnItem(searchResult, "book", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "book");
 
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
@@ -260,7 +260,7 @@ public class LibrarianJobTest {
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "movie");
         ArrayList<Item> expectedList = new ArrayList<Item>();
 
         assertThat(checkedOutlist, is(expectedList));
@@ -277,7 +277,7 @@ public class LibrarianJobTest {
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
+        librarianJob.acceptReturnItem(searchResult, "movie");
         ArrayList<Item> expectedList = new ArrayList<Item>();
         expectedList.add(movie);
 
@@ -295,7 +295,7 @@ public class LibrarianJobTest {
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
+        String message = librarianJob.acceptReturnItem(searchResult, "movie");
 
         assertThat(message, is("     Thank you for returning the movie"));
     }
@@ -310,7 +310,7 @@ public class LibrarianJobTest {
         HashMap<Item, String> users = new HashMap<>();
         LibrarianJob librarianJob = new LibrarianJob(movieslist, checkedOutlist, users);
 
-        String message = librarianJob.acceptReturnItem(searchResult, "movie", "b01-0001");
+        String message = librarianJob.acceptReturnItem(searchResult, "movie");
 
         assertThat(message, is("    That is not a valid movie"));
     }

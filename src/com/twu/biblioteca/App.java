@@ -27,7 +27,8 @@ public class App {
         }
     }
 
-    private boolean isLibrarianLogin(View view, HashMap<String, HashMap<String, MenuAction>> menu, HashMap<String, String> printMenu, String option, String role, boolean quit, String libraryId) {
+    private boolean isLibrarianLogin(View view, HashMap<String, HashMap<String, MenuAction>> menu,
+                                     HashMap<String, String> printMenu, String option, String role, boolean quit, String libraryId) {
         if (role != null) {
             MenuController menuController = new MenuController(view, printMenu.get(role));
             quit = isQuit(view, menu, option, role, quit, libraryId, menuController);
@@ -52,7 +53,8 @@ public class App {
         return option;
     }
 
-    private boolean isQuit(View view, HashMap<String, HashMap<String, MenuAction>> menu, String option, String role, boolean quit, String libraryId, MenuController menuController) {
+    private boolean isQuit(View view, HashMap<String, HashMap<String, MenuAction>> menu, String option,
+                           String role, boolean quit, String libraryId, MenuController menuController) {
         while (!option.equals("0")) {
             menuController.displayMenu();
             option = view.readInput();

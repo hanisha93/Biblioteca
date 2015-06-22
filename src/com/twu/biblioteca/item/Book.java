@@ -32,5 +32,4 @@ public class Book implements Item {
         return title.equals(book.title);
 
     }
-
 }

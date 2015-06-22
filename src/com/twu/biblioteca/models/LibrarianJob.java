@@ -52,7 +52,7 @@ public class LibrarianJob {
         return itm + CHECKOUT_FAIL;
     }
 
-    public String acceptReturnItem(ArrayList<Item> result, String itm, String libraryNo) {
+    public String acceptReturnItem(ArrayList<Item> result, String itm) {
         for (Item item : result) {
             itemsInLibrary.add(item);
             checkedOutItems.remove(item);

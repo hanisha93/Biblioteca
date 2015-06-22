@@ -28,14 +28,11 @@ public class EntryPoint {
         ArrayList<Item> checkedOutMovies = new ArrayList<Item>();
         ArrayList<Item> searchResult = new ArrayList<Item>();
         ArrayList<LibraryUser> libraryUsers = getLibraryUsers();
-
         ArrayList<UserProfile> userProfiles = new ArrayList<>();
         userProfiles.add(new UserProfile("b01-0002", "priya", "9988776655", "priya@gmail.com"));
-
         View view = new View(scanner);
 
         HashMap<Item, String> checkedOutItemsAndUsers = new HashMap<>();
-
         getItemsList(booksList, moviesList, checkedOutBooks);
         LibrarianJob librarianJobHandlesBooks = new LibrarianJob(booksList, checkedOutBooks, checkedOutItemsAndUsers);
         LibrarianJob librarianJobHandlesMovies = new LibrarianJob(moviesList, checkedOutMovies, checkedOutItemsAndUsers);
@@ -55,7 +52,6 @@ public class EntryPoint {
         commonMenu.put("2", new ListMoviesOption(menuItemController, movies));
 
         MenuController commonMenuController = new MenuController(view, COMMON_MENU);
-
         App app = new App();
         app.start(view, menu, userValidation, printMenu,commonMenuController,commonMenu);
     }
