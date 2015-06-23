@@ -3,7 +3,7 @@ package com.twu.biblioteca.models;
 import com.twu.biblioteca.models.LibraryUser;
 
 import java.util.ArrayList;
-
+//Validates the User
 public class  UserValidation {
 
     private ArrayList<LibraryUser> libraryUsers;

@@ -7,7 +7,9 @@ import com.twu.biblioteca.menuAction.CheckOutOption;
 import com.twu.biblioteca.menuAction.MenuAction;
 import com.twu.biblioteca.models.LibrarianJob;
 import com.twu.biblioteca.models.UserValidation;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.util.HashMap;
 

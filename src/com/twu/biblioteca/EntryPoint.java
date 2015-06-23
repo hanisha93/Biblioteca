@@ -54,6 +54,7 @@ public class EntryPoint {
         MenuController commonMenuController = new MenuController(view, COMMON_MENU);
         App app = new App();
         app.start(view, menu, userValidation, printMenu,commonMenuController,commonMenu);
+        System.exit(1);
     }
 
     private static void getItemsList(ArrayList<Item> booksList, ArrayList<Item> moviesList, ArrayList<Item> checkedOutBooks) {

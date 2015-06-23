@@ -6,7 +6,7 @@ import com.twu.biblioteca.Messages;
 import com.twu.biblioteca.View;
 
 import java.util.HashMap;
-
+//handles different MenuActions
 public class MenuController implements Messages {
 
     private View view;

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.twu.biblioteca.Messages.*;
-
+//handles all librarian jobs
 public class LibrarianJob {
 
     private ArrayList<Item> itemsInLibrary;
